@@ -53,6 +53,7 @@ function loadData() {
         });
 
         introLineChart = new LineChart("intro-lineChart", csv);
+        albumInfo = new AlbumInfo("")
 
 
 

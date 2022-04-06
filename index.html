@@ -8,6 +8,7 @@
 
     <!-- Load CSS libraries -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="css/style.css">
 
     <!-- GOOGLE FONTS -->
@@ -17,22 +18,31 @@
 <!-- SOME SAMPLE HTML HERE - DELETE EVERYTHING INSIDE THE BODY EXCEPT THE SCRIPTS ON THE BOTTOM TO START FROM SCRATCH -->
 <!-- DON'T WRITE CSS IN YOUR HTML LIKE WE DID HERE - THE INLINE CSS SHOULD HELP YOU TO UNDERSTAND THE BEHAVIOR OF THE ELEMENTS BETTER -
      WHEN SUBMITTING, WE ALWAYS EXPECT CLEAR SEPARATION OF HTML, CSS, AND JS INTO THE PROPER FILES -->
-<body style="padding: 5vh">
-<div id="fullpage">
-    <div id="outer">
-        <div class="section" id="sec1">
-            <h2>Intro</h2>
-            <div class="container">
-                <div class="row" id="intro-lineChart" style="height: 75vh; width: 75%; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+<body>
+<main>
+    <section id="title-page" style="height:100vh">
+        <h1 id="title-text">Music Through the Decades</h1>
+        <h4 id="subtitle">Elizabeth Christman, Rebecca Disipio, Adwait Pradhan, Surendrabikram Thapa</h4>
+    </section>
+
+    <section id="intro" style="height:100vh">
+        <div class="container">
+            <p id="intro-text">
+                This is text for the introduction.
+            </p>
+            <div id="intro-vis">
+                <div class="row" id="intro-lineChart" data-aos="fade-right" style="height: 70vh; width: 50%; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
                 </div>
-            </div>
-            <div class="container">
-                <div class="row" id="intro-histogram" style="height: 100vh; width: 100%; padding-top: 25vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
-                    Histogram here
+                <div class="row" id="intro-histogram" style="height: 100vh; width: 50%; float:right; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                    <p>Histogram placeholder</p>
                 </div>
             </div>
         </div>
-        <div class="section" id="sec2">
+    </section>
+
+
+    <section id="rising-insights">
+        <div class="container">
             <h2>Rising Insights</h2>
             <div class='container'>
                 <div class="row" id="top-artists" style="height: 100vh; width: 50%; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
@@ -45,7 +55,11 @@
                 </div>
             </div>
         </div>
-        <div class="section" id="sec3">
+
+    </section>
+
+    <section id="main-message">
+        <div class="container">
             <h2>Main Message</h2>
             <div class='container'>
                 <div class="row" id="mainMessage" style="height: 100vh; width: 100%; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
@@ -53,7 +67,11 @@
                 </div>
             </div>
         </div>
-        <div class="section" id="sec4">
+
+    </section>
+
+    <section id="conclusion">
+        <div class="container">
             <h2>Conclusion</h2>
             <div class='container'>
                 <div class="row" id="compare-years" style="height: 100vh; width: 100%; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
@@ -70,19 +88,18 @@
                     sliders
                 </div>
             </div>
-        </div>
-        <div class="section" id="sec5">
-            <h3>Sources</h3>
-            <div class='container'>
-                <div class="row">
-                    <div class="col-8">
-                        <div id="sources">
 
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
+    </section>
+
+    <section id="sources">
+        <div class="container" style="padding-bottom: 50px;">
+            <h3>Sources</h3>
+        </div>
+    </section>
+
+
+
     </div>
 </div>
 
@@ -94,14 +111,23 @@
 
 
 
+
+
 <!-- embedding JS libraries -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
 <!-- d3 -->
 <script src="https://d3js.org/d3.v7.min.js"></script>
 
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
 <!-- own js files -->
 <script src="js/lineChart.js"></script>
 <script src="js/main.js"></script>
+
+</main>
 </body>
 </html>

@@ -27,7 +27,7 @@ class LineChart{
 
 
         vis.y = d3.scaleLinear()
-            .domain([0, d3.max(vis.data, function(d) { return d.n; })])
+            .domain([0,1])
             .range([vis.height, vis.margin.bottom]);
 
 
@@ -78,7 +78,7 @@ class LineChart{
 
         vis.x.domain(d3.extent(vis.displayData[0], function(d) { return d.year; }));
 
-        vis.y.domain([0, 1]);
+        vis.y.domain([0, d3.max(vis.displayData[2], function(d) { return d.value; })]);
 
         vis.svg.select(".x-axis").call(d3.axisBottom(vis.x));
         vis.svg.select(".y-axis").call(d3.axisLeft(vis.y));
