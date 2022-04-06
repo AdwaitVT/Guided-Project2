@@ -237,16 +237,24 @@ html.fp-enabled,
 }
 
 #title-text{
-    font-size: 65px;
+    font-size: 50px;
     text-align: center;
     padding: 25vh 0vh 50px 0vh;
 }
 
-#intro-text{
-    font-size: 25px;
-}
 
 #subtitle{
-    font-size: 25px;
+    font-size: 16px;
     text-align: center;
+}
+
+.text{
+    text-align: center;
+    padding: 25vh 0vh 50px 0vh;
+    font-size: 20px;
+
+}
+.vis{
+    margin-top: 5px;
+    padding: 20px;
 }

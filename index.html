@@ -27,13 +27,16 @@
 
     <section id="intro" style="height:100vh">
         <div class="container">
-            <p id="intro-text">
-                This is text for the introduction.
-            </p>
+            <div class="text" id="intro-text">
+                <p>
+                    This is text for the introduction.
+                </p>
+            </div>
+
             <div id="intro-vis">
-                <div class="row" id="intro-lineChart" data-aos="fade-right" style="height: 70vh; width: 50%; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                <div class="row vis" id="intro-lineChart" data-aos="fade-right" style="height: 70vh; width: 50%; float:left; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
                 </div>
-                <div class="row" id="intro-histogram" style="height: 100vh; width: 50%; float:right; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                <div class="row vis" id="intro-histogram" data-aos="fade-left"  style="background-color: lightgrey; height: 70vh; width: 50%; float:right; padding: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
                     <p>Histogram placeholder</p>
                 </div>
             </div>
@@ -43,15 +46,17 @@
 
     <section id="rising-insights">
         <div class="container">
-            <h2>Rising Insights</h2>
-            <div class='container'>
-                <div class="row" id="top-artists" style="height: 100vh; width: 50%; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
-                    top artists here
+            <div class="text" id="rising-insights-text">
+                <p>This is text about rising insights</p>
+            </div>
+            <div class="container">
+                <div class="row vis" id="top-artists" style="background-color: lightgrey; height: 75vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                    Visualization about top artists of each decade
                 </div>
             </div>
             <div class='container'>
-                <div class="row" id="top-albums" style="height: 100vh; width: 50%; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
-                    top albums here
+                <div class="row vis" id="top-albums" style="background-color: lightgrey; height: 100vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                    Visualization about top albums of each decade
                 </div>
             </div>
         </div>
@@ -60,10 +65,12 @@
 
     <section id="main-message">
         <div class="container">
-            <h2>Main Message</h2>
+            <div class="text" id="main-message-text">
+                <p>This is text about the main message</p>
+            </div>
             <div class='container'>
-                <div class="row" id="mainMessage" style="height: 100vh; width: 100%; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
-                    Placeholder
+                <div class="row vis" id="mainMessage" style="background-color: lightgrey; height: 100vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                    Visualization showing the top characteristics of each decade
                 </div>
             </div>
         </div>
@@ -72,20 +79,25 @@
 
     <section id="conclusion">
         <div class="container">
-            <h2>Conclusion</h2>
+            <div class="text" id="conclusion-text">
+                <p>
+                    This is text about the conclusion.
+                </p>
+
+            </div>
             <div class='container'>
-                <div class="row" id="compare-years" style="height: 100vh; width: 100%; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
-                    compare years
+                <div class="row vis" id="compare-years" style="background-color: lightgrey; height: 100vh; width: 100%; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                    Visualization to compare two years
                 </div>
             </div>
             <div class='container'>
-                <div class="row" id="album-comparison" style="height: 100vh; width: 100%; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
-                    album comparison of chart year vs release year
+                <div class="row vis" id="album-comparison" style="background-color: lightgrey; height: 100vh; width: 100%; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                    visualization for info about an album that charted decades after it released.
                 </div>
             </div>
             <div class='container'>
-                <div class="row" id="sliders" style="height: 100vh; width: 100%; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
-                    sliders
+                <div class="row vis" id="sliders" style="background-color: lightgrey; height: 100vh; width: 100%; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                    User input sliders
                 </div>
             </div>
 
