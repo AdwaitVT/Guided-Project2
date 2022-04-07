@@ -1,4 +1,4 @@
-let introLineChart;
+let introLineChart, albumInfo;
 
 let parseDate = d3.timeParse("%Y");
 
@@ -53,7 +53,7 @@ function loadData() {
         });
 
         introLineChart = new LineChart("intro-lineChart", csv);
-        albumInfo = new AlbumInfo("")
+        albumInfo = new AlbumInfo("album-comparison", csv);
 
 
 

@@ -11,7 +11,7 @@ class LineChart{
     initVis(){
         let vis = this;
 
-        vis.margin = {top: 20, right: 20, bottom: 20, left: 50};
+        vis.margin = {top: 20, right: 0, bottom: 20, left: 40};
         vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
         vis.height = document.getElementById(vis.parentElement).getBoundingClientRect().height - vis.margin.top - vis.margin.bottom;
 
@@ -44,6 +44,25 @@ class LineChart{
         vis.tooltip = d3.select("body").append('div')
             .attr('class', "tooltip")
             .attr('id', 'lineTooltip')
+
+        vis.colors = ['#e41a1c','#ff7f00', '#377eb8','#4daf4a','#984ea3', '#030300','#ffd919']
+        vis.legendSize = 10;
+
+        vis.legend = vis.svg.append("g")
+            .attr('class', 'legend');
+
+
+        vis.legend.selectAll(".colors")
+            .data(vis.colors)
+            .enter()
+            .append("rect")
+            .attr("class", "colors")
+            .attr("x", vis.width/2)
+            .attr("y", function(d,i){ return 140 + i*(vis.legendSize+5)}) // 100 is where the first dot appears. 25 is the distance between dots
+            .attr("width", vis.legendSize)
+            .attr("height", vis.legendSize)
+            .style("fill", function(d, i){ return vis.colors[i]})
+
 
 
 
@@ -84,7 +103,19 @@ class LineChart{
         vis.svg.select(".y-axis").call(d3.axisLeft(vis.y));
 
 
-        vis.colors = ['#e41a1c','#ff7f00', '#377eb8','#4daf4a','#984ea3', '#030300','#ffff33']
+        vis.legend.selectAll(".labels")
+            .data(vis.displayData)
+            .enter()
+            .append("text")
+            .attr("x", vis.width/2 + 15)
+            .attr("y", function(d,i){ return 147 + i*(vis.legendSize+5)})
+            .attr("font-size", "12px")
+            .text(function(d, i){
+                return vis.attributes[i];
+            });
+
+
+
         for(let i = 0; i < vis.displayData.length; i++){
             vis.svg.append("path")
                 .datum(vis.displayData[i])

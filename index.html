@@ -26,7 +26,7 @@
     </section>
 
     <section id="intro" style="height:100vh">
-        <div class="container">
+        <div>
             <div class="text" id="intro-text">
                 <p>
                     This is text for the introduction.
@@ -36,7 +36,7 @@
             <div id="intro-vis">
                 <div class="row vis" id="intro-lineChart" data-aos="fade-right" style="height: 70vh; width: 50%; float:left; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
                 </div>
-                <div class="row vis" id="intro-histogram" data-aos="fade-left"  style="background-color: lightgrey; height: 70vh; width: 50%; float:right; padding: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                <div class="row vis" id="intro-histogram" data-aos="fade-left"  style="background-color: lightgrey; height: 70vh; width: 40%; float:right; margin: 10px; padding: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
                     <p>Histogram placeholder</p>
                 </div>
             </div>
@@ -83,20 +83,15 @@
                 <p>
                     This is text about the conclusion.
                 </p>
-
             </div>
-            <div class='container'>
-                <div class="row vis" id="compare-years" style="background-color: lightgrey; height: 100vh; width: 100%; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
-                    Visualization to compare two years
-                </div>
+            <div class="row vis" id="compare-years" style="background-color: lightgrey; height: 100vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                Visualization to compare two years
             </div>
-            <div class='container'>
-                <div class="row vis" id="album-comparison" style="background-color: lightgrey; height: 100vh; width: 100%; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
-                    visualization for info about an album that charted decades after it released.
-                </div>
+            <div class="row vis" id="album-comparison" style="background-color: lightgrey; height: 100vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                This is a visualization for info about an album that charted decades after it released.
             </div>
-            <div class='container'>
-                <div class="row vis" id="sliders" style="background-color: lightgrey; height: 100vh; width: 100%; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+            <div>
+                <div class="row vis" id="sliders" style="background-color: lightgrey; height: 100vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
                     User input sliders
                 </div>
             </div>
@@ -137,8 +132,9 @@
 </script>
 
 <!-- own js files -->
-<script src="js/lineChart.js"></script>
-<script src="js/main.js"></script>
+    <script src="js/albumInfo.js"></script>
+    <script src="js/lineChart.js"></script>
+    <script src="js/main.js"></script>
 
 </main>
 </body>
