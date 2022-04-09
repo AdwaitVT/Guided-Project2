@@ -12,6 +12,34 @@
 <div align="center"><h2>Popular Artists between 2000-2020</h2></div><br>
 <div id="my_dataviz" align="center"></div>
 
+<br><br>
+<!-- Div for Histogram -->
+<div class="container" align="center">
+
+    <h1>Albums Energy Values</h1>
+    <h2>A ranking album's energy and value in a decade</h2><br>
+
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="select-box">Group by Decade</label>
+            <select class="form-control" id="select-box">
+                <option value="values">1970-1980</option>
+                <option value="energy">1980-1990</option>
+                <option value="energy">1990-2000</option>
+                <option value="energy">2000-2010</option>
+                <option value="energy">2010-2020</option>
+            </select>
+
+<!--            <button type="button" class="btn btn-link" id="change-sort"> <p style="color:#8E7060;">&#8645;Sort</p> </button>-->
+        </div>
+    </form>
+
+    <div id="bar_graph"></div>
+<!--    <div id="chart-area"></div>-->
+
+
+</div>
+
 
 
 
@@ -22,10 +50,10 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 
 <!-- d3 -->
-<script src="https://d3js.org/d3.v4.js"></script>
+<!--<script src="https://d3js.org/d3.v4.js"></script>-->
 <!--<script src="https://d3js.org/d3.v7.min.js"></script>-->
-<script src="https://d3js.org/d3-array.v2.min.js"></script>
-<script src="https://d3js.org/d3-geo.v2.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<!---->
 
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 <script src="https://d3js.org/topojson.v2.min.js"></script>
@@ -33,6 +61,7 @@
 
 <!-- JS Files -->
 <script src="js/treeMap.js"></script>
+<script src="js/histogram.js"></script>
 
 </body>
 </html>
