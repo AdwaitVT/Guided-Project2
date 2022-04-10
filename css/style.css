@@ -258,3 +258,44 @@ html.fp-enabled,
     margin-top: 5px;
     padding: 20px;
 }
+
+/*
+Title
+ */
+h1 {
+    font-family: "Niagara Engraved";
+    font-size: 100px;
+    position: relative;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top:  10px;
+    background: 100%;
+    background-color: powderblue;
+}
+.decadeButtons {
+    position: relative;
+    top: 25px;
+    background-color: powderblue;
+    border: 2px black;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 50%;
+}
+
+.buttons{
+    font-family: Forte;
+}
+
+.textDisp{
+    font-family: Georgia;
+}
+
+.dispArtist{
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+}

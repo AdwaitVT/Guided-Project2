@@ -50,8 +50,18 @@
                 <p>This is text about rising insights</p>
             </div>
             <div class="container">
-                <div class="row vis" id="top-artists" style="background-color: lightgrey; height: 75vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
-                    Visualization about top artists of each decade
+                <h1>Top Artists by Decade</h1>
+                <div class="row vis" id="top-artists" style="border: 2px solid black; height: 75vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                    <div class="buttons">
+                        <div class="text-center" id="select-decade"  role="group" style="height: 125px; width: 100%">
+                            <button class="btn decadeButtons" id="1960" style="width: 75px; height: 75px; margin-right: 50px">1960s</button>
+                            <button class="btn decadeButtons" id="1970" style="width: 75px; height: 75px; margin-right: 50px">1970s</button>
+                            <button class="btn decadeButtons" id="1980" style="width: 75px; height: 75px; margin-right: 50px">1980s</button>
+                            <button class="btn decadeButtons" id="1990" style="width: 75px; height: 75px; margin-right: 50px">1990s</button>
+                            <button class="btn decadeButtons" id="2000" style="width: 75px; height: 75px; margin-right: 50px">2000s</button>
+                            <button class="btn decadeButtons" id="2010" style="width: 75px; height: 75px; margin-right: 50px">2010s</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class='container'>
@@ -132,6 +142,8 @@
 </script>
 
 <!-- own js files -->
+    <script src="js/data_preprocessing.js"></script>
+    <script src="js/decades.js"></script>
     <script src="js/albumInfo.js"></script>
     <script src="js/lineChart.js"></script>
     <script src="js/main.js"></script>
