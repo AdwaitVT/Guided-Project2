@@ -64,6 +64,11 @@ class LineChart{
             .style("fill", function(d, i){ return vis.colors[i]})
 
 
+        vis.svg.append("text")
+            .attr("x", vis.width/2 - 150)
+            .attr("y", 30)
+            .text("Change in Sounds over Time")
+
 
 
         vis.wrangleData()

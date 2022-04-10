@@ -34,10 +34,26 @@
             </div>
 
             <div id="intro-vis">
-                <div class="row vis" id="intro-lineChart" data-aos="fade-right" style="height: 70vh; width: 50%; float:left; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                <div class="row vis" id="intro-lineChart" style="height: 70vh; width: 50%; float:left; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
                 </div>
-                <div class="row vis" id="intro-histogram" data-aos="fade-left"  style="background-color: lightgrey; height: 70vh; width: 40%; float:right; margin: 10px; padding: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
-                    <p>Histogram placeholder</p>
+                <!-- Fade In: data-aos="fade-left"  -->
+                <div class="row vis" id="intro-histogram" style="height: 70vh; width: 45%; float:right; margin: 10px; padding: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                    <h4>Albums Energy Values</h4>
+<!--                    <h4>A ranking album's energy and value in a decade</h4><br>-->
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label for="select-box">Group by Decade</label>
+                            <select class="form-control" id="select-box">
+                                <option value="values">1970-1980</option>
+                                <option value="energy">1980-1990</option>
+                                <option value="energy">1990-2000</option>
+                                <option value="energy">2000-2010</option>
+                                <option value="energy">2010-2020</option>
+                            </select>
+
+                            <!--            <button type="button" class="btn btn-link" id="change-sort"> <p style="color:#8E7060;">&#8645;Sort</p> </button>-->
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -142,6 +158,8 @@
 </script>
 
 <!-- own js files -->
+    <script src="js/treeMap.js"></script>
+    <script src="js/histogram.js"></script>
     <script src="js/data_preprocessing.js"></script>
     <script src="js/decades.js"></script>
     <script src="js/albumInfo.js"></script>

@@ -1,14 +1,16 @@
-
- margin = {top: 50,
+margin = {top: 50,
     right: 60,
     bottom: 60,
     left: 60};
 //assigning width and height
- width = 1020 - margin.left-margin.right,
-    height = 550 - margin.top - margin.bottom;
+//width = 1020 - margin.left-margin.right,
+//height = 550 - margin.top - margin.bottom;
+
+width = document.getElementById("intro-histogram").getBoundingClientRect().width - margin.left - margin.right;
+height = document.getElementById("intro-histogram").getBoundingClientRect().height - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg1 = d3.select("#bar_graph")
+var svg1 = d3.select("#intro-histogram")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -17,7 +19,7 @@ var svg1 = d3.select("#bar_graph")
         "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("./data/bar.csv", function(data) {
+d3.csv("./data/bar.csv").then(data => {
 
     // List of subgroups = header of the csv files = soil condition here
     var subgroups = data.columns.slice(1)

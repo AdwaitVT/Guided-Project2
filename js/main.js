@@ -1,4 +1,6 @@
-let introLineChart, albumInfo, decadeArtistData;
+let introLineChart,
+    albumInfo,
+    decadeArtistData;
 
 let parseDate = d3.timeParse("%Y");
 
@@ -14,10 +16,7 @@ function loadData() {
 
         decadeArtistData = new ArtistData("top-artists", decades)
 
-
-
     });
-
     d3.csv("data/yearly_avgs.csv").then(csv=> {
 
         csv.forEach(function(d){
@@ -40,9 +39,6 @@ function loadData() {
 
         introLineChart = new LineChart("intro-lineChart", csv);
         albumInfo = new AlbumInfo("album-comparison", csv);
-
-
-
 
     });
 
@@ -67,4 +63,9 @@ function loadData() {
 
 
 
+
+
 }
+
+
+
