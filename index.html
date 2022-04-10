@@ -2,34 +2,170 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Guided Project 2</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS5764 - Final Project</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- Load CSS libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="css/style.css">
 
+    <!-- GOOGLE FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,400italic,300italic' rel='stylesheet' type='text/css'>
 </head>
+
+<!-- SOME SAMPLE HTML HERE - DELETE EVERYTHING INSIDE THE BODY EXCEPT THE SCRIPTS ON THE BOTTOM TO START FROM SCRATCH -->
+<!-- DON'T WRITE CSS IN YOUR HTML LIKE WE DID HERE - THE INLINE CSS SHOULD HELP YOU TO UNDERSTAND THE BEHAVIOR OF THE ELEMENTS BETTER -
+     WHEN SUBMITTING, WE ALWAYS EXPECT CLEAR SEPARATION OF HTML, CSS, AND JS INTO THE PROPER FILES -->
 <body>
+<main>
+    <section id="title-page" style="height:100vh">
+        <h1 id="title-text">Music Through the Decades</h1>
+        <h4 id="subtitle">Elizabeth Christman, Rebecca Disipio, Adwait Pradhan, Surendrabikram Thapa</h4>
+    </section>
+
+    <section id="intro" style="height:100vh">
+        <div>
+            <div class="text" id="intro-text">
+                <p>
+                    This is text for the introduction.
+                </p>
+            </div>
+
+            <div id="intro-vis">
+                <div class="row vis" id="intro-lineChart" style="height: 70vh; width: 50%; float:left; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                </div>
+                <!-- Fade In: data-aos="fade-left"  -->
+                <div class="row vis" id="intro-histogram" style="height: 70vh; width: 45%; float:right; margin: 10px; padding: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                    <h4>Albums Energy Values</h4>
+<!--                    <h4>A ranking album's energy and value in a decade</h4><br>-->
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label for="select-box">Group by Decade</label>
+                            <select class="form-control" id="select-box">
+                                <option value="values">1970-1980</option>
+                                <option value="energy">1980-1990</option>
+                                <option value="energy">1990-2000</option>
+                                <option value="energy">2000-2010</option>
+                                <option value="energy">2010-2020</option>
+                            </select>
+
+                            <!--            <button type="button" class="btn btn-link" id="change-sort"> <p style="color:#8E7060;">&#8645;Sort</p> </button>-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="rising-insights">
+        <div class="container">
+            <div class="text" id="rising-insights-text">
+                <p>This is text about rising insights</p>
+            </div>
+            <div class="container">
+                <h1>Top Artists by Decade</h1>
+                <div class="row vis" id="top-artists" style="border: 2px solid black; height: 75vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                    <div class="buttons">
+                        <div class="text-center" id="select-decade"  role="group" style="height: 125px; width: 100%">
+                            <button class="btn decadeButtons" id="1960" style="width: 75px; height: 75px; margin-right: 50px">1960s</button>
+                            <button class="btn decadeButtons" id="1970" style="width: 75px; height: 75px; margin-right: 50px">1970s</button>
+                            <button class="btn decadeButtons" id="1980" style="width: 75px; height: 75px; margin-right: 50px">1980s</button>
+                            <button class="btn decadeButtons" id="1990" style="width: 75px; height: 75px; margin-right: 50px">1990s</button>
+                            <button class="btn decadeButtons" id="2000" style="width: 75px; height: 75px; margin-right: 50px">2000s</button>
+                            <button class="btn decadeButtons" id="2010" style="width: 75px; height: 75px; margin-right: 50px">2010s</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='container'>
+                <div class="row vis" id="top-albums" style="background-color: lightgrey; height: 100vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                    Visualization about top albums of each decade
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="main-message">
+        <div class="container">
+            <div class="text" id="main-message-text">
+                <p>This is text about the main message</p>
+            </div>
+            <div class='container'>
+                <div class="row vis" id="mainMessage" style="background-color: lightgrey; height: 100vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                    Visualization showing the top characteristics of each decade
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="conclusion">
+        <div class="container">
+            <div class="text" id="conclusion-text">
+                <p>
+                    This is text about the conclusion.
+                </p>
+            </div>
+            <div class="row vis" id="compare-years" style="background-color: lightgrey; height: 100vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                Visualization to compare two years
+            </div>
+            <div class="row vis" id="album-comparison" style="background-color: lightgrey; height: 100vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                This is a visualization for info about an album that charted decades after it released.
+            </div>
+            <div>
+                <div class="row vis" id="sliders" style="background-color: lightgrey; height: 100vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                    User input sliders
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="sources">
+        <div class="container" style="padding-bottom: 50px;">
+            <h3>Sources</h3>
+        </div>
+    </section>
+
+
+
+    </div>
+</div>
+
+
+
+</div>
 
 
 
 
 
-<!-- BOOTSTRAP -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+
+<!-- embedding JS libraries -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
 <!-- d3 -->
 <script src="https://d3js.org/d3.v7.min.js"></script>
-<script src="https://d3js.org/d3-array.v2.min.js"></script>
-<script src="https://d3js.org/d3-geo.v2.min.js"></script>
 
-<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-<script src="https://d3js.org/topojson.v2.min.js"></script>
-<script src="https://d3js.org/d3-geo.v1.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 
+<!-- own js files -->
+    <script src="js/treeMap.js"></script>
+    <script src="js/histogram.js"></script>
+    <script src="js/data_preprocessing.js"></script>
+    <script src="js/decades.js"></script>
+    <script src="js/albumInfo.js"></script>
+    <script src="js/lineChart.js"></script>
+    <script src="js/main.js"></script>
 
-
+</main>
 </body>
 </html>
