@@ -3,8 +3,8 @@ margin = {top: 50,
     bottom: 60,
     left: 60};
 // set the dimensions and margins of the graph
-width = document.getElementById("intro-histogram").getBoundingClientRect().width - margin.left - margin.right;
-height = document.getElementById("intro-histogram").getBoundingClientRect().height - margin.top - margin.bottom;
+width = document.getElementById("compare-years").getBoundingClientRect().width - margin.left - margin.right;
+height = document.getElementById("compare-years").getBoundingClientRect().height - margin.top - margin.bottom;
 
 // set the ranges
 var x = d3.scaleBand()
@@ -16,7 +16,8 @@ var y = d3.scaleLinear()
 // append the svg object to the body of the page
 // append a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
-var svg = d3.select("#compare-years")
+var svgConclusion = d3.select("#compare-years")
+    .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -36,7 +37,7 @@ d3.csv("data/feavalues.csv").then(function(data) {
     y.domain([0, d3.max(data, function(d) { return d.feavalues; })]);
 
     // append the rectangles for the bar chart
-    svg.selectAll(".bar")
+    svgConclusion.selectAll(".bar")
         .data(data)
         .enter().append("rect")
         .attr("class", "bar")
@@ -46,12 +47,12 @@ d3.csv("data/feavalues.csv").then(function(data) {
         .attr("height", function(d) { return height - y(d.feavalues); });
 
     // add the x Axis
-    svg.append("g")
+    svgConclusion.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x));
 
     // add the y Axis
-    svg.append("g")
+    svgConclusion.append("g")
         .call(d3.axisLeft(y));
 
 })
