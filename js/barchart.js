@@ -1,4 +1,7 @@
-
+margin = {top: 50,
+    right: 60,
+    bottom: 60,
+    left: 60};
 // set the dimensions and margins of the graph
 width = document.getElementById("intro-histogram").getBoundingClientRect().width - margin.left - margin.right;
 height = document.getElementById("intro-histogram").getBoundingClientRect().height - margin.top - margin.bottom;
@@ -13,7 +16,7 @@ var y = d3.scaleLinear()
 // append the svg object to the body of the page
 // append a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
-var svg = d3.select("compare-years")
+var svg = d3.select("#compare-years")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -21,7 +24,7 @@ var svg = d3.select("compare-years")
         "translate(" + margin.left + "," + margin.top + ")");
 
 // get the data
-d3.csv("feavalues.csv").then(function(data) {
+d3.csv("data/feavalues.csv").then(function(data) {
 
     // format the data
     data.forEach(function(d) {
