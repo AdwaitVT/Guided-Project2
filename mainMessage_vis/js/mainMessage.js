@@ -2,11 +2,10 @@
 
 let decadeArtistData;
 
-d3.csv("data/artistsByDecade_centerOrdered.csv", (row) => {
+d3.csv("data/avgPerDecade.csv", (row) => {
 
     if (row !== "columns") {
-        row.Count = +parseFloat(row.Count)
-        row.Decade = +parseFloat(row.Decade)
+        row.decade = +parseFloat(row.decade)
         row.acousticness = +parseFloat(row.acousticness)
         row.danceability = +parseFloat(row.danceability)
         row.duration_ms = +parseFloat(row.duration_ms)
@@ -23,9 +22,9 @@ d3.csv("data/artistsByDecade_centerOrdered.csv", (row) => {
 
 }).then(data => {
 
-    let decades = ['1960s', '1970s', '1980s', '1990s', '2000s', '2010s'];
-    let elements = ['Acoutsticness', 'Danceability', 'Duration_ms', 'Energy', 'Instrumentalness','Liveness',
+    let elements = ['Acoutsticness', 'Danceability', 'Duration (ms)', 'Energy', 'Instrumentalness','Liveness',
                     'Loudness', 'Speechiness', 'Tempo', 'Valence']
+
     console.log('data', data)
 
     decadeArtistData = new elementData("element-map", elements, data)
