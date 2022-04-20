@@ -31,4 +31,12 @@ d3.csv("data/avgPerDecade.csv", (row) => {
 
 });
 
+document.getElementById("sort-by").onchange = function() {
+
+    decadeArtistData.wrangleData(this.value)
+
+}
+
+
+
 
