@@ -1,102 +1,104 @@
-class TreeMap{
+var root = am5.Root.new("chartdiv");
 
-     constructor(parentElement) {
-         this.parentElement = parentElement;
-         //this.data = data;
-         this.displayData = [];
+root.setThemes([
+    am5themes_Animated.new(root)
+]);
 
-         this.initVis()
-     }
+var data = [{
+    name: "Top 5 Albums Per Decade",
+    children: [
+        {
+            name: "Albums of 1961 -1970",
+            children: [
+                { name: "Hello, Dolly!", value: 1 },
+                { name: "A Hard Day's Night (Soundtrack)", value: 1 },
+                { name: "People", value: 1 },
+                { name: "Out Of Our Heads", value: 1 },
+                { name: "Whipped Cream & Other Delights", value: 1 }
+            ]
+        },
+        {
+            name: "Albums of 1971 - 1980",
+            children: [
+                { name: " Led Zeppelin IV", value: 1 },
+                { name: "Harvest", value: 1 },
+                { name: "Thick As A Brick", value: 1 },
+                { name: "Rhymes & Reasons", value: 1 },
+                { name: "John Denver's Greatest Hits", value: 1 }
+            ]
+        },
+        {
+            name: "Albums of 1981 - 1990",
+            children: [
+                { name: "Hotter Than July", value: 1 },
+                { name: "The Jazz Singer (Soundtrack)", value: 1 },
+                { name: "Arc Of A Diver", value: 1 },
+                { name: "Flashdance", value: 1 },
+                { name: "Slippery When Wet", value: 1 }
+            ]
+        },
+        {
+            name: "Albums of 1991 - 2000",
+            children: [
+                { name: "The Immaculate Collection", value: 1 },
+                { name: "Blood Sugar Sex Magik", value: 1 },
+                { name: "Bedtime Stories", value: 1 },
+                { name: "Daydream", value: 1 },
+                { name: "Millennium", value: 1 }
+            ]
+        },
+        {
+            name: " Albums of 2001 - 2010",
+            children: [
+                { name: "Word Of Mouf", value: 1 },
+                { name: "Come Away With Me", value: 1 },
+                { name: "Greatest Hits", value: 1 },
+                { name: "The Emancipation Of Mimi", value: 1 },
+                { name: "Daughtry", value: 1 }
+            ]
+        },
+        {
+            name: "Albums of 2011 - 2020",
+            children: [
+                { name: "El Camino", value: 1 },
+                { name: "Wrapped In Red", value: 1 },
+                { name: "Fifty Shades Of Grey", value: 1 },
+                { name: "Purpose", value: 1 },
+                { name: "Heartbreak On A Full Moon", value: 1 }
 
-     initVis(){
-         let vis = this;
+            ]
+        }
 
-         vis.margin = {top: 10, right: 10, bottom: 10, left: 10},
-             vis.width = 445 - vis.margin.left - vis.margin.right,
-             vis.height = 445 - vis.margin.top - vis.margin.bottom;
-
-// append the svg object to the body of the page
-          vis.svg = d3.select("#my_dataviz")
-             .append("svg")
-             .attr("width", vis.width + vis.margin.left + vis.margin.right)
-             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-             .append("g")
-             .attr("transform",
-                 "translate(" + vis.margin.left + "," + vis.margin.top + ")");
-
-// Read data
-         d3.csv('./data/treemap.csv', function(data) {
-
-             // stratify the data: reformatting for d3.js
-              vis.root = d3.stratify()
-                 .id(function(d) { return d.name; })   // Name of the entity (column name is name in csv)
-                 .parentId(function(d) { return d.parent; })   // Name of the parent (column name is parent in csv)
-                 (data);
-             vis.root.sum(function(d) { return +d.value })   // Compute the numeric value for each entity
-
-             d3.treemap()
-                 .size([vis.width, vis.height])
-                 .padding(4)
-                 (vis.root)
-
-            // console.log(root.leaves())
-             // use this information to add rectangles:
-             vis.svg
-                 .selectAll("rect")
-                 .data(vis.root.leaves())
-                 .enter()
-                 .append("rect")
-                 .attr('x', function (d) { return d.x0; })
-                 .attr('y', function (d) { return d.y0; })
-                 .attr('width', function (d) { return d.x1 - d.x0; })
-                 .attr('height', function (d) { return d.y1 - d.y0; })
-                 .style("stroke", "black")
-                 .style("fill", "#69b3a2");
-
-             // and to add the text labels
-             vis.svg
-                 .selectAll("text")
-                 .data(vis.root.leaves())
-                 .enter()
-                 .append("text")
-                 .attr("x", function(d){ return d.x0+10})    // +10 to adjust position (more right)
-                 .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
-                 .text(function(d){ return d.data.name})
-                 .attr("font-size", "15px")
-                 .attr("fill", "white")
-         })
-
-
-         // vis.wrangleData()
-     }
-
-     wrangleData(){
-         let vis = this;
-
-         console.log(vis.data);
-
-         vis.attributes = ["acousticness","danceability","energy","instrumentalness","liveness","speechiness","valence"];
-
-         for(let i=0; i<vis.attributes.length; i++) {
-             let array = [];
-             vis.data.forEach(row => {
-                 array.push({
-                     year: row.chart_date,
-                     value: row[vis.attributes[i]]
-                 })
-             });
-             vis.displayData.push(array);
-         }
-
-         console.log(vis.displayData)
-
-         vis.updateVis()
-     }
+    ]}
+];
 
 
-     updateVis(){
+var container = root.container.children.push(
+    am5.Container.new(root, {
+        width: am5.percent(100),
+        height: am5.percent(100),
+        layout: root.verticalLayout
+    })
+);
 
+var series = container.children.push(
+    am5hierarchy.Treemap.new(root, {
+        downDepth: 1,
+        upDepth: 0,
+        initialDepth: 1,
+        valueField: "value",
+        categoryField: "name",
+        childDataField: "children",
+        nodePaddingOuter: 15,
+        nodePaddingInner: 15
+    })
+);
+series.data.setAll(data);
+series.set("selectedDataItem", series.dataItems[0]);
 
-     }
-
- }
+// Add breadcrumbs
+container.children.unshift(
+    am5hierarchy.BreadcrumbBar.new(root, {
+        series: series
+    })
+);

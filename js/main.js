@@ -29,7 +29,7 @@ function loadData() {
     //
     //     });
 
-        treeMap = new TreeMap("treemap");
+        // treeMap = new TreeMap("treemap");
         histogram = new Histogram("histogram");
 
 

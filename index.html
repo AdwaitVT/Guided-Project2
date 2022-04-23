@@ -5,28 +5,15 @@
     <title>Guided Project 2</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!--    <link rel="stylesheet" href="css/styles.css">-->
+        <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
 <div class="container" align="center">
     <h2>Popular Albums in different Decade</h2><br>
-    <form class="form-inline">
-        <div class="form-group" align="center">
-            <label for="select-box-tree">Select Decade</label>
-            <br>
-            <select class="form-control" id="select-box-tree">
-                <option value="values">1970-1980</option>
-                <option value="energy">1980-1990</option>
-                <option value="energy">1990-2000</option>
-                <option value="energy">2000-2010</option>
-                <option value="energy">2010-2020</option>
-            </select>
-
-            </div>
-    </form>
+    <div id="chartdiv"></div>
 </div>
-<div id="my_dataviz" align="center"></div>
+
 
 <br><br>
 <!-- Div for Histogram -->
@@ -51,7 +38,10 @@
     </form>
 
     <div id="bar_graph"></div>
-<!--    <div id="chart-area"></div>-->
+    <div id="chart-area"></div>
+
+
+
 
 
 </div>
@@ -74,6 +64,10 @@
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 <script src="https://d3js.org/topojson.v2.min.js"></script>
 <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+
+<script src="//cdn.amcharts.com/lib/5/index.js"></script>
+<script src="//cdn.amcharts.com/lib/5/hierarchy.js"></script>
+<script src="//cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 
 <!-- JS Files -->
 <script src="js/treeMap.js"></script>
