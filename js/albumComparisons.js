@@ -100,8 +100,15 @@ class AlbumComparisons{
 
         vis.displayData = [];
 
+        if(outlierAlbumInfo.selectedAlbum == undefined){
+            vis.selectedAlbum = vis.initialAlbum;
+        }
+        else{
+            vis.selectedAlbum = outlierAlbumInfo.selectedAlbum;
+        }
 
-        vis.selectedAlbum = (outlierAlbumInfo.selectedAlbum || vis.initialAlbum);
+
+        //vis.selectedAlbum = (outlierAlbumInfo.selectedAlbum || vis.initialAlbum);
 
         vis.releaseDecade = parseInt(parseInt(vis.selectedAlbum.release_date)/10) * 10;
         vis.chartDecade = parseInt(parseInt(vis.selectedAlbum.chart_date)/10) * 10;
