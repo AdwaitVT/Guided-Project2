@@ -11,7 +11,7 @@ class LineChart{
     initVis(){
         let vis = this;
 
-        vis.margin = {top: 20, right: 0, bottom: 20, left: 40};
+        vis.margin = {top: 20, right: 80, bottom: 20, left: 60};
         vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
         vis.height = document.getElementById(vis.parentElement).getBoundingClientRect().height - vis.margin.top - vis.margin.bottom;
 
@@ -36,10 +36,24 @@ class LineChart{
             .attr("transform", "translate(0," + vis.height + ")")
             .call(d3.axisBottom(vis.x));
 
+        vis.svg.append("text")
+            .attr("class", "x label")
+            .attr("text-anchor", "end")
+            .attr("x", vis.width/2)
+            .attr("y", vis.height + 35)
+            .text("Year");
+
         vis.yAxis = vis.svg.append("g")
             .attr("class", "y-axis axis")
             .attr("transform", "translate(" + vis.margin.left + ", 0)")
             .call(d3.axisLeft(vis.y));
+
+        vis.svg.append("text")
+            .attr("class", "y label")
+            .attr("text-anchor", "end")
+            .attr("y", 50)
+            .attr("transform", "rotate(-90)")
+            .text("Value");
 
         vis.tooltip = d3.select("body").append('div')
             .attr('class', "tooltip")
@@ -57,7 +71,7 @@ class LineChart{
             .enter()
             .append("rect")
             .attr("class", "colors")
-            .attr("x", vis.width/2)
+            .attr("x", vis.width - 30)
             .attr("y", function(d,i){ return 140 + i*(vis.legendSize+5)}) // 100 is where the first dot appears. 25 is the distance between dots
             .attr("width", vis.legendSize)
             .attr("height", vis.legendSize)
@@ -112,7 +126,7 @@ class LineChart{
             .data(vis.displayData)
             .enter()
             .append("text")
-            .attr("x", vis.width/2 + 15)
+            .attr("x", vis.width - 15)
             .attr("y", function(d,i){ return 147 + i*(vis.legendSize+5)})
             .attr("font-size", "12px")
             .text(function(d, i){
@@ -126,21 +140,21 @@ class LineChart{
                 .datum(vis.displayData[i])
                 .attr("fill", "none")
                 .attr("stroke", vis.colors[i])
-                .attr("stroke-width", "2px")
+                .attr("stroke-width", "3px")
                 .attr("d", d3.line()
                     .x(function(d) { return vis.x(d.year) })
                     .y(function(d) { return vis.y(d.value) })
                 )
                 .on('mouseover', function(event){
                     d3.select(this)
-                        .attr('stroke-width', '4px')
+                        .attr('stroke-width', '5px')
                     vis.tooltip
                         .style("opacity", 1)
                         .style("left", event.pageX + 20 + "px")
                         .style("top", event.pageY + "px")
                         .html(`
                          <div style="border: thin solid grey; border-radius: 5px; background: lightgrey; padding: 5px">
-                             <h4 style="font-size: 14px"> Attribute: ${vis.attributes[i]}</h4>
+                             <h4 style="font-size: 14px">${vis.attributes[i]}</h4>
 
                          </div>`
                         );
@@ -148,7 +162,7 @@ class LineChart{
                 .on('mouseout', function(){
                     d3.select(this)
                         .attr('stroke', vis.colors[i])
-                        .attr('stroke-width', '2px')
+                        .attr('stroke-width', '3px')
                     vis.tooltip
                         .style("opacity", 0)
                         .style("left", 0)

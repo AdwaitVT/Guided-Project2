@@ -34,10 +34,10 @@
             </div>
 
             <div id="intro-vis">
-                <div class="row vis" id="intro-lineChart" style="height: 70vh; width: 50%; float:left; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                <div class="row vis" id="intro-lineChart" style="height: 50vh; width: 50%; float:left; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
                 </div>
                 <!-- Fade In: data-aos="fade-left"  -->
-                <div class="row vis" id="intro-histogram" style="height: 70vh; width: 45%; float:right; margin: 10px; padding: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                <div class="row vis" id="intro-histogram" style="height: 50vh; width: 45%; float:right; margin: 10px; padding: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
                     <h4>Albums Energy Values</h4>
 <!--                    <h4>A ranking album's energy and value in a decade</h4><br>-->
                     <form class="form-inline">
@@ -114,7 +114,7 @@
                 Visualization to compare two years
             </div>
 
-            <div class="row vis" id="album-comparison" style="background-color: lightgrey; height: 75vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+            <div class="row vis" id="album-comparison" style="height: 75vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
                 <div id="selectButtons">
                     <select id="selectSortButton">
                         <option value="release_date">Released in: </option>
@@ -130,9 +130,9 @@
                     </select>
                     <select id="selectAlbumButton"></select>
                 </div>
-                <div id="yearComparisons" style="height: 50%">
-                    <div id="releaseYearBars" style="width: 45%; height:100%; float:left;"></div>
-                    <div id="chartYearBars" style="width: 45%; height:100%; float:right;"></div>
+                <div id="yearComparisons" style="height: 50vh">
+                    <div id="releaseYearBars" style="width: 45%; height:150%; float:left;"></div>
+                    <div id="chartYearBars" style="width: 45%; height:150%; float:right;"></div>
                 </div>
             </div>
 <!--            <div>-->
@@ -177,13 +177,13 @@
 </script>
 
 <!-- own js files -->
-    <script src ="js/albumComparisons.js"></script>
+    <script src="js/albumInfo.js"></script>
     <script src ="js/barchart.js"></script>
     <script src="js/treeMap.js"></script>
     <script src="js/histogram.js"></script>
     <script src="js/data_preprocessing.js"></script>
     <script src="js/decades.js"></script>
-    <script src="js/albumInfo.js"></script>
+    <script src ="js/albumComparisons.js"></script>
     <script src="js/lineChart.js"></script>
     <script src="js/main.js"></script>
 
