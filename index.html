@@ -67,16 +67,25 @@
             </div>
             <div class="container">
                 <h1>Top Artists by Decade</h1>
-                <div class="row vis" id="top-artists" style="border: 2px solid black; height: 75vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
-                    <div class="buttons">
-                        <div class="text-center" id="select-decade"  role="group" style="height: 125px; width: 100%">
-                            <button class="btn decadeButtons" id="1960" style="width: 75px; height: 75px; margin-right: 50px">1960s</button>
-                            <button class="btn decadeButtons" id="1970" style="width: 75px; height: 75px; margin-right: 50px">1970s</button>
-                            <button class="btn decadeButtons" id="1980" style="width: 75px; height: 75px; margin-right: 50px">1980s</button>
-                            <button class="btn decadeButtons" id="1990" style="width: 75px; height: 75px; margin-right: 50px">1990s</button>
-                            <button class="btn decadeButtons" id="2000" style="width: 75px; height: 75px; margin-right: 50px">2000s</button>
-                            <button class="btn decadeButtons" id="2010" style="width: 75px; height: 75px; margin-right: 50px">2010s</button>
-                        </div>
+                <div class="buttons">
+                    <div class="text-center" id="select-decade"  role="group" style="height: 20vh; width: 100%">
+                        <button class="btn decadeButtons" id="1960" style="width: 75px; height: 75px; margin-right: 50px">1960s</button>
+                        <button class="btn decadeButtons" id="1970" style="width: 75px; height: 75px; margin-right: 50px">1970s</button>
+                        <button class="btn decadeButtons" id="1980" style="width: 75px; height: 75px; margin-right: 50px">1980s</button>
+                        <button class="btn decadeButtons" id="1990" style="width: 75px; height: 75px; margin-right: 50px">1990s</button>
+                        <button class="btn decadeButtons" id="2000" style="width: 75px; height: 75px; margin-right: 50px">2000s</button>
+                        <button class="btn decadeButtons" id="2010" style="width: 75px; height: 75px; margin-right: 50px">2010s</button>
+                    </div>
+                    <div class="images">
+                        <img id="img1" class="images" src="artist_imgs/blank.png" alt="no artist yet" style="margin-right: 6%; margin-left: 2.5%">
+                        <img id="img2" class="images" src="artist_imgs/blank.png" alt="no artist yet" style="margin-right: 3%">
+                        <img id="img3" class="images" src="artist_imgs/blank.png" alt="no artist yet" style="margin-right: 3%">
+                        <img id="img4" class="images" src="artist_imgs/blank.png" alt="no artist yet" style="margin-right: 6%">
+                        <img id="img5" class="images" src="artist_imgs/blank.png" alt="no artist yet">
+                    </div>
+                    <div class="svg">
+                        <!-- graph -->
+                        <div class="artists" id="top-artists" style="height: 50vh; width: 100%"></div>
                     </div>
                 </div>
             </div>
@@ -196,6 +205,7 @@
 </script>
 
 <!-- own js files -->
+    <script src="js/decadeTopArtists.js"></script>
     <script src="js/mainMessage.js"></script>
     <script src="js/albumInfo.js"></script>
     <script src ="js/barchart.js"></script>
