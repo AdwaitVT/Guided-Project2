@@ -1,11 +1,14 @@
 class ArtistData {
 
-    constructor(parentElement, decade, artistData) {
+    constructor(parentElement, imgElement, decade, artistData) {
         this.parentElement = parentElement;
+        this.imgElement = imgElement;
         this.decade = decade;
         this.artistData = artistData;
 
         this.displayData = artistData.slice(0, 5);
+
+        this.rankingNumbers = [4,2,1,3,5]
 
         this.initVis();
     }
@@ -26,6 +29,12 @@ class ArtistData {
 
         vis.selectedOption = "index"
 
+        // Image drawing are
+        // vis.imageArea = d3.select("#" + vis.imgElement).append("g")
+        //     .attr("width", vis.width + vis.margin.left + vis.margin.right)
+        //     .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
+        //     .append("g")
+        //     .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
         // SVG drawing area
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -34,20 +43,11 @@ class ArtistData {
             .append("g")
             .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
-        // vis.dispDecade = vis.svg.append("text")
-        //     .attr("class", "textDisp")
-        //     .text("Top 3 artists of ")
-        //     .attr("x", 0)
-        //     .attr("y", 0);
-
-        // (Filter, aggregate, modify data)
-
         // add tool-tip
         vis.toolTip = d3.select("body").append("div")
             .attr("class", "tooltip")
             .attr("id", "artistTooltip")
 
-        vis.imageArea = d3.select("#images")
 
         this.wrangleData();
     }
@@ -139,6 +139,7 @@ class ArtistData {
             .attr("font-size", '16px')
             .attr("transform", "translate(" + vis.margin.left*1.8 + "," + vis.margin.top*3.5 + ")")
 
+
         vis.artist.on('mouseover', function(event, d){
             vis.toolTip
                 .style("opacity", 1)
@@ -148,6 +149,7 @@ class ArtistData {
                 .html(`
                          <div style="border: thin solid black; border-radius: 5px; background: cadetblue; padding: 10px; font-size: 4px">
                              <h4 style="font-weight: bold; text-align: center">${d.Artists}<h4>
+                             <h6 style="font-weight: bold; text-align: center">Total # of Times Charted: ${d.Count}</h6> 
                              <p style="font-size: 13px"> 
                              Acousticness:  ${d.acousticness.toFixed(numDec)} <br> 
                              Danceability:  ${d.danceability.toFixed(numDec)} <br> 
@@ -166,114 +168,6 @@ class ArtistData {
             d3.select(this).attr("fill", "black")
         })
 
-
-
-
-        // // Acousticness score
-        // vis.acoustic = vis.artist.append("text")
-        //     .attr("class", "acousticScore")
-        //     .merge(vis.dataRow.select(".acousticScore"))
-        //     .text(function(d, index){
-        //         console.log("here", d)
-        //         return "Acousticness: " + d.acousticness.toFixed(numDec)
-        //     })
-        //     .attr("x", function(d, index){return ((vis.width - vis.margin.left - vis.margin.right)*index/4.55)})
-        //     .attr("y", -130)
-        //     .attr("text-anchor", "start")
-        //     .attr("transform", "translate(" + 0 + "," + vis.margin.top*3.25 + ")")
-        //
-        // // Danceability score
-        // vis.artist.append("text")
-        //     .attr("class", "danceScore")
-        //     .merge(vis.dataRow.select(".danceScore"))
-        //     .text(function(d, index){
-        //         console.log("here", d)
-        //         return "Danceability: " + d.danceability.toFixed(numDec)
-        //     })
-        //     .attr("x", function(d, index){return ((vis.width - vis.margin.left - vis.margin.right)*index/4.55)})
-        //     .attr("y", -110)
-        //     .attr("text-anchor", "start")
-        //     .attr("transform", "translate(" + 0 + "," + vis.margin.top*3.25 + ")")
-        //
-        // // Energy score
-        // vis.artist.append("text")
-        //     .attr("class", "energyScore")
-        //     .merge(vis.dataRow.select(".energyScore"))
-        //     .text(function(d, index){
-        //         console.log("here", d)
-        //         return "Energy: " + d.energy.toFixed(numDec)
-        //     })
-        //     .attr("x", function(d, index){return ((vis.width - vis.margin.left - vis.margin.right)*index/4.55)})
-        //     .attr("y", -90)
-        //     .attr("text-anchor", "start")
-        //     .attr("transform", "translate(" + 0 + "," + vis.margin.top*3.25 + ")")
-        //
-        // // Instrumentalness score
-        // vis.artist.append("text")
-        //     .attr("class", "instrumentScore")
-        //     .merge(vis.dataRow.select(".instrumentScore"))
-        //     .text(function(d, index){
-        //         console.log("here", d)
-        //         return "Instrumentalness: " + d.instrumentalness.toFixed(numDec)
-        //     })
-        //     .attr("x", function(d, index){return ((vis.width - vis.margin.left - vis.margin.right)*index/4.55)})
-        //     .attr("y", -70)
-        //     .attr("text-anchor", "start")
-        //     .attr("transform", "translate(" + 0 + "," + vis.margin.top*3.25 + ")")
-        //
-        // // Liveness score
-        // vis.artist.append("text")
-        //     .attr("class", "liveScore")
-        //     .merge(vis.dataRow.select(".liveScore"))
-        //     .text(function(d, index){
-        //         console.log("here", d)
-        //         return "Liveness: " + d.liveness.toFixed(numDec)
-        //     })
-        //     .attr("x", function(d, index){return ((vis.width - vis.margin.left - vis.margin.right)*index/4.55)})
-        //     .attr("y", -50)
-        //     .attr("text-anchor", "start")
-        //     .attr("transform", "translate(" + 0 + "," + vis.margin.top*3.25 + ")")
-        //
-        // // Loudness score
-        // vis.artist.append("text")
-        //     .attr("class", "loudScore")
-        //     .merge(vis.dataRow.select(".loudScore"))
-        //     .text(function(d, index){
-        //         console.log("here", d)
-        //         return "Loudness: " + d.loudness.toFixed(numDec)
-        //     })
-        //     .attr("x", function(d, index){return ((vis.width - vis.margin.left - vis.margin.right)*index/4.55)})
-        //     .attr("y", -30)
-        //     .attr("text-anchor", "start")
-        //     .attr("transform", "translate(" + 0 + "," + vis.margin.top*3.25 + ")")
-        //
-        // // Speechiness score
-        // vis.artist.append("text")
-        //     .attr("class", "speechScore")
-        //     .merge(vis.dataRow.select(".speechScore"))
-        //     .text(function(d, index){
-        //         console.log("here", d)
-        //         return "Speechiness: " + d.speechiness.toFixed(numDec)
-        //     })
-        //     .attr("x", function(d, index){return ((vis.width - vis.margin.left - vis.margin.right)*index/4.55)})
-        //     .attr("y", -10)
-        //     .attr("text-anchor", "start")
-        //     .attr("transform", "translate(" + 0 + "," + vis.margin.top*3.25 + ")")
-        //
-        // // Tempo score
-        // vis.artist.append("text")
-        //     .attr("class", "tempoScore")
-        //     .merge(vis.dataRow.select(".tempoScore"))
-        //     .text(function(d, index){
-        //         console.log("here", d)
-        //         return "Tempo: " + d.tempo.toFixed(numDec)
-        //     })
-        //     .attr("x", function(d, index){return ((vis.width - vis.margin.left - vis.margin.right)*index/4.55)})
-        //     .attr("y", 10)
-        //     .attr("text-anchor", "start")
-        //     .attr("transform", "translate(" + 0 + "," + vis.margin.top*3.25+ ")")
-
-        //console.log(vis.displayData)
 
         // insert images
         if (selectedButton === 1960){

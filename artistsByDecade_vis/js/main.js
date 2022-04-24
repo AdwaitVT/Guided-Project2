@@ -26,7 +26,7 @@ d3.csv("data/artistsByDecade_centerOrdered.csv", (row) => {
     let decades = ['1960s', '1970s', '1980s', '1990s', '2000s', '2010s'];
     console.log('data', data)
 
-    decadeArtistData = new ArtistData("artist-map", decades, data)
+    decadeArtistData = new ArtistData("artist-map", "img-space", decades, data)
 
 });
 

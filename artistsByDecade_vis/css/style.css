@@ -15,7 +15,6 @@ h1 {
     position: relative;
     top: 25px;
     background-color: powderblue;
-    border: 2px black;
     color: black;
     text-align: center;
     text-decoration: none;
@@ -75,4 +74,8 @@ h1 {
     height: 12%;
     width: 12%;
     margin-top: 2%;
+}
+
+.decadeButtons:focus{
+    background-color: indianred;
 }
