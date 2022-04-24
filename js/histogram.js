@@ -1,118 +1,164 @@
-class Histogram{
 
-     constructor(parentElement) {
-         this.parentElement = parentElement;
-         //this.data = data;
-         this.displayData = [];
 
-         this.initVis()
-     }
-
-     initVis(){
-         let vis = this;
-
-         vis.margin = {top: 50,
-             right: 60,
-             bottom: 60,
-             left: 60};
+// SVG Drawing Area
+let margin = {top: 50,
+    right: 60,
+    bottom: 60,
+    left: 60};
 //assigning width and height
-         vis.width = 1020 - vis.margin.left-vis.margin.right,
-             vis.height = 550 - vis.margin.top - vis.margin.bottom;
+let width = 1020 - margin.left-margin.right,
+    height = 550 - margin.top - margin.bottom;
 
-// append the svg object to the body of the page
-          vis.svg1 = d3.select("#bar_graph")
-             .append("svg")
-             .attr("width", vis.width + vis.margin.left +vis. margin.right)
-             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-             .append("g")
-             .attr("transform",
-                 "translate(" + vis.margin.left + "," + vis.margin.top + ")");
+//svg declaration
+let svg = d3.select("#chart-area")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-         // Parse the Data
-         d3.csv("./data/bar.csv", function(data) {
+var padding = 10;
 
-             vis.subgroups = data.columns.slice(1)
+var val = d3.select("#select-box").property("value");
 
-             vis.groups = d3.map(data, function(d){return(d.group)}).keys()
+var flip = true;
 
-             // Add X axis
-             vis.x = d3.scaleBand()
-                 .domain(vis.groups)
-                 .range([0, vis.width])
-                 .padding([0.2]);
+loadData();
 
-             vis.svg1.append("g")
-                 .attr("transform", "translate(0," + vis.height + ")")
-                 .call(d3.axisBottom(vis.x).tickSize(0));
+/*Loading the csv file into the data*/
+function loadData() {
+    d3.csv("data/histogram.csv").then(csv=> {
 
-             // Add Y axis
-             vis.y = d3.scaleLinear()
-                 .domain([0, 40])
-                 .range([ vis.height, 0 ]);
-             vis.svg1.append("g")
-                 .call(d3.axisLeft(vis.y));
+        csv.forEach(function(d){
+            d.acousticness = +d.acousticness;
+            d.energy = +d.energy;
+            d.instrumentalness = +d.instrumentalness;
+            d.liveness = +d.liveness;
+            d.loudness = +d.loudness;
+            d.speechiness = +d.speechiness;
+            d.tempo = +d.tempo;
+            d.valence = +d.valence;
+            d.danceability = +d.danceability;
 
-             // Another scale for subgroup position?
-             vis.xSubgroup = d3.scaleBand()
-                 .domain(vis.subgroups)
-                 .range([0, vis.x.bandwidth()])
-                 .padding([0.05])
+        });
 
-             // color palette = one color per subgroup
-              vis.color = d3.scaleOrdinal()
-                 .domain(vis.subgroups)
-                 .range(['#e41a1c','#377eb8'])
+        dataBar = csv;
+    });
+}
 
-             // Show the bars
-            vis.svg1.append("g")
-                 .selectAll("g")
-                 // Enter in data = loop group per group
-                 .data(data)
-                 .enter()
-                 .append("g")
-                 .attr("transform", function(d) { return "translate(" + vis.x(d.group) + ",0)"; })
-                 .selectAll("rect")
-                 .data(function(d) { return vis.subgroups.map(function(key) { return {key: key, value: d[key]}; }); })
-                 .enter().append("rect")
-                 .attr("x", function(d) { return vis.xSubgroup(d.key); })
-                 .attr("y", function(d) { return vis.y(d.value); })
-                 .attr("width", vis.xSubgroup.bandwidth())
-                 .attr("height", function(d) { return vis.height - vis.y(d.value); })
-                 .attr("fill", function(d) { return vis.color(d.key); });
+function sortData(d,t){
+    if (t){
+        return d.sort((a,b)=> b.value - a.value);
+    } else {
+        return d.sort((a,b)=> a.value - b.value);
+    }
+}
 
-         })
+Object.defineProperty(window, 'dataBar', {
+    get: function() { return dataVal; },
+    set: function(value) {
+        dataVal = value;
 
+        updateVisualization(val, flip)
+    }
+});
 
-        // vis.wrangleData()
-     }
+let x = d3.scaleBand()
+    .rangeRound([padding, width])
+    .paddingInner(0.25);
 
-     wrangleData(){
-         let vis = this;
+let x1 = d3.scaleBand()
+    .rangeRound([padding, width])
+    .paddingInner(0.25);
 
-         console.log(vis.data);
+let y = d3.scaleLinear()
+    .range([height, 0]);
 
-         vis.attributes = ["acousticness","danceability","energy","instrumentalness","liveness","speechiness","valence"];
+let y1 = d3.scaleLinear()
+    .range([height, 0]);
 
-         for(let i=0; i<vis.attributes.length; i++) {
-             let array = [];
-             vis.data.forEach(row => {
-                 array.push({
-                     year: row.chart_date,
-                     value: row[vis.attributes[i]]
-                 })
-             });
-             vis.displayData.push(array);
-         }
+/* Updating the visualiztions */
+function updateVisualization(value) {
 
-         console.log(vis.displayData)
+    var dataFilter = dataBar.map(function(d){return {decade: d.decade, value: d[value]}});
 
-         vis.updateVis()
-     }
+    sortedData = sortData(dataFilter,flip);
 
 
-     updateVis(){
+    y.domain([0, d3.max(sortedData, d=> d.value)]);
+
+    x.domain(sortedData.map(d => d.decade));
 
 
-     }
+    /*Defining the svg and the axes to work*/
 
- }
+    let bar = svg.selectAll("rect")
+        .data(sortedData);
+
+
+    var xAxis = svg.append("g")
+        .attr("class", "xaxis")
+        .attr("transform", "translate(0,"+ (height) +")");
+
+    var yAxis = svg.append("g")
+        .attr("class", "yaxis");
+
+    svg.append("text")
+        .attr("class", "title")
+        .attr("x", (padding))
+        .attr("y", padding-(margin.top / 2))
+        .attr("text-anchor", "middle")
+        .style("font-size", "12px")
+        .style("opacity", "0.8")
+        .text("Optional Title");
+
+    bar.exit().remove();
+
+    bar.enter().append("rect")
+        .merge(bar)
+        .transition()
+        .duration(2000)
+        .attr("class", "mybar")
+        .attr("fill", "#c75c7a")
+        .attr("stroke", "#c75c7a")
+        .attr("stroke-width", "2")
+        .attr("x", function (d) { return x(d.decade);} )
+        .attr("y", function(d) { return y(d.value); })
+        .attr("height", function(d) { return (height-y(d.value)); })
+        .attr("width", x.bandwidth());
+
+
+    svg.selectAll('.xaxis')
+        .style("opacity",0.5)
+        .transition()
+        .duration(800)
+        .call(d3.axisBottom(x));
+
+    svg.selectAll('.yaxis')
+        .style("opacity",0.5)
+        .transition()
+        .duration(800)
+        .call(d3.axisLeft(y));
+
+    svg.selectAll('.title')
+        .style("opacity",0.5)
+        .transition()
+        .duration(600)
+        .text(value)
+
+    /*This function changes the graph when the drop down menu is changed */
+
+    d3.select("#select-box").on("change", function(d){
+        var newData = d3.select("#select-box").property("value");
+        updateVisualization(newData);
+    });
+
+    d3.select("#change-sort").on("click", function() {
+        flip = !flip;
+        updateVisualization(value);
+    });
+
+}
+
+
+

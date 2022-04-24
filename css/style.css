@@ -4,3 +4,85 @@
     width: 100%;
     height: 500px;
 }
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: lightgray;
+}
+
+h1 {
+    color: black;
+    margin-top: 40px;
+    font-weight: 300;
+}
+
+h2 {
+    font-weight: 100;
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: black;
+}
+
+
+.form-inline {
+    margin-bottom: 30px;
+}
+
+.form-control {
+    background: white;
+    border: 1px solid black;
+    width: 250px;
+}
+
+.form-group label {
+    font-weight: 400;
+    margin-right: 10px;
+}
+
+.form-inline button, .btn-link:active {
+    border-left: 1px solid #888;
+    margin-left: 15px;
+    padding-left: 15px;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+}
+.form-inline button:hover, .btn-link:active, .btn-link:focus  {
+    border-left: 1px solid #888;
+    color: black;
+    text-decoration: none;
+    outline: none;
+}
+.form-inline button .glyphicon {
+    margin-right: 5px;
+}
+
+.bar {
+    fill: black;
+}
+
+.axis {
+    font: 10px sans-serif;
+    fill: #333;
+}
+
+.axis-title {
+    fill: #ccbea7;
+    font-size: 11px;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #333;
+    shape-rendering: crispEdges;
+}
+
+.x-axis {
+    font-size: 12px;
+}
+
+.x-axis path {
+    display: none;
+}
+
