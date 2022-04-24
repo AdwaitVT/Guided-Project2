@@ -198,3 +198,6 @@ Title
     margin-top: 2%;
 }
 
+.decadeButtons:focus{
+    background-color: indianred;
+}
