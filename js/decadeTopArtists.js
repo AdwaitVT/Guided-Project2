@@ -142,8 +142,8 @@ class ArtistData {
         vis.artist.on('mouseover', function(event, d){
             vis.toolTip
                 .style("opacity", 1)
-                .style("left",  80 + "%")
-                .style("top", 250 + "%")
+                .style("left",  70 + "%")
+                .style("top", 350 + "%")
                 .style("width", "15%")
                 .html(`
                          <div style="border: thin solid black; border-radius: 5px; background: cadetblue; padding: 10px; font-size: 4px">

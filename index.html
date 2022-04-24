@@ -18,42 +18,59 @@
 <!-- SOME SAMPLE HTML HERE - DELETE EVERYTHING INSIDE THE BODY EXCEPT THE SCRIPTS ON THE BOTTOM TO START FROM SCRATCH -->
 <!-- DON'T WRITE CSS IN YOUR HTML LIKE WE DID HERE - THE INLINE CSS SHOULD HELP YOU TO UNDERSTAND THE BEHAVIOR OF THE ELEMENTS BETTER -
      WHEN SUBMITTING, WE ALWAYS EXPECT CLEAR SEPARATION OF HTML, CSS, AND JS INTO THE PROPER FILES -->
-<body>
+<body class="scroller">
 <main>
     <section id="title-page" style="height:100vh">
         <h1 id="title-text">Music Through the Decades</h1>
-        <h4 id="subtitle">Elizabeth Christman, Rebecca Disipio, Adwait Pradhan, Surendrabikram Thapa</h4>
+        <h2 id="subtitle">Elizabeth Christman, Rebecca Disipio, Adwait Pradhan, Surendrabikram Thapa</h2>
     </section>
 
-    <section id="intro" style="height:100vh">
+    <section id="intro">
         <div>
-            <div class="text" id="intro-text">
-                <p>
-                    This is text for the introduction.
-                </p>
+            <div class="container">
+                <div class = "row justify-content-center">
+                    <div class="text" id="intro-text" style="height:100vh; width:50%; margin:50px">
+                        <p>
+                            Music is a reflection of the times we live in, and as culture and society changes, so does music. Different eras of music are distinct from each other, and a song
+                            released in 2010 has a decidedly different style than a song from the 80s. But what changed? How has music evolved throughout the years? In this data story
+                            you will explore the changes in music throughout the decades.
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <div id="intro-vis">
-                <div class="row vis" id="intro-lineChart" style="height: 50vh; width: 50%; float:left; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+            <div id="intro-vis" style="height:100vh;">
+                <div class="text" style="width:50%; align-content: left; margin:30px;">
+                    <p>
+                        The line chart on the left shows the changes in different acoustic features over the years. Click on a line to select that feature for the histogram on the right.
+                        The histogram will show the distribution of values for albums released in the selected decade.
+                    </p>
+                </div>
+                <div class="row vis" id="intro-lineChart" style="height: 60vh; width: 50%; float:left; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
                 </div>
                 <!-- Fade In: data-aos="fade-left"  -->
                 <div class="row vis" id="intro-histogram" style="height: 50vh; width: 45%; float:right; margin: 10px; padding: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
-                    <h4>Albums Energy Values</h4>
-<!--                    <h4>A ranking album's energy and value in a decade</h4><br>-->
+                    <h4>Average Attributes By Decade</h4>
                     <form class="form-inline">
                         <div class="form-group">
-                            <label for="select-box">Group by Decade</label>
-                            <select class="form-control" id="select-box">
-                                <option value="values">1970-1980</option>
-                                <option value="energy">1980-1990</option>
-                                <option value="energy">1990-2000</option>
-                                <option value="energy">2000-2010</option>
-                                <option value="energy">2010-2020</option>
+                            <label for="select-histogram-box">Select the Attribute of the Album :</label>
+                            <select class="form-control" id="select-histogram-box">
+                                <option value="energy">energy</option>
+                                <option value="acousticness">acousticness</option>
+                                <option value="instrumentalness">instrumentalness</option>
+                                <option value="liveness">liveness</option>
+                                <option value="loudness">loudness</option>
+                                <option value="speechiness">speechiness</option>
+                                <option value="tempo">tempo</option>
+                                <option value="valence">valence</option>
+                                <option value="danceability">danceability</option>
                             </select>
 
-                            <!--            <button type="button" class="btn btn-link" id="change-sort"> <p style="color:#8E7060;">&#8645;Sort</p> </button>-->
+                            <button type="button" class="btn btn-link" id="change-sort"> <p>&#8645;Sort</p> </button>
                         </div>
                     </form>
+
+                    <div id="histogram"></div>
                 </div>
             </div>
         </div>
@@ -61,9 +78,13 @@
 
 
     <section id="rising-insights">
-        <div class="container">
-            <div class="text" id="rising-insights-text">
-                <p>This is text about rising insights</p>
+            <div class="text" id="rising-insights-text" >
+                <div class = "row justify-content-center">
+                    <p style="width: 50%">
+                        Some artists personified the trends of their time. Learn more about the top artists of each decade.
+                        Hover over the artist name to see what features defined their music.
+                    </p>
+                </div>
             </div>
             <div class="container">
                 <h1>Top Artists by Decade</h1>
@@ -90,7 +111,7 @@
                 </div>
             </div>
             <div class='container'>
-                <div class="row vis" id="top-albums" style="background-color: lightgrey; height: 100vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                <div class="row vis" id="top-albums" style="background-color: lightgrey; height: 75vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
                     Visualization about top albums of each decade
                 </div>
             </div>
@@ -100,11 +121,18 @@
 
     <section id="main-message">
         <div class="container">
-            <div class="text" id="main-message-text">
-                <p>This is text about the main message</p>
+            <div class="container">
+                <div class = "row justify-content-center">
+                    <div class="text" id="main-message-text" style="height:100vh; width:50%; margin:50px">
+                        <p>
+                            Each decade of music has distinct features. The 80s were dominated by electronic music and modern rock. Pop music hit the top of the charts in the 90s and
+                            2000s. What features defined each decade? What features were used the least in each decade?
+                        </p>
+                    </div>
+                </div>
             </div>
             <h1>
-                Decades with the Highest Ranking Characteristics
+                Features of Each Decade
             </h1>
             <form class="form-inline">
                 <div class="form-group">
@@ -138,11 +166,22 @@
                     This is text about the conclusion.
                 </p>
             </div>
-            <div class="row vis" id="compare-years" style="background-color: lightgrey; height: 100vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+            <div class="row vis" id="compare-years" style="background-color: lightgrey; height: 75vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
                 Visualization to compare two years
             </div>
 
-            <div class="row vis" id="album-comparison" style="height: 75vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+            <div class="container">
+                <div class = "row justify-content-center">
+                    <div class="text" style="height:100vh; width:50%; margin:50px">
+                        <p>
+                            Even though trends in music evolved over time, some albums saw a resurgence in popularity a decade or more after they were released.
+                            Choose an album to compare its features across the decades.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row vis" id="album-comparison" style="height: 100vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
                 <div id="selectButtons">
                     <select id="selectSortButton">
                         <option value="release_date">Released in: </option>
@@ -158,23 +197,25 @@
                     </select>
                     <select id="selectAlbumButton"></select>
                 </div>
-                <div id="yearComparisons" style="height: 50vh">
+                <div id="yearComparisons" style="height: 75vh">
                     <div id="releaseYearBars" style="width: 45%; height:150%; float:left;"></div>
                     <div id="chartYearBars" style="width: 45%; height:150%; float:right;"></div>
                 </div>
             </div>
-<!--            <div>-->
-<!--                <div class="row vis" id="sliders" style="background-color: lightgrey; height: 100vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">-->
-<!--                    User input sliders-->
-<!--                </div>-->
-<!--            </div>-->
+            <div>
+                <div class="row vis" id="sliders" style="background-color: lightgrey; height: 75vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
+                    User input sliders
+                </div>
+            </div>
 
         </div>
     </section>
 
     <section id="sources">
-        <div class="container" style="padding-bottom: 50px;">
+        <div class="container" style="margin-top: 50px; padding-bottom: 50px;">
             <h3>Sources</h3>
+            <a href="https://components.one/datasets/billboard-200/">Acoustic and meta features of albums and songs on the Billboard 200</a> <br>
+            <a href="https://developer.spotify.com/documentation/web-api/reference/#/operations/get-audio-features">Spotify API - Get Audio Features</a>
         </div>
     </section>
 

@@ -134,16 +134,7 @@ h1 {
 /*
 Title
  */
-h1 {
-    font-family: "Niagara Engraved";
-    font-size: 100px;
-    position: relative;
-    text-align: center;
-    padding-bottom: 10px;
-    padding-top:  10px;
-    background: 100%;
-    background-color: powderblue;
-}
+
 .decadeButtons {
     position: relative;
     top: 25px;
@@ -158,9 +149,6 @@ h1 {
     border-radius: 50%;
 }
 
-.buttons{
-    font-family: Forte;
-}
 
 .textDisp{
     font-family: Georgia;
@@ -209,3 +197,4 @@ h1 {
     width: 12%;
     margin-top: 2%;
 }
+

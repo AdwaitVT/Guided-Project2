@@ -1,75 +1,161 @@
-margin = {top: 50,
+// SVG Drawing Area
+let margin = {top: 50,
     right: 60,
     bottom: 60,
     left: 60};
 //assigning width and height
-//width = 1020 - margin.left-margin.right,
-//height = 550 - margin.top - margin.bottom;
+let width = 1020 - margin.left-margin.right,
+    height = 550 - margin.top - margin.bottom;
 
-width = document.getElementById("intro-histogram").getBoundingClientRect().width - margin.left - margin.right;
-height = document.getElementById("intro-histogram").getBoundingClientRect().height - margin.top - margin.bottom;
-
-// append the svg object to the body of the page
-var svg1 = d3.select("#intro-histogram")
+//svg declaration
+let svg = d3.select("#histogram")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
-    .attr("transform",
-        "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-// Parse the Data
-d3.csv("./data/bar.csv").then(data => {
+var padding = 10;
 
-    // List of subgroups = header of the csv files = soil condition here
-    var subgroups = data.columns.slice(1)
+var val = d3.select("#select-histogram-box").property("value");
 
-    // List of groups = species here = value of the first column called group -> I show them on the X axis
-    var groups = d3.map(data, function(d){return(d.group)}).keys()
+var flip = true;
 
-    // Add X axis
-    var x = d3.scaleBand()
-        .domain(groups)
-        .range([0, width])
-        .padding([0.2]);
+loadData();
 
-    svg1.append("g")
-        .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x).tickSize(0));
+/*Loading the csv file into the data*/
+function loadData() {
+    d3.csv("data/histogram.csv").then(csv=> {
 
-    // Add Y axis
-    var y = d3.scaleLinear()
-        .domain([0, 40])
-        .range([ height, 0 ]);
-    svg1.append("g")
+        csv.forEach(function(d){
+            d.acousticness = +d.acousticness;
+            d.energy = +d.energy;
+            d.instrumentalness = +d.instrumentalness;
+            d.liveness = +d.liveness;
+            d.loudness = +d.loudness;
+            d.speechiness = +d.speechiness;
+            d.tempo = +d.tempo;
+            d.valence = +d.valence;
+            d.danceability = +d.danceability;
+
+        });
+
+        dataBar = csv;
+    });
+}
+
+function sortData(d,t){
+    if (t){
+        return d.sort((a,b)=> b.value - a.value);
+    } else {
+        return d.sort((a,b)=> a.value - b.value);
+    }
+}
+
+Object.defineProperty(window, 'dataBar', {
+    get: function() { return dataVal; },
+    set: function(value) {
+        dataVal = value;
+
+        updateVisualization(val, flip)
+    }
+});
+
+let x = d3.scaleBand()
+    .rangeRound([padding, width])
+    .paddingInner(0.25);
+
+let x1 = d3.scaleBand()
+    .rangeRound([padding, width])
+    .paddingInner(0.25);
+
+let y = d3.scaleLinear()
+    .range([height, 0]);
+
+let y1 = d3.scaleLinear()
+    .range([height, 0]);
+
+/* Updating the visualiztions */
+function updateVisualization(value) {
+
+    var dataFilter = dataBar.map(function(d){return {decade: d.decade, value: d[value]}});
+
+    sortedData = sortData(dataFilter,flip);
+
+
+    y.domain([0, d3.max(sortedData, d=> d.value)]);
+
+    x.domain(sortedData.map(d => d.decade));
+
+
+    /*Defining the svg and the axes to work*/
+
+    let bar = svg.selectAll("rect")
+        .data(sortedData);
+
+
+    var xAxis = svg.append("g")
+        .attr("class", "xaxis")
+        .attr("transform", "translate(0,"+ (height) +")");
+
+    var yAxis = svg.append("g")
+        .attr("class", "yaxis");
+
+    svg.append("text")
+        .attr("class", "title")
+        .attr("x", (padding))
+        .attr("y", padding-(margin.top / 2))
+        .attr("text-anchor", "middle")
+        .style("font-size", "12px")
+        .style("opacity", "0.8")
+        .text("Optional Title");
+
+    bar.exit().remove();
+
+    bar.enter().append("rect")
+        .merge(bar)
+        .transition()
+        .duration(2000)
+        .attr("class", "mybar")
+        .attr("fill", "#c75c7a")
+        .attr("stroke", "#c75c7a")
+        .attr("stroke-width", "2")
+        .attr("x", function (d) { return x(d.decade);} )
+        .attr("y", function(d) { return y(d.value); })
+        .attr("height", function(d) { return (height-y(d.value)); })
+        .attr("width", x.bandwidth());
+
+
+    svg.selectAll('.xaxis')
+        .style("opacity",0.5)
+        .transition()
+        .duration(800)
+        .call(d3.axisBottom(x));
+
+    svg.selectAll('.yaxis')
+        .style("opacity",0.5)
+        .transition()
+        .duration(800)
         .call(d3.axisLeft(y));
 
-    // Another scale for subgroup position?
-    var xSubgroup = d3.scaleBand()
-        .domain(subgroups)
-        .range([0, x.bandwidth()])
-        .padding([0.05])
+    svg.selectAll('.title')
+        .style("opacity",0.5)
+        .transition()
+        .duration(600)
+        .text(value)
 
-    // color palette = one color per subgroup
-    var color = d3.scaleOrdinal()
-        .domain(subgroups)
-        .range(['#e41a1c','#377eb8'])
+    /*This function changes the graph when the drop down menu is changed */
 
-    // Show the bars
-    svg1.append("g")
-        .selectAll("g")
-        // Enter in data = loop group per group
-        .data(data)
-        .enter()
-        .append("g")
-        .attr("transform", function(d) { return "translate(" + x(d.group) + ",0)"; })
-        .selectAll("rect")
-        .data(function(d) { return subgroups.map(function(key) { return {key: key, value: d[key]}; }); })
-        .enter().append("rect")
-        .attr("x", function(d) { return xSubgroup(d.key); })
-        .attr("y", function(d) { return y(d.value); })
-        .attr("width", xSubgroup.bandwidth())
-        .attr("height", function(d) { return height - y(d.value); })
-        .attr("fill", function(d) { return color(d.key); });
+    d3.select("#select-histogram-box").on("change", function(d){
+        var newData = d3.select("#select-histogram-box").property("value");
+        updateVisualization(newData);
+    });
 
-})
+    d3.select("#change-sort").on("click", function() {
+        flip = !flip;
+        updateVisualization(value);
+    });
+
+}
+
+

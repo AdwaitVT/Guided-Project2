@@ -61,6 +61,32 @@ class elementData {
             .attr("class", "tooltip")
             .attr("id", "artistTooltip")
 
+        // Add a legend
+        // define scale
+        vis.legendScale = d3.scaleBand()
+            .domain(['1960', '1970', '1980', '1990', '2000', '2010'])
+            .range([0, 255])
+
+        // define axis
+        vis.legendAxis = d3.axisLeft()
+            .scale(vis.legendScale)
+            .ticks(6)
+
+        vis.legend = vis.svg.append("g")
+            .attr('class', 'legend')
+            .attr('transform', `translate(${0}, ${vis.margin.top})`)
+            .call(vis.legendAxis)
+
+        vis.legend.selectAll('.bar')
+            .data(vis.charData)
+            .enter()
+            .append("rect")
+            .attr("x", 2)
+            .attr('y', (d,i)=> i*42.5)
+            .attr("width", 37.5)
+            .attr('height', 210/5)
+            .attr("fill", d => d.color)
+
 
         this.wrangleData();
     }
@@ -413,6 +439,11 @@ class elementData {
             .transition()
             .duration(1000)
             .text(function(d, index) {return (vis.acousticness.decade[index])})
+            .attr("fill", function(d, index){
+                if (vis.acousticness.decade[index]===1960){
+                    return "darkgrey"
+                }
+            })
             .attr("text-anchor", "middle")
             .attr("dx", circle_xPos)
             .attr("dy", function(d, index){return yPos*(index+adjIdx) + 5})
@@ -451,6 +482,11 @@ class elementData {
             .transition()
             .duration(1000)
             .text(function(d, index) {return (vis.danceability.decade[index])})
+            .attr("fill", function(d, index){
+                if (vis.danceability.decade[index]===1960){
+                    return 'darkgrey'
+                }
+            })
             .attr("text-anchor", "middle")
             .attr("dx", circle_xPos*2.15)
             .attr("dy", function(d, index){return yPos*(index+adjIdx) + 5})
@@ -512,6 +548,11 @@ class elementData {
             .transition()
             .duration(1000)
             .text(function(d, index) {return (vis.energy.decade[index])})
+            .attr("fill", function(d, index){
+                if (vis.energy.decade[index]===1960){
+                    return 'darkgrey'
+                }
+            })
             .attr("text-anchor", "middle")
             .attr("dx", circle_xPos*3.25)
             .attr("dy", function(d, index){return yPos*(index+adjIdx) + 5})
@@ -543,6 +584,11 @@ class elementData {
             .transition()
             .duration(1000)
             .text(function(d, index) {return (vis.instrument.decade[index])})
+            .attr("fill", function(d, index){
+                if (vis.instrument.decade[index]===1960){
+                    return "darkgrey"
+                }
+            })
             .attr("text-anchor", "middle")
             .attr("dx", circle_xPos*4.4)
             .attr("dy", function(d, index){return yPos*(index+adjIdx) + 5})
@@ -574,6 +620,11 @@ class elementData {
             .transition()
             .duration(1000)
             .text(function(d, index) {return (vis.liveness.decade[index])})
+            .attr("fill", function(d, index){
+                if (vis.liveness.decade[index]===1960){
+                    return "darkgrey"
+                }
+            })
             .attr("text-anchor", "middle")
             .attr("dx", circle_xPos*5.5)
             .attr("dy", function(d, index){return yPos*(index+adjIdx) + 5})
@@ -605,6 +656,11 @@ class elementData {
             .transition()
             .duration(1000)
             .text(function(d, index) {return (vis.loudness.decade[index])})
+            .attr("fill", function(d, index){
+                if (vis.loudness.decade[index]===1960){
+                    return "darkgrey"
+                }
+            })
             .attr("text-anchor", "middle")
             .attr("dx", circle_xPos*6.6)
             .attr("dy", function(d, index){return yPos*(index+adjIdx) + 5})
@@ -636,6 +692,11 @@ class elementData {
             .transition()
             .duration(1000)
             .text(function(d, index) {return (vis.speech.decade[index])})
+            .attr("fill", function(d, index){
+                if (vis.speech.decade[index]===1960){
+                    return "darkgrey"
+                }
+            })
             .attr("text-anchor", "middle")
             .attr("dx", circle_xPos*7.7)
             .attr("dy", function(d, index){return yPos*(index+adjIdx) + 5})
@@ -667,6 +728,11 @@ class elementData {
             .transition()
             .duration(1000)
             .text(function(d, index) {return (vis.tempo.decade[index])})
+            .attr("fill", function(d, index){
+                if (vis.tempo.decade[index]===1960){
+                    return "darkgrey"
+                }
+            })
             .attr("text-anchor", "middle")
             .attr("dx", circle_xPos*8.8)
             .attr("dy", function(d, index){return yPos*(index+adjIdx) + 5})
@@ -698,6 +764,11 @@ class elementData {
             .transition()
             .duration(1000)
             .text(function(d, index) {return (vis.valence.decade[index])})
+            .attr("fill", function(d, index){
+                if (vis.valence.decade[index]===1960){
+                    return "darkgrey"
+                }
+            })
             .attr("text-anchor", "middle")
             .attr("dx", circle_xPos*9.9)
             .attr("dy", function(d, index){return yPos*(index+adjIdx) + 5})
