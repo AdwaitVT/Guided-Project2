@@ -40,12 +40,16 @@
             </div>
 
             <div id="intro-vis" style="height:100vh;">
-                <div class="text" style="width:50%; align-content: left; margin:30px;">
-                    <p>
-                        The line chart on the left shows the changes in different acoustic features over the years. Click on a line to select that feature for the histogram on the right.
-                        The histogram will show the distribution of values for albums released in the selected decade.
-                    </p>
+                <div class="text" id="rising-insights-text" >
+                    <div class = "row justify-content-center">
+                        <p style="width: 50%">
+                            The line chart on the left shows the changes in the acoustic features over the years. The bar chart on the right shows the average values for each decade.
+                            <!--                        The line chart on the left shows the changes in different acoustic features over the years. Click on a line to select that feature for the histogram on the right.-->
+                            <!--                        The histogram will show the distribution of values for albums released in the selected decade.-->.
+                        </p>
+                    </div>
                 </div>
+
                 <div class="row vis" id="intro-lineChart" style="height: 60vh; width: 50%; float:left; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
                 </div>
                 <!-- Fade In: data-aos="fade-left"  -->
@@ -115,15 +119,21 @@
 <!--                </div>-->
 <!--            </div>-->
 <!--        </div>-->
+        <div class="text">
+            <div class = "row justify-content-center">
+                <p style="width: 50%">
+                    The top albums of a decade can also show the trends of the time. Hover over an album to show more information about its features.
+                </p>
+            </div>
+        </div>
         <div class="container" align="center" style="width: 100%">
             <h1>Top Albums of the Decades</h1><br>
             <div class="row vis" id="chartdiv"></div>
             <br><br>
             <div><br>
-                <p>The above tree map shows the top five ranked albums in each decade. The ranking is based on the popularity of the album in each
-                    decade.<br>
+                <p>The above tree map shows the top five ranked albums in each decade, based on the number of weeks it charted in that decade. <br>
                     The popularity of music has changed over the years, first the albums were popular based on the music and the albums sold. But now
-                    popularity is based on the views an album gets.
+                    popularity is based on the streams an album gets.
                 </p>
             </div>
         </div>
@@ -180,10 +190,9 @@
             <div class="row vis" id="compare-years" style="background-color: lightgrey; height: 75vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
                 Visualization to compare two years
             </div>
-
             <div class="container">
                 <div class = "row justify-content-center">
-                    <div class="text" style="height:100vh; width:50%; margin:50px">
+                    <div class="text" style="width:50%; margin:50px">
                         <p>
                             Even though trends in music evolved over time, some albums saw a resurgence in popularity a decade or more after they were released.
                             Choose an album to compare its features across the decades.
