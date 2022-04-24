@@ -1,14 +1,14 @@
 // SVG Drawing Area
-let margin = {top: 50,
+var margin = {top: 50,
     right: 60,
     bottom: 60,
     left: 60};
 //assigning width and height
-let width = 1020 - margin.left-margin.right,
+var width = 1020 - margin.left-margin.right,
     height = 550 - margin.top - margin.bottom;
 
 //svg declaration
-let svg = d3.select("#histogram")
+var svg = d3.select("#histogram")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -61,18 +61,18 @@ Object.defineProperty(window, 'dataBar', {
     }
 });
 
-let x = d3.scaleBand()
+var x = d3.scaleBand()
     .rangeRound([padding, width])
     .paddingInner(0.25);
 
-let x1 = d3.scaleBand()
+var x1 = d3.scaleBand()
     .rangeRound([padding, width])
     .paddingInner(0.25);
 
-let y = d3.scaleLinear()
+var y = d3.scaleLinear()
     .range([height, 0]);
 
-let y1 = d3.scaleLinear()
+var y1 = d3.scaleLinear()
     .range([height, 0]);
 
 /* Updating the visualiztions */
@@ -90,7 +90,7 @@ function updateVisualization(value) {
 
     /*Defining the svg and the axes to work*/
 
-    let bar = svg.selectAll("rect")
+    var bar = svg.selectAll("rect")
         .data(sortedData);
 
 

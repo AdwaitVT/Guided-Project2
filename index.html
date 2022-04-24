@@ -110,11 +110,21 @@
                     </div>
                 </div>
             </div>
-            <div class='container'>
-                <div class="row vis" id="top-albums" style="background-color: lightgrey; height: 75vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
-                    Visualization about top albums of each decade
-                </div>
-            </div>
+<!--            <div class='container'>-->
+<!--                <div class="row vis" id="top-albums" style="background-color: lightgrey; height: 75vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">-->
+<!--                    Visualization about top albums of each decade-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="container" align="center" style="width: 100%">
+            <h1>Top Ranked Albums in Different Decades</h1><br>
+            <div id="chartdiv"></div>
+            <br><br>
+            <div><b>Description:</b><br>
+                <p>The above tree map shows the top five ranked albums in each decade. The ranking is based on the popularity of the album in each
+                    decade.<br>
+                    The popularity of music has changed over the years, first the albums were popular based on the music and the albums sold. But now
+                    popularity is basd on the views an album gets.</p></div>
         </div>
 
     </section>
@@ -235,7 +245,11 @@
 
 
 <!-- embedding JS libraries -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="//cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="//cdn.amcharts.com/lib/5/hierarchy.js"></script>
+    <script src="//cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
 <!-- d3 -->
 <script src="https://d3js.org/d3.v7.min.js"></script>
