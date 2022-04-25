@@ -4,8 +4,8 @@ var margin = {top: 50,
     bottom: 60,
     left: 60};
 //assigning width and height
-var width = 700 - margin.left-margin.right,
-    height = 550 - margin.top - margin.bottom;
+var width = document.getElementById("intro-histogram").getBoundingClientRect().width - margin.left-margin.right,
+    height = document.getElementById("intro-histogram").getBoundingClientRect().height - margin.top - margin.bottom;
 
 //svg declaration
 var svg = d3.select("#histogram")

@@ -110,8 +110,8 @@ class AlbumComparisons{
 
         //vis.selectedAlbum = (outlierAlbumInfo.selectedAlbum || vis.initialAlbum);
 
-        vis.releaseDecade = parseInt(parseInt(vis.selectedAlbum.release_date)/10) * 10;
-        vis.chartDecade = parseInt(parseInt(vis.selectedAlbum.chart_date)/10) * 10;
+        vis.releaseDecade = parseInt(parseInt(Math.floor(vis.selectedAlbum.release_date))/10) * 10;
+        vis.chartDecade = parseInt(parseInt(Math.floor(vis.selectedAlbum.chart_date))/10) * 10;
 
 
         let chartVal;
