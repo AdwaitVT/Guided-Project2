@@ -1,0 +1,210 @@
+/*!
+ * fullPage 3.1.2
+ * https://github.com/alvarotrigo/fullPage.js
+ *
+ * @license GPLv3 for open source use only
+ * or Fullpage Commercial License for commercial use
+ * http://alvarotrigo.com/fullPage/pricing/
+ *
+ * Copyright (C) 2018 http://alvarotrigo.com/fullPage - A project by Alvaro Trigo
+ */
+html.fp-enabled,
+.fp-enabled body {
+    margin: 0;
+    padding: 0;
+    overflow:hidden;
+
+    /*Avoid flicker on slides transitions for mobile phones #336 */
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.fp-section {
+    position: relative;
+    -webkit-box-sizing: border-box; /* Safari<=5 Android<=3 */
+    -moz-box-sizing: border-box; /* <=28 */
+    box-sizing: border-box;
+}
+.fp-slide {
+    float: left;
+}
+.fp-slide, .fp-slidesContainer {
+    height: 100%;
+    display: block;
+}
+.fp-slides {
+    z-index:1;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    -webkit-transition: all 0.3s ease-out; /* Safari<=6 Android<=4.3 */
+    transition: all 0.3s ease-out;
+}
+.fp-section.fp-table, .fp-slide.fp-table {
+    display: table;
+    table-layout:fixed;
+    width: 100%;
+}
+.fp-tableCell {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+}
+.fp-slidesContainer {
+    float: left;
+    position: relative;
+}
+
+
+/*Only display content to screen readers*/
+.fp-sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+#title-text{
+    font-size: 50px;
+    text-align: center;
+    padding: 25vh 0vh 50px 0vh;
+}
+
+
+#subtitle{
+    font-size: 16px;
+    text-align: center;
+}
+
+.text{
+    text-align: center;
+    padding: 25vh 0vh 50px 0vh;
+    font-size: 20px;
+
+}
+.vis{
+    margin-top: 5px;
+    padding: 20px;
+}
+
+/*
+Title
+ */
+h1 {
+    font-family: "Niagara Engraved";
+    font-size: 100px;
+    position: relative;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top:  10px;
+    background: 100%;
+    background-color: powderblue;
+}
+.decadeButtons {
+    position: relative;
+    top: 25px;
+    background-color: powderblue;
+    border: 2px black;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 50%;
+}
+
+.buttons{
+    font-family: Forte;
+}
+
+.textDisp{
+    font-family: Georgia;
+}
+
+.dispArtist{
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+}
+
+/*
+Title
+ */
+
+.decadeButtons {
+    position: relative;
+    top: 25px;
+    background-color: powderblue;
+    border: 2px black;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 50%;
+}
+
+
+.textDisp{
+    font-family: Georgia;
+}
+
+
+.artist-row{
+    position: relative;
+    display: inline-block;
+    font-family: Georgia;
+    margin-left: 10%;
+}
+
+#img1{
+    position: relative;
+    align-content: center;
+    height: 12%;
+    width: 12%;
+    margin-top: 2%;
+}
+#img2{
+    position: relative;
+    align-content: center;
+    height: 15%;
+    width: 15%;
+    margin-top: 2%;
+}
+#img3{
+    position: relative;
+    align-content: center;
+    height: 20%;
+    width: 20%;
+    margin-top: 2%;
+}
+#img4{
+    position: relative;
+    align-content: center;
+    height: 15%;
+    width: 15%;
+    margin-top: 2%;
+}
+#img5{
+    position: relative;
+    align-content: center;
+    height: 12%;
+    width: 12%;
+    margin-top: 2%;
+}
+
+.decadeButtons:focus{
+    background-color: indianred;
+}
+
+#chartdiv {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+    width: 100%;
+    height: 400px;
+}
