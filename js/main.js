@@ -147,7 +147,7 @@ function loadData() {
     }
 
 
-
+    treemap = new TreeMap("treemap");
 
 
 
