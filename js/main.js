@@ -90,7 +90,6 @@ function loadData() {
 
     d3.csv("data/decade_avgs.csv").then(csv=> {
         releaseYear = new AlbumComparisons("releaseYearBars", csv, "release");
-        releaseYear1 = new AlbumComparisons("releaseYearBars1", csv, "release");
         chartYear = new AlbumComparisons("chartYearBars", csv, "chart");
     });
 
