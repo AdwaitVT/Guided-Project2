@@ -4,7 +4,8 @@ let introLineChart,
     outlierAlbumInfo,
     releaseYear,
     chartYear,
-    mainMessage;
+    mainMessage,
+    treeMap;
 
 let parseDate = d3.timeParse("%Y");
 let parseNum = d3.format(".4f");
@@ -146,7 +147,7 @@ function loadData() {
     }
 
 
-    treemap = new TreeMap("treemap");
+
 
 
 

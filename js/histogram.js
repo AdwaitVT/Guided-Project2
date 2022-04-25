@@ -4,7 +4,7 @@ var margin = {top: 50,
     bottom: 60,
     left: 60};
 //assigning width and height
-var width = 1020 - margin.left-margin.right,
+var width = 700 - margin.left-margin.right,
     height = 550 - margin.top - margin.bottom;
 
 //svg declaration
