@@ -10,7 +10,7 @@ let parseDate = d3.timeParse("%Y");
 let parseNum = d3.format(".4f");
 
 let yearlyAvgs;
-
+let treemap;
 
 
 // load data using promises
@@ -146,7 +146,7 @@ function loadData() {
     }
 
 
-
+    treemap = new TreeMap("treemap");
 
 
 
