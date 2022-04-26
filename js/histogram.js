@@ -25,6 +25,7 @@ class Histogram{
         vis.x = d3.scaleLinear()
             .domain([0, 1])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
             .range([vis.margin.left, vis.width]);
+
         vis.svg.append("g")
             .attr("class", "x-axis")
             .attr("transform", "translate(0," + vis.height + ")")

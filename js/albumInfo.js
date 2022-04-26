@@ -17,7 +17,7 @@ class AlbumInfo{
         vis.sortBy = "release_date";
         vis.decade = 1960;
 
-        vis.margin = {top: 20, right:50 , bottom: 30, left: 0};
+        vis.margin = {top: 20, right:50 , bottom: 30, left: 20};
         vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
         vis.height = document.getElementById(vis.parentElement).getBoundingClientRect().height - vis.margin.top - vis.margin.bottom;
 

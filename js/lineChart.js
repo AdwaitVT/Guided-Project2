@@ -24,12 +24,12 @@ class LineChart{
 
         vis.x = d3.scaleTime()
             .domain(d3.extent(vis.data, function(d) { return d.chart_date; }))
-            .range([vis.margin.left, vis.width - vis.margin.left]);
+            .range([vis.margin.left, vis.width]);
 
 
         vis.y = d3.scaleLinear()
             .domain([0,1])
-            .range([vis.height, vis.margin.bottom]);
+            .range([vis.height, vis.margin.top]);
 
 
         vis.xAxis =  vis.svg.append("g")
@@ -85,7 +85,7 @@ class LineChart{
 
         vis.svg.append("text")
             .attr("x", vis.width/2 - 150)
-            .attr("y", 30)
+            .attr("y", 15)
             .text("Change in Sounds over Time")
 
 
