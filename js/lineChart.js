@@ -12,7 +12,7 @@ class LineChart{
     initVis(){
         let vis = this;
 
-        vis.margin = {top: 20, right: 60, bottom: 20, left: 50};
+        vis.margin = {top: 20, right: 50, bottom: 20, left: 50};
         vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
         vis.height = document.getElementById(vis.parentElement).getBoundingClientRect().height - vis.margin.top - vis.margin.bottom;
 
@@ -52,7 +52,9 @@ class LineChart{
         vis.svg.append("text")
             .attr("class", "y label")
             .attr("text-anchor", "end")
-            .attr("y", 50)
+            .attr("x", -(vis.height/2))
+            .attr("y", vis.margin.left - 40)
+            .attr("font-size", "14px")
             .attr("transform", "rotate(-90)")
             .text("Value");
 
@@ -78,6 +80,7 @@ class LineChart{
             .attr("width", vis.legendSize)
             .attr("height", vis.legendSize)
             .style("fill", function(d, i){ return vis.colors[i]})
+
 
 
         vis.svg.append("text")
@@ -123,7 +126,6 @@ class LineChart{
         vis.svg.select(".x-axis").call(d3.axisBottom(vis.x));
         vis.svg.select(".y-axis").call(d3.axisLeft(vis.y));
 
-
         vis.legend.selectAll(".labels")
             .data(vis.displayData)
             .enter()
@@ -134,6 +136,7 @@ class LineChart{
             .text(function(d, i){
                 return vis.attributes[i];
             });
+
 
 
 
@@ -156,7 +159,7 @@ class LineChart{
                         .style("top", event.pageY + "px")
                         .html(`
                          <div style="border: thin solid grey; border-radius: 5px; background: lightgrey; padding: 5px">
-                             <h4 style="font-size: 14px">${vis.attributes[i] + ": this is the definition"}</h4>
+                             <h4 style="font-size: 14px">${vis.attributes[i]}</h4>
 
                          </div>`
                         );
@@ -164,7 +167,7 @@ class LineChart{
                 .on("click", function(){
                     vis.selectedAttribute = vis.attributes[i];
                     vis.attributeColor = vis.colors[i];
-                    histogram.wrangleData(1960);
+                    histogram.wrangleData(histogram.decade);
                 })
                 .on('mouseout', function(){
                     d3.select(this)

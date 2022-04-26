@@ -21,7 +21,7 @@ loadData();
 function loadData() {
     d3.json("/data/histogram.json", (data) => {
     }).then(data => {
-        histogram = new Histogram("intro-histogram", data);
+        histogram = new Histogram("histogram", data);
     });
 
     d3.csv("data/artistsByDecade_centerOrdered.csv", (row) => {
@@ -85,7 +85,7 @@ function loadData() {
         });
 
         yearlyAvgs = csv;
-        introLineChart = new LineChart("intro-lineChart", csv);
+        introLineChart = new LineChart("lineChart", csv);
 
     });
 
@@ -127,8 +127,9 @@ function loadData() {
 
     }
     document.getElementById("histogram-decade").onchange = function() {
+        histogram.decade = this.value;
 
-        histogram.wrangleData(this.value)
+        histogram.wrangleData(histogram.decade)
 
     }
 
@@ -153,14 +154,31 @@ function loadData() {
 
 
 
-
-
-
-
-
-
-
 }
+
+$(document).ready(function () {
+    var fv = $("#fullview").fullView({
+        //Navigation
+        dots: true,
+        dotsPosition: "right",
+        dotsTooltips: true,
+
+        //Scrolling
+        easing: "swing",
+        backToTop: true,
+
+        // Accessibility
+        keyboardScrolling: true,
+
+        // Callback
+        onScrollEnd: function (currentView, preView) {
+            console.log("Current", currentView);
+            console.log("Previus", preView);
+        }
+    });
+});
+
+
 
 
 

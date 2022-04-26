@@ -30,10 +30,28 @@ class Histogram{
             .attr("transform", "translate(0," + vis.height + ")")
             .call(d3.axisBottom(vis.x));
 
+        vis.svg.append("text")
+            .attr("class", "x label")
+            .attr("text-anchor", "end")
+            .attr("x", vis.width/2)
+            .attr("y", vis.height + 35)
+            .text("Value");
+
+        vis.svg.append("text")
+            .attr("class", "y label")
+            .attr("text-anchor", "end")
+            .attr("x", -(vis.height/2))
+            .attr("y", vis.margin.left - 40)
+            .attr("font-size", "14px")
+            .attr("transform", "rotate(-90)")
+            .text("Count");
+
+        vis.decade = 1960;
 
 
 
-        vis.wrangleData(1960);
+
+        vis.wrangleData(vis.decade);
     }
 
     wrangleData(decade){
