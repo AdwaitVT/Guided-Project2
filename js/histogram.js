@@ -1,161 +1,91 @@
-// SVG Drawing Area
-var margin = {top: 50,
-    right: 60,
-    bottom: 60,
-    left: 60};
-//assigning width and height
-var width = document.getElementById("intro-histogram").getBoundingClientRect().width - margin.left-margin.right,
-    height = document.getElementById("intro-histogram").getBoundingClientRect().height - margin.top - margin.bottom;
+class Histogram{
 
-//svg declaration
-var svg = d3.select("#histogram")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    constructor(parentElement, data) {
+        this.parentElement = parentElement;
+        this.data = data;
+        this.displayData = {};
 
-var padding = 10;
-
-var val = d3.select("#select-histogram-box").property("value");
-
-var flip = true;
-
-loadData();
-
-/*Loading the csv file into the data*/
-function loadData() {
-    d3.csv("data/histogram.csv").then(csv=> {
-
-        csv.forEach(function(d){
-            d.acousticness = +d.acousticness;
-            d.energy = +d.energy;
-            d.instrumentalness = +d.instrumentalness;
-            d.liveness = +d.liveness;
-            d.loudness = +d.loudness;
-            d.speechiness = +d.speechiness;
-            d.tempo = +d.tempo;
-            d.valence = +d.valence;
-            d.danceability = +d.danceability;
-
-        });
-
-        dataBar = csv;
-    });
-}
-
-function sortData(d,t){
-    if (t){
-        return d.sort((a,b)=> b.value - a.value);
-    } else {
-        return d.sort((a,b)=> a.value - b.value);
+        this.initVis();
     }
-}
 
-Object.defineProperty(window, 'dataBar', {
-    get: function() { return dataVal; },
-    set: function(value) {
-        dataVal = value;
+    initVis(){
+        let vis = this;
 
-        updateVisualization(val, flip)
+        vis.margin = {top: 20, right: 50, bottom: 20, left: 50};
+        vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
+        vis.height = document.getElementById(vis.parentElement).getBoundingClientRect().height - vis.margin.top - vis.margin.bottom;
+
+        // init drawing area
+        vis.svg = d3.select("#" + vis.parentElement).append("svg")
+            .attr("width", vis.width + vis.margin.left + vis.margin.right)
+            .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
+            .attr('transform', `translate (${vis.margin.left}, ${vis.margin.top})`);
+
+        // X axis: scale and draw:
+        vis.x = d3.scaleLinear()
+            .domain([0, 1])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
+            .range([vis.margin.left, vis.width]);
+        vis.svg.append("g")
+            .attr("class", "x-axis")
+            .attr("transform", "translate(0," + vis.height + ")")
+            .call(d3.axisBottom(vis.x));
+
+
+
+
+        vis.wrangleData(1960);
     }
-});
 
-var x = d3.scaleBand()
-    .rangeRound([padding, width])
-    .paddingInner(0.25);
+    wrangleData(decade){
+        let vis = this;
 
-var x1 = d3.scaleBand()
-    .rangeRound([padding, width])
-    .paddingInner(0.25);
+        vis.attribute = introLineChart.selectedAttribute;
 
-var y = d3.scaleLinear()
-    .range([height, 0]);
+        vis.decadeData = vis.data[decade];
 
-var y1 = d3.scaleLinear()
-    .range([height, 0]);
+        vis.histogram = d3.histogram()
+            .value(function(d) { return d; })   // I need to give the vector of value
+            .domain(vis.x.domain())  // then the domain of the graphic
+            .thresholds(vis.x.ticks(10)); // then the numbers of bins
 
-/* Updating the visualiztions */
-function updateVisualization(value) {
-
-    var dataFilter = dataBar.map(function(d){return {decade: d.decade, value: d[value]}});
-
-    sortedData = sortData(dataFilter,flip);
+        vis.bins = vis.histogram(vis.decadeData[vis.attribute]);
 
 
-    y.domain([0, d3.max(sortedData, d=> d.value)]);
-
-    x.domain(sortedData.map(d => d.decade));
 
 
-    /*Defining the svg and the axes to work*/
 
-    var bar = svg.selectAll("rect")
-        .data(sortedData);
+        vis.updateVis();
+    }
 
-
-    var xAxis = svg.append("g")
-        .attr("class", "xaxis")
-        .attr("transform", "translate(0,"+ (height) +")");
-
-    var yAxis = svg.append("g")
-        .attr("class", "yaxis");
-
-    svg.append("text")
-        .attr("class", "title")
-        .attr("x", (padding))
-        .attr("y", padding-(margin.top / 2))
-        .attr("text-anchor", "middle")
-        .style("font-size", "12px")
-        .style("opacity", "0.8")
-        .text("Optional Title");
-
-    bar.exit().remove();
-
-    bar.enter().append("rect")
-        .merge(bar)
-        .transition()
-        .duration(2000)
-        .attr("class", "mybar")
-        .attr("fill", "#c75c7a")
-        .attr("stroke", "#c75c7a")
-        .attr("stroke-width", "2")
-        .attr("x", function (d) { return x(d.decade);} )
-        .attr("y", function(d) { return y(d.value); })
-        .attr("height", function(d) { return (height-y(d.value)); })
-        .attr("width", x.bandwidth());
+    updateVis(){
+        let vis = this;
 
 
-    svg.selectAll('.xaxis')
-        .style("opacity",0.5)
-        .transition()
-        .duration(800)
-        .call(d3.axisBottom(x));
 
-    svg.selectAll('.yaxis')
-        .style("opacity",0.5)
-        .transition()
-        .duration(800)
-        .call(d3.axisLeft(y));
+        vis.svg.selectAll(".y-axis").remove();
+        vis.svg.selectAll("rect").remove();
 
-    svg.selectAll('.title')
-        .style("opacity",0.5)
-        .transition()
-        .duration(600)
-        .text(value)
+        vis.y = d3.scaleLinear()
+            .range([vis.height, vis.margin.top])
+            .domain([0, d3.max(vis.bins, function(d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
 
-    /*This function changes the graph when the drop down menu is changed */
+        vis.svg.append("g")
+            .attr("class", "y-axis")
+            .attr("transform", `translate(${vis.margin.left},0)`)
+            .call(d3.axisLeft(vis.y));
 
-    d3.select("#select-histogram-box").on("change", function(d){
-        var newData = d3.select("#select-histogram-box").property("value");
-        updateVisualization(newData);
-    });
+        vis.svg.selectAll("rect")
+            .data(vis.bins)
+            .enter()
+            .append("rect")
+            .attr("x", 1)
+            .attr("transform", function(d) { return "translate(" + vis.x(d.x0) + "," + vis.y(d.length) + ")"; })
+            .attr("width", function(d) { return vis.x(d.x1) - vis.x(d.x0) - 1 ; })
+            .attr("height", function(d) { return vis.height - vis.y(d.length); })
+            .style("fill", introLineChart.attributeColor);
 
-    d3.select("#change-sort").on("click", function() {
-        flip = !flip;
-        updateVisualization(value);
-    });
+
+
+    }
 
 }
-
-

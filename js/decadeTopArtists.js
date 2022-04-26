@@ -63,15 +63,15 @@ class ArtistData {
 
         selectedButton = +parseFloat(selectedButton)
 
-        console.log("display data", vis.artistData)
-        console.log("button val", selectedButton)
+        //console.log("display data", vis.artistData)
+        //console.log("button val", selectedButton)
 
         if (isNaN(selectedButton)){
             selectedButton = 1960
         }
 
         for (let ii=0; ii < vis.artistData.length; ii++){
-            //console.log(vis.artistData[ii].Decade) === selectedButton
+            ////console.log(vis.artistData[ii].Decade) === selectedButton
             //console.log("decade ", vis.artistData[ii].Decade)
 
             if (vis.artistData[ii].Decade === selectedButton){
@@ -85,7 +85,7 @@ class ArtistData {
 
         }
 
-        console.log("decade data: ", vis.displayData)
+        //console.log("decade data: ", vis.displayData)
         // Update the visualization
         vis.updateVis(selectedButton);
     }
@@ -102,7 +102,7 @@ class ArtistData {
 
 
 
-        console.log(selectedButton)
+        //console.log(selectedButton)
         // append text to dispDecade
         //vis.dispDecade.text("Top 3 artists of " + selectedButton)
 
@@ -119,7 +119,7 @@ class ArtistData {
             .attr("class", "artistName")
             .merge(vis.dataRow.select(".artistName"))
             .text(function(d){
-                console.log("here", d)
+                //console.log("here", d)
                 return d.Artists
             })
             .attr("x", function(d, index){return ((vis.width - vis.margin.left - vis.margin.right)*index/4.55)}) //vis.margin.left*index*6
@@ -313,7 +313,7 @@ class ArtistData {
             document.getElementById("img1").src = "artist_imgs/gunsnroses.jpg"
             document.getElementById("img5").src = "artist_imgs/tom_petty.jpg"
         }else{
-            console.log("no decade selected")
+            //console.log("no decade selected")
         }
 
 

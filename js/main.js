@@ -5,19 +5,25 @@ let introLineChart,
     releaseYear,
     chartYear,
     mainMessage,
-    treeMap;
+    treeMap,
+    histogram;
 
 let parseDate = d3.timeParse("%Y");
 let parseNum = d3.format(".4f");
 
 let yearlyAvgs;
-let treemap;
 
+treemap = new TreeMap("treemap");
 
 // load data using promises
 loadData();
 
 function loadData() {
+    d3.json("/data/histogram.json", (data) => {
+    }).then(data => {
+        histogram = new Histogram("intro-histogram", data);
+    });
+
     d3.csv("data/artistsByDecade_centerOrdered.csv", (row) => {
         if (row !== "columns") {
             row.Count = +parseFloat(row.Count)
@@ -39,8 +45,6 @@ function loadData() {
     }).then(data => {
 
         let decades = ['1960s', '1970s', '1980s', '1990s', '2000s', '2010s'];
-        console.log('data', data)
-
         decadeArtistData = new ArtistData("top-artists", decades, data)
 
     });
@@ -81,8 +85,6 @@ function loadData() {
         });
 
         yearlyAvgs = csv;
-        console.log(yearlyAvgs[0]);
-
         introLineChart = new LineChart("intro-lineChart", csv);
 
     });
@@ -112,10 +114,8 @@ function loadData() {
 
     }).then(data => {
 
-        let elements = ['Acoutsticness', 'Danceability', 'Duration (ms)', 'Energy', 'Instrumentalness','Liveness',
+        let elements = ['Acousticness', 'Danceability', 'Duration (ms)', 'Energy', 'Instrumentalness','Liveness',
             'Loudness', 'Speechiness', 'Tempo', 'Valence']
-
-        console.log('data', data)
 
         mainMessage = new elementData("mainMessage", elements, data)
 
@@ -124,6 +124,11 @@ function loadData() {
     document.getElementById("sort-by").onchange = function() {
 
         mainMessage.wrangleData(this.value)
+
+    }
+    document.getElementById("histogram-decade").onchange = function() {
+
+        histogram.wrangleData(this.value)
 
     }
 
@@ -147,7 +152,6 @@ function loadData() {
     }
 
 
-    treemap = new TreeMap("treemap");
 
 
 

@@ -103,7 +103,7 @@ class elementData {
         if (leastMostVal === undefined){
             leastMostVal = "most"
         }
-        console.log(leastMostVal)
+        //console.log(leastMostVal)
 
         vis.acousticness = {};
         vis.danceability = {};
@@ -122,17 +122,17 @@ class elementData {
         let acousticSort = tempData.sort((a,b)=>d3.descending(a.acousticness,b.acousticness))
 
         if (leastMostVal === "most"){
-            //console.log("entered here")
+            ////console.log("entered here")
             acousticSort = acousticSort.slice(0,2)
         }else{
-            //console.log("what about here?")
+            ////console.log("what about here?")
             acousticSort = acousticSort.reverse()
             acousticSort = acousticSort.slice(0,2)
         }
 
 
-        console.log("acoustic sort", acousticSort)
-        //console.log("post charData", vis.charData)
+        //console.log("acoustic sort", acousticSort)
+        ////console.log("post charData", vis.charData)
 
         acousticSort.forEach(function(d, index){
             if (index===0){
@@ -147,17 +147,17 @@ class elementData {
                 vis.acousticness["value"].push(d.acousticness)
             }
         })
-        console.log("acoutsticness: ", vis.acousticness)
+        //console.log("acoutsticness: ", vis.acousticness)
 
         // DANCEABILITY
         let danceSort = tempData.sort((a,b)=>d3.descending(a.danceability,b.danceability))
-        console.log("danceability sort", danceSort)
+        //console.log("danceability sort", danceSort)
 
         if (leastMostVal === "most"){
-            //console.log("entered here")
+            ////console.log("entered here")
             danceSort = danceSort.slice(0,2)
         }else{
-            //console.log("what about here?")
+            ////console.log("what about here?")
             danceSort = danceSort.reverse()
             danceSort = danceSort.slice(0,2)
         }
@@ -175,11 +175,11 @@ class elementData {
                 vis.danceability["value"].push(d.danceability)
             }
         })
-        console.log("danceability: ", vis.danceability)
+        //console.log("danceability: ", vis.danceability)
 
         // DURATION
         // let timeSort = vis.charData.sort((a,b)=>d3.descending(a.duration_ms,b.duration_ms))
-        // console.log("duration sort", timeSort)
+        // //console.log("duration sort", timeSort)
         //
         // timeSort.forEach(function(d, index){
         //     if (index===0){
@@ -192,17 +192,17 @@ class elementData {
         //         vis.duration["value"].push(d.duration_ms)
         //     }
         // })
-        // console.log("duration_ms: ", vis.duration)
+        // //console.log("duration_ms: ", vis.duration)
 
         // ENERGY
         let energySort = tempData.sort((a,b)=>d3.descending(a.energy,b.energy))
-        console.log("energy sort", energySort)
+        //console.log("energy sort", energySort)
 
         if (leastMostVal === "most"){
-            //console.log("entered here")
+            ////console.log("entered here")
             energySort = energySort.slice(0,2)
         }else{
-            //console.log("what about here?")
+            ////console.log("what about here?")
             energySort = energySort.reverse()
             energySort = energySort.slice(0,2)
         }
@@ -221,17 +221,17 @@ class elementData {
             }
         })
 
-        console.log("energy: ", vis.energy)
+        //console.log("energy: ", vis.energy)
 
         // INSTRUMENTALNESS
         let instrumentSort = tempData.sort((a,b)=>d3.descending(a.instrumentalness,b.instrumentalness))
-        console.log("instrument sort", instrumentSort)
+        //console.log("instrument sort", instrumentSort)
 
         if (leastMostVal === "most"){
-            //console.log("entered here")
+            ////console.log("entered here")
             instrumentSort = instrumentSort.slice(0,2)
         }else{
-            //console.log("what about here?")
+            ////console.log("what about here?")
             instrumentSort = instrumentSort.reverse()
             instrumentSort = instrumentSort.slice(0,2)
         }
@@ -249,17 +249,17 @@ class elementData {
                 vis.instrument["value"].push(d.instrumentalness)
             }
         })
-        console.log("instrumentalness: ", vis.instrument)
+        //console.log("instrumentalness: ", vis.instrument)
 
         // LIVENESS
         let liveSort = tempData.sort((a,b)=>d3.descending(a.liveness,b.liveness))
-        console.log("liveness sort", liveSort)
+        //console.log("liveness sort", liveSort)
 
         if (leastMostVal === "most"){
-            //console.log("entered here")
+            ////console.log("entered here")
             liveSort = liveSort.slice(0,2)
         }else{
-            //console.log("what about here?")
+            ////console.log("what about here?")
             liveSort = liveSort.reverse()
             liveSort = liveSort.slice(0,2)
         }
@@ -277,17 +277,17 @@ class elementData {
                 vis.liveness["value"].push(d.liveness)
             }
         })
-        console.log("liveness: ", vis.liveness)
+        //console.log("liveness: ", vis.liveness)
 
         // LOUDNESS
         let loudSort = tempData.sort((a,b)=>d3.descending(a.loudness,b.loudness))
-        console.log("loudness sort", loudSort)
+        //console.log("loudness sort", loudSort)
 
         if (leastMostVal === "most"){
-            //console.log("entered here")
+            ////console.log("entered here")
             loudSort = loudSort.slice(0,2)
         }else{
-            //console.log("what about here?")
+            ////console.log("what about here?")
             loudSort = loudSort.reverse()
             loudSort = loudSort.slice(0,2)
         }
@@ -305,17 +305,17 @@ class elementData {
                 vis.loudness["value"].push(d.loudness)
             }
         })
-        console.log("loudness: ", vis.loudness)
+        //console.log("loudness: ", vis.loudness)
 
         // SPEECHINESS
         let speechSort = tempData.sort((a,b)=>d3.descending(a.speechiness,b.speechiness))
-        console.log("speechiness sort", speechSort)
+        //console.log("speechiness sort", speechSort)
 
         if (leastMostVal === "most"){
-            //console.log("entered here")
+            ////console.log("entered here")
             speechSort = speechSort.slice(0,2)
         }else{
-            //console.log("what about here?")
+            ////console.log("what about here?")
             speechSort = speechSort.reverse()
             speechSort = speechSort.slice(0,2)
         }
@@ -333,17 +333,17 @@ class elementData {
                 vis.speech["value"].push(d.speechiness)
             }
         })
-        console.log("speechiness: ", vis.speech)
+        //console.log("speechiness: ", vis.speech)
 
         // TEMPO
         let tempoSort = tempData.sort((a,b)=>d3.descending(a.tempo,b.tempo))
-        console.log("tempo sort", tempoSort)
+        //console.log("tempo sort", tempoSort)
 
         if (leastMostVal === "most"){
-            //console.log("entered here")
+            ////console.log("entered here")
             tempoSort = tempoSort.slice(0,2)
         }else{
-            //console.log("what about here?")
+            ////console.log("what about here?")
             tempoSort = tempoSort.reverse()
             tempoSort = tempoSort.slice(0,2)
         }
@@ -361,17 +361,17 @@ class elementData {
                 vis.tempo["value"].push(d.tempo)
             }
         })
-        console.log("tempo: ", vis.tempo)
+        //console.log("tempo: ", vis.tempo)
 
         // VALENCE
         let valenceSort = tempData.sort((a,b)=>d3.descending(a.valence,b.valence))
-        console.log("valence sort", valenceSort)
+        //console.log("valence sort", valenceSort)
 
         if (leastMostVal === "most"){
-            //console.log("entered here")
+            ////console.log("entered here")
             valenceSort = valenceSort.slice(0,2)
         }else{
-            //console.log("what about here?")
+            ////console.log("what about here?")
             valenceSort = valenceSort.reverse()
             valenceSort = valenceSort.slice(0,2)
         }
@@ -389,7 +389,7 @@ class elementData {
                 vis.valence["value"].push(d.valence)
             }
         })
-        console.log("valence: ", vis.valence)
+        //console.log("valence: ", vis.valence)
 
 
         vis.updateVis();

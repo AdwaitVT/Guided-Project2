@@ -4,6 +4,7 @@ class LineChart{
         this.parentElement = parentElement;
         this.data = data;
         this.displayData = [];
+        this.selectedAttribute = "acousticness";
 
         this.initVis()
     }
@@ -11,7 +12,7 @@ class LineChart{
     initVis(){
         let vis = this;
 
-        vis.margin = {top: 20, right: 40, bottom: 20, left: 70};
+        vis.margin = {top: 20, right: 60, bottom: 20, left: 50};
         vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
         vis.height = document.getElementById(vis.parentElement).getBoundingClientRect().height - vis.margin.top - vis.margin.bottom;
 
@@ -61,6 +62,7 @@ class LineChart{
 
         vis.colors = ['#e41a1c','#ff7f00', '#377eb8','#4daf4a','#984ea3', '#030300','#ffd919']
         vis.legendSize = 10;
+        vis.attributeColor = '#e41a1c';
 
         vis.legend = vis.svg.append("g")
             .attr('class', 'legend');
@@ -154,10 +156,15 @@ class LineChart{
                         .style("top", event.pageY + "px")
                         .html(`
                          <div style="border: thin solid grey; border-radius: 5px; background: lightgrey; padding: 5px">
-                             <h4 style="font-size: 14px">${vis.attributes[i]}</h4>
+                             <h4 style="font-size: 14px">${vis.attributes[i] + ": this is the definition"}</h4>
 
                          </div>`
                         );
+                })
+                .on("click", function(){
+                    vis.selectedAttribute = vis.attributes[i];
+                    vis.attributeColor = vis.colors[i];
+                    histogram.wrangleData(1960);
                 })
                 .on('mouseout', function(){
                     d3.select(this)
