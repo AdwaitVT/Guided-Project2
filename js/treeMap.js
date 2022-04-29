@@ -22,61 +22,131 @@ class TreeMap {
                 {
                     name: "Albums of 1961 -1970",
                     children: [
-                        {name: "Hello, Dolly!", value: 1},
-                        {name: "A Hard Day's Night (Soundtrack)", value: 1},
-                        {name: "People", value: 1},
-                        {name: "Out Of Our Heads", value: 1},
-                        {name: "Whipped Cream & Other Delights", value: 1}
+                        {name: "Hello, Dolly!\n\n" +
+                                "Rank : 1\n" +
+                                "Acousticness: 0.66\n" +
+                                "Danceability:  0.55\n" +
+                                "Energy:  0.55\n" +
+                                "Instrumentalness: 0.55  \n" +
+                                "Liveness:  0.85\n" +
+                                "Loudness:  0.35\n" +
+                                "Speechiness:  0.58\n" +
+                                "Tempo:  0.14", value: 5},
+                        {name: "A Hard Day's Night (Soundtrack)\n\n" +
+                                "Rank : 2\n" +
+                                "Acousticness: 0.66\n" +
+                                "Danceability:  0.55\n" +
+                                "Energy:  0.55\n" +
+                                "Instrumentalness: 0.55  \n" +
+                                "Liveness:  0.85\n" +
+                                "Loudness:  0.35\n" +
+                                "Speechiness:  0.58\n" +
+                                "Tempo:  0.14", value: 4},
+                        {name: "People\n\n" +
+                                "Rank : 3\n" +
+                                "Acousticness: 0.66\n" +
+                                "Danceability:  0.55\n" +
+                                "Energy:  0.55\n" +
+                                "Instrumentalness: 0.55  \n" +
+                                "Liveness:  0.85\n" +
+                                "Loudness:  0.35\n" +
+                                "Speechiness:  0.58\n" +
+                                "Tempo:  0.14", value: 3},
+                        {name: "Out Of Our Heads\n\n" +
+                                "Rank : 4\n" +
+                                "Acousticness: 0.66\n" +
+                                "Danceability:  0.55\n" +
+                                "Energy:  0.55\n" +
+                                "Instrumentalness: 0.55  \n" +
+                                "Liveness:  0.85\n" +
+                                "Loudness:  0.35\n" +
+                                "Speechiness:  0.58\n" +
+                                "Tempo:  0.14", value: 2},
+                        {name: "Whipped Cream & Other Delights\n\n" +
+                                "Rank : 5\n" +
+                                "Acousticness: 0.66\n" +
+                                "Danceability:  0.55\n" +
+                                "Energy:  0.55\n" +
+                                "Instrumentalness: 0.55  \n" +
+                                "Liveness:  0.85\n" +
+                                "Loudness:  0.35\n" +
+                                "Speechiness:  0.58\n" +
+                                "Tempo:  0.14", value: 1}
                     ]
                 },
                 {
                     name: "Albums of 1971 - 1980",
                     children: [
-                        {name: " Led Zeppelin IV", value: 1},
-                        {name: "Harvest", value: 1},
-                        {name: "Thick As A Brick", value: 1},
-                        {name: "Rhymes & Reasons", value: 1},
-                        {name: "John Denver's Greatest Hits", value: 1}
+                        {name: "Led Zeppelin IV\n\n" +
+                                "Rank : 1\n", value: 5},
+                        {name: "Harvest\n\n" +
+                                "Rank : 2\n", value: 4},
+                        {name: "Thick As A Brick\n\n" +
+                                "Rank : 3\n", value: 3},
+                        {name: "Rhymes & Reasons\n\n" +
+                                "Rank : 4\n", value: 2},
+                        {name: "John Denver's Greatest Hits\n\n" +
+                                "Rank : 5\n", value: 1}
                     ]
                 },
                 {
                     name: "Albums of 1981 - 1990",
                     children: [
-                        {name: "Hotter Than July", value: 1},
-                        {name: "The Jazz Singer (Soundtrack)", value: 1},
-                        {name: "Arc Of A Diver", value: 1},
-                        {name: "Flashdance", value: 1},
-                        {name: "Slippery When Wet", value: 1}
+                        {name: "Hotter Than July\n\n" +
+                                "Rank : 1\n", value: 5},
+                        {name: "The Jazz Singer (Soundtrack)\n\n" +
+                                "Rank : 2\n", value: 4},
+                        {name: "Arc Of A Diver\n\n" +
+                                "Rank : 3\n", value: 3},
+                        {name: "Flashdance\n\n" +
+                                "Rank : 4\n", value: 2},
+                        {name: "Slippery When Wet\n\n" +
+                                "Rank : 5\n", value: 1}
                     ]
                 },
                 {
                     name: "Albums of 1991 - 2000",
                     children: [
-                        {name: "The Immaculate Collection", value: 1},
-                        {name: "Blood Sugar Sex Magik", value: 1},
-                        {name: "Bedtime Stories", value: 1},
-                        {name: "Daydream", value: 1},
-                        {name: "Millennium", value: 1}
+                        {name: "The Immaculate Collection\n\n" +
+                                "Rank : 1\n", value: 5},
+                        {name: "Blood Sugar Sex Magik\n\n" +
+                                "Rank : 2\n", value: 4},
+                        {name: "Bedtime Stories\n\n" +
+                                "Rank : 3\n", value: 3},
+                        {name: "Daydream\n\n" +
+                                "Rank : 4\n", value: 2},
+                        {name: "Millennium\n\n" +
+                                "Rank : 5\n", value: 1}
                     ]
                 },
                 {
                     name: " Albums of 2001 - 2010",
                     children: [
-                        {name: "Word Of Mouf", value: 1},
-                        {name: "Come Away With Me", value: 1},
-                        {name: "Greatest Hits", value: 1},
-                        {name: "The Emancipation Of Mimi", value: 1},
-                        {name: "Daughtry", value: 1}
+                        {name: "Word Of Mouf\n\n" +
+                                "Rank : 1\n", value: 5},
+                        {name: "Come Away With Me\n\n" +
+                                "Rank : 2\n", value: 4},
+                        {name: "Greatest Hits\n\n" +
+                                "Rank : 3\n", value: 3,},
+                        {name: "The Emancipation Of Mimi\n\n" +
+                                "Rank : 4\n", value: 2},
+                        {name: "Daughtry\n\n" +
+                                "Rank : 5\n", value: 1}
                     ]
                 },
                 {
                     name: "Albums of 2011 - 2020",
                     children: [
-                        {name: "El Camino", value: 1},
-                        {name: "Wrapped In Red", value: 1},
-                        {name: "Fifty Shades Of Grey", value: 1},
-                        {name: "Purpose", value: 1},
-                        {name: "Heartbreak On A Full Moon", value: 1}
+                        {name: "El Camino\n\n" +
+                                "Rank : 1\n", value: 5},
+                        {name: "Wrapped In Red\n\n" +
+                                "Rank : 2\n", value: 4},
+                        {name: "Fifty Shades Of Grey\n\n" +
+                                "Rank : 3\n", value: 3},
+                        {name: "Purpose\n\n" +
+                                "Rank : 4\n",value: 2},
+                        {name: "Heartbreak On A Full Moon\n\n" +
+                                "Rank : 5\n", value: 1}
 
                     ]
                 }
