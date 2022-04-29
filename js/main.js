@@ -2,8 +2,7 @@ let introLineChart,
     albumInfo,
     decadeArtistData,
     outlierAlbumInfo,
-    releaseYear,
-    chartYear,
+    outlierAlbums,
     mainMessage,
     treeMap,
     histogram;
@@ -13,7 +12,7 @@ let parseNum = d3.format(".4f");
 
 let yearlyAvgs;
 
-treemap = new TreeMap("treemap");
+treeMap = new TreeMap("treemap");
 
 // load data using promises
 loadData();
@@ -49,6 +48,7 @@ function loadData() {
 
     });
 
+
     d3.csv("data/outliers.csv").then(csv => {
 
         csv.forEach(function(d){
@@ -62,8 +62,13 @@ function loadData() {
 
         });
 
-        outlierAlbumInfo = new AlbumInfo("selectButtons", csv);
+        outlierAlbumInfo = new AlbumInfo("albumInfo", csv);
     });
+
+    d3.csv("data/decade_avgs.csv").then(csv=> {
+        outlierAlbums = new AlbumComparisons("yearComparisons", csv);
+    });
+
     d3.csv("data/yearly_avgs.csv").then(csv=> {
 
         csv.forEach(function(d){
@@ -89,10 +94,6 @@ function loadData() {
 
     });
 
-    d3.csv("data/decade_avgs.csv").then(csv=> {
-        releaseYear = new AlbumComparisons("releaseYearBars", csv, "release");
-        chartYear = new AlbumComparisons("chartYearBars", csv, "chart");
-    });
 
     d3.csv("data/avgPerDecade.csv", (row) => {
 
@@ -166,6 +167,7 @@ $(document).ready(function () {
         //Scrolling
         easing: "swing",
         backToTop: true,
+        autoScrolling:true,
 
         // Accessibility
         keyboardScrolling: true,
@@ -173,8 +175,10 @@ $(document).ready(function () {
         // Callback
         onScrollEnd: function (currentView, preView) {
             console.log("Current", currentView);
-            console.log("Previus", preView);
+            console.log("Previous", preView);
         }
+
+
     });
 });
 

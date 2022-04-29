@@ -34,7 +34,8 @@ class Histogram{
         vis.svg.append("text")
             .attr("class", "x label")
             .attr("text-anchor", "end")
-            .attr("x", vis.width/2)
+            .attr("font-size", "14px")
+            .attr("x", vis.width/2 + vis.margin.left)
             .attr("y", vis.height + 35)
             .text("Value");
 

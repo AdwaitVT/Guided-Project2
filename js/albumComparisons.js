@@ -1,10 +1,9 @@
 class AlbumComparisons{
 
-    constructor(parentElement, data, type) {
+    constructor(parentElement, data) {
         this.parentElement = parentElement;
         this.data = data;
         this.displayData = [];
-        this.type = type;
 
         this.attributes = ["acousticness","danceability","energy","instrumentalness","liveness","speechiness","valence"];
         this.initialAlbum = {
@@ -28,7 +27,7 @@ class AlbumComparisons{
     initVis() {
         let vis = this;
 
-        vis.margin = {top: 20, right: 30, bottom: 20, left: 30};
+        vis.margin = {top: 70, right: 30, bottom: 20, left: 30};
         vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
         vis.height = document.getElementById(vis.parentElement).getBoundingClientRect().height - vis.margin.top - vis.margin.bottom;
 
@@ -44,20 +43,26 @@ class AlbumComparisons{
             .attr("class", "legend")
             .attr('transform', `translate(0, 30)`);
 
+
+
         vis.legend.append("rect")
-            .attr("x",125)
-            .attr("y",3)
+            .attr("x",vis.margin.left + 25)
+            .attr("y",-20)
             .attr("height", 10)
             .attr("width", 10)
             .style("fill", "#377eb8");
         vis.legend.append("rect")
-            .attr("x",185)
-            .attr("y",3)
+            .attr("x", vis.margin.left + 25)
+            .attr("y", 0)
             .attr("height", 10)
             .attr("width", 10)
             .style("fill", "#e41a1c");
-
-
+        vis.legend.append("rect")
+            .attr("x",vis.margin.left + 25)
+            .attr("y",20)
+            .attr("height", 10)
+            .attr("width", 10)
+            .style("fill", "green");
 
         vis.x = d3.scaleBand()
             .domain(vis.attributes)
@@ -69,14 +74,19 @@ class AlbumComparisons{
             .attr("transform", `translate(30, ${vis.height} )`)
             .call(d3.axisBottom(vis.x));
 
+
         vis.xSubgroup = d3.scaleBand()
             .domain(['decade', 'album'])
             .range([0, x.bandwidth()])
             .padding([0.05])
 
-        vis.colors = d3.scaleOrdinal()
-            .domain(['decade', 'album'])
-            .range(['#e41a1c','#377eb8'])
+        vis.svg.append("text")
+            .attr("class", "x-label")
+            .attr("text-anchor", "end")
+            .attr("font-size", "14px")
+            .attr("x", vis.width/2 + vis.margin.left)
+            .attr("y", vis.height + 35)
+            .text("Attribute");
 
         vis.y = d3.scaleLinear()
             .domain([0,1])
@@ -86,6 +96,15 @@ class AlbumComparisons{
             .attr("class", "y-axis axis")
             .attr("transform", "translate(30, 0)")
             .call(d3.axisLeft(vis.y));
+
+        vis.svg.append("text")
+            .attr("class", "y-label")
+            .attr("text-anchor", "end")
+            .attr("x", -(75))
+            .attr("y", 50)
+            .attr("font-size", "14px")
+            .attr("transform", "rotate(-90)")
+            .text("Value");
 
 
 
@@ -97,6 +116,7 @@ class AlbumComparisons{
         let vis = this;
 
         vis.displayData = [];
+
 
         if(outlierAlbumInfo.selectedAlbum == undefined){
             vis.selectedAlbum = vis.initialAlbum;
@@ -132,23 +152,20 @@ class AlbumComparisons{
 
         let vis = this;
 
+        if(outlierAlbumInfo.displayData.length == 0){
+            vis.displayData = [];
+            vis.releaseDecade = "";
+            vis.chartDecade = "";
+            vis.selectedAlbum = "";
+        }
+
         vis.svg.selectAll(".bars").remove();
         vis.svg.selectAll(".label").remove();
 
+        console.log(vis.displayData);
+
         vis.groups = vis.svg.selectAll(".bars")
             .data(vis.displayData);
-
-        vis.groups
-            .enter()
-            .append("rect")
-            .merge(vis.groups)
-            .attr("class", "bars")
-            .attr("fill", "#e41a1c")
-            .attr("x", function(d) { return 30 + vis.x(d.attribute) + vis.x.bandwidth()/2; })
-            .attr("y", function(d) { return vis.y(d.albumValue); })
-            .attr("width", vis.x.bandwidth()/2)
-            .attr("height", function(d) { return vis.height - vis.y(d.albumValue); })
-
 
         vis.groups.enter()
             .append("rect")
@@ -157,60 +174,76 @@ class AlbumComparisons{
             .attr("fill", "#377eb8")
             .attr("x", function(d) { return vis.x(d.attribute) + 30; })
             .attr("y", function(d) {
-                if(vis.type == "release"){return vis.y(d.releaseValue);}
-                else{return vis.y(d.chartValue);}
+                return vis.y(d.releaseValue)
             })
-            .attr("width", vis.x.bandwidth()/2)
+            .attr("width", vis.x.bandwidth()/3)
             .attr("height", function(d) {
-                if(vis.type == "release"){return vis.height - vis.y(d.releaseValue);}
-                else{return vis.height - vis.y(d.chartValue);}
+                return vis.height - vis.y(d.releaseValue);
             });
+
+
+        vis.groups
+            .enter()
+            .append("rect")
+            .merge(vis.groups)
+            .attr("class", "bars")
+            .attr("fill", "#e41a1c")
+            .attr("x", function(d) { return 30 + vis.x(d.attribute) + vis.x.bandwidth()/3; })
+            .attr("y", function(d) { return vis.y(d.albumValue); })
+            .attr("width", vis.x.bandwidth()/3)
+            .attr("height", function(d) { return vis.height - vis.y(d.albumValue); })
+
+
+        vis.groups.enter()
+            .append("rect")
+            .merge(vis.groups)
+            .attr("class", "bars")
+            .attr("fill", "green")
+            .attr("x", function(d) { return vis.x(d.attribute) + 30 + 2* vis.x.bandwidth()/3; })
+            .attr("y", function(d) {
+                return vis.y(d.chartValue);
+            })
+            .attr("width", vis.x.bandwidth()/3)
+            .attr("height", function(d) {
+                return vis.height - vis.y(d.chartValue);
+            });
+
+
 
         vis.legend.append("text")
             .attr("class", "label")
-            .attr("x", 200)
-            .attr("y", 10)
+            .attr("x", vis.margin.left + 40)
+            .attr("y", -15)
+            .text(function(){
+                if(vis.releaseDecade != ""){
+                    return vis.releaseDecade + "s"
+                }
+            })
+            .style("font-size", "13px")
+            .attr("alignment-baseline","middle")
+
+        vis.legend.append("text")
+            .attr("class", "label")
+            .attr("x",  vis.margin.left + 40)
+            .attr("y", 5)
             .text(vis.selectedAlbum.album)
             .style("font-size", "13px")
             .attr("alignment-baseline","middle")
 
-        if(vis.type == "release"){
-            vis.legend.append("text")
-                .attr("class", "label")
-                .attr("x", 0)
-                .attr("y", -20)
-                .text("Released in: " + vis.selectedAlbum.release_date)
-                .attr("font-weight", "bold")
-                .style("font-size", "18px")
-                .attr("alignment-baseline","middle")
 
-            vis.legend.append("text")
-                .attr("class", "label")
-                .attr("x", 140)
-                .attr("y",10)
-                .text(vis.releaseDecade + "s")
-                .style("font-size", "13px")
-                .attr("alignment-baseline","middle")
-        }
-        else{
-            vis.legend.append("text")
-                .attr("class", "label")
-                .attr("x", 0)
-                .attr("y", -20)
-                .text("Charted in: " + vis.selectedAlbum.chart_date)
-                .attr("font-weight", "bold")
-                .style("font-size", "18px")
-                .attr("alignment-baseline","middle")
+        vis.legend.append("text")
+            .attr("class", "label")
+            .attr("x", vis.margin.left + 40)
+            .attr("y", 25)
+            .text(function(){
+                if(vis.chartDecade != ""){
+                    return vis.chartDecade + "s"
+                }
+            })
+            .style("font-size", "13px")
+            .attr("alignment-baseline","middle")
 
-            vis.legend.append("text")
-                .attr("class", "label")
-                .attr("x", 140)
-                .attr("y", 10)
-                .text(vis.chartDecade + "s")
-                .style("font-size", "13px")
-                .attr("alignment-baseline","middle")
 
-        }
 
 
 

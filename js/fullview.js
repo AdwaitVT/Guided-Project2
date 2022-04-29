@@ -481,6 +481,7 @@
         easing: 'linear',
         backToTop: false,
         speed: 500, //ms
+        autoScrolling: true,
 
         // Accessibility
         keyboardScrolling: true,
