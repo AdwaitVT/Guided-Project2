@@ -1,7 +1,7 @@
 #title-text{
     font-size: 50px;
     text-align: center;
-    padding: 25vh 0vh 50px 0vh;
+    padding: 25vh 0 50px 0;
 }
 
 
@@ -12,7 +12,7 @@
 
 .text{
     text-align: center;
-    padding: 25vh 0vh 50px 0vh;
+    padding: 25vh 0 50px 0;
     font-size: 20px;
 
 }
@@ -31,8 +31,7 @@ h1 {
     text-align: center;
     padding-bottom: 10px;
     padding-top:  10px;
-    background: 100%;
-    background-color: powderblue;
+    background: powderblue 100% 100%;
 }
 .decadeButtons {
     position: relative;
@@ -157,8 +156,8 @@ body {
 }
 
 #fullview > div:nth-child(even) {
-    background-color: grey;
-    color: #ffffff;
+    background-color: white;
+    color: black;
 }
 
 #fullview h2 {
@@ -183,7 +182,7 @@ button {
 /*}*/
 
 #down {
-    box-shadow: 0px 2px 9px #888;
+    box-shadow: 0 2px 9px #888;
 }
 
 form {
@@ -227,3 +226,4 @@ form label {
     z-index: 2;
     cursor: pointer;
 }
+
