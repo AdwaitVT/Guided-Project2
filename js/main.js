@@ -12,7 +12,6 @@ let parseNum = d3.format(".4f");
 
 let yearlyAvgs;
 
-treeMap = new TreeMap("treemap");
 
 // load data using promises
 loadData();
@@ -181,6 +180,23 @@ $(document).ready(function () {
 
     });
 });
+
+$(document).ready(function() {
+    $("select").on('change', function() {
+        $(this).find("option:selected").each(function() {
+            var display = $(this).attr("value");
+            console.log(display);
+            if (display) {
+                $(".GFG").not("." + display).hide();
+                $("." + display).show();
+            } else {
+                $(".GFG").hide();
+            }
+
+        });
+    }).change();
+});
+
 
 
 
