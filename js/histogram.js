@@ -119,13 +119,28 @@ function updateVisualization(value) {
         .transition()
         .duration(2000)
         .attr("class", "mybar")
-        .attr("fill", "#c75c7a")
+        .attr("fill", function (d) {
+            if (d.decade == "1961-1970")
+                return "#C30F08";
+            else if (d.decade == "1971-1980")
+                return "#C36408";
+            else if (d.decade == "1981-1990")
+                return "#C3C008";
+            else if (d.decade == "1991-2000")
+                return "#ACC308";
+            else if (d.decade == "2001-2010")
+                return "#0FC308";
+            else
+                return "#08C3A6";
+
+        })
         .attr("stroke", "#c75c7a")
         .attr("stroke-width", "2")
         .attr("x", function (d) { return x(d.decade);} )
         .attr("y", function(d) { return y(d.value); })
         .attr("height", function(d) { return (height-y(d.value)); })
         .attr("width", x.bandwidth());
+
 
 
     svg.selectAll('.xaxis')
