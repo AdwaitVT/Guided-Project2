@@ -86,3 +86,14 @@ h2 {
     display: none;
 }
 
+.cimage{
+    transition: transform .5s;
+    height: 200px;
+    overflow: hidden;
+}
+.cimage:hover {
+    transform: scale(1.1);
+}
+.slider{
+    padding:10px 145px;
+}
