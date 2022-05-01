@@ -238,3 +238,11 @@ form label {
 .slider{
     padding:10px 145px;
 }
+.card-text{
+    font-size: small;
+}
+
+h6{
+    font-weight: bold;
+    font-family: "Niagara Engraved";
+}
