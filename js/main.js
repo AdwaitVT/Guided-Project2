@@ -43,7 +43,7 @@ function loadData() {
     }).then(data => {
 
         let decades = ['1960s', '1970s', '1980s', '1990s', '2000s', '2010s'];
-        decadeArtistData = new ArtistData("top-artists", decades, data)
+        decadeArtistData = new ArtistData("artist-images", decades, data)
 
     });
 
@@ -117,7 +117,7 @@ function loadData() {
         let elements = ['Acousticness', 'Danceability', 'Duration (ms)', 'Energy', 'Instrumentalness','Liveness',
             'Loudness', 'Speechiness', 'Tempo', 'Valence']
 
-        mainMessage = new elementData("mainMessage", elements, data)
+        mainMessage = new elementData("summarySlide", "decadeLegend", elements, data)
 
     });
 

@@ -21,8 +21,10 @@
 <body>
 <div id="fullview">
     <div class="section" id="titlepage">
-        <h1 id="title-text">Music Through the Decades</h1>
-        <h2 id="subtitle">Elizabeth Christman, Rebecca Disipio, Adwait Pradhan, Surendrabikram Thapa</h2>
+        <div class = "container">
+            <h1 id="title-text">Music Through the Decades</h1>
+            <h2 id="subtitle">Elizabeth Christman, Rebecca DeSipio, Adwait Pradhan, Surendrabikram Thapa</h2>
+        </div>
     </div>
 
     <div class="section" id="intro-text">
@@ -115,42 +117,41 @@
                 artists by decade. Hover over an artist's name for more details.
             </p>
         </div>
-        <div class="container" id="top-artists-vis" style="height:75vh">
+        <div class="container" id="top-artists-vis" style="height:75vh; width: 100%">
             <h1>Top Artists by Decade</h1>
-            <div class="buttons" id="artist-buttons">
-                <div class="text-center" id="select-decade" role="group" style="height: 20vh; width: 100%">
-                    <button class="btn decadeButtons" id="1960" style="width: 75px; height: 75px; margin-right: 50px">
-                        1960s
-                    </button>
-                    <button class="btn decadeButtons" id="1970" style="width: 75px; height: 75px; margin-right: 50px">
-                        1970s
-                    </button>
-                    <button class="btn decadeButtons" id="1980" style="width: 75px; height: 75px; margin-right: 50px">
-                        1980s
-                    </button>
-                    <button class="btn decadeButtons" id="1990" style="width: 75px; height: 75px; margin-right: 50px">
-                        1990s
-                    </button>
-                    <button class="btn decadeButtons" id="2000" style="width: 75px; height: 75px; margin-right: 50px">
-                        2000s
-                    </button>
-                    <button class="btn decadeButtons" id="2010" style="width: 75px; height: 75px; margin-right: 50px">
-                        2010s
-                    </button>
-                </div>
-                <div class="images" id="artist-images">
-                    <img alt="no artist yet" class="images" id="img1" src="artist_imgs/blank.png"
-                         style="margin-right: 6%; margin-left: 2.5%">
-                    <img alt="no artist yet" class="images" id="img2" src="artist_imgs/blank.png"
-                         style="margin-right: 3%">
-                    <img alt="no artist yet" class="images" id="img3" src="artist_imgs/blank.png"
-                         style="margin-right: 3%">
-                    <img alt="no artist yet" class="images" id="img4" src="artist_imgs/blank.png"
-                         style="margin-right: 6%">
-                    <img alt="no artist yet" class="images" id="img5" src="artist_imgs/blank.png">
-                </div>
-                <div class="artists" id="top-artists" style="height: 50vh; width: 100%"></div>
+            <div class="col" style="width: 10%; float: left; height: 60vh">
+                <button class="btn decadeButtons" id="1960" style="margin-left: 50px">
+                    1960s
+                </button>
+                <button class="btn decadeButtons" id="1970" style="margin-left: 50px">
+                    1970s
+                </button>
+                <button class="btn decadeButtons" id="1980" style="margin-left: 50px">
+                    1980s
+                </button>
+                <button class="btn decadeButtons" id="1990" style="margin-left: 50px">
+                    1990s
+                </button>
+                <button class="btn decadeButtons" id="2000" style="margin-left: 50px">
+                    2000s
+                </button>
+                <button class="btn decadeButtons" id="2010" style="margin-left: 50px">
+                    2010s
+                </button>
             </div>
+
+            <div class="col" id="artist-images" style="margin-left:10%">
+                <img alt="no artist yet" class="images" id="img1" src="artist_imgs/blank.png"
+                     style="margin-right: 4%; margin-left: 7%">
+                <img alt="no artist yet" class="images" id="img2" src="artist_i mgs/blank.png"
+                     style="margin-right: 0%">
+                <img alt="no artist yet" class="images" id="img3" src="artist_imgs/blank.png"
+                     style="margin-left: 0%">
+                <img alt="no artist yet" class="images" id="img4" src="artist_imgs/blank.png"
+                     style="margin-right: 3%">
+                <img alt="no artist yet" class="images" id="img5" src="artist_imgs/blank.png">
+            </div>
+            <div class="artists" id="top-artists" style="height: 10%; margin-left: 10%"></div>
         </div>
     </div>
 
@@ -985,36 +986,41 @@
     </div>
 
     <div class="section" id="decade-features">
-        <div class="container">
+        <div class="container" style="margin-top: 5%">
             <h1>
                 Features of Each Decade
             </h1>
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="sort-by">Display: </label>
-                    <select class="form-control" id="sort-by">
-                        <option value="most">Most</option>
-                        <option value="least">Least</option>
-                    </select>
-                </div>
+
+            <form style="width: 15%; float: left;">
+                <label for="sort-by">Display: </label>
+                <select class="form-select form-select-smid" id="sort-by">
+                    <option value="most">High-Low</option>
+                    <option value="least">Low-High</option>
+                </select>
             </form>
-        </div>
-        <div class="container">
-            <div class="row vis" id="mainMessage" style="height: 50vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
-                Visualization showing the top characteristics of each decade
+<!--            <p style="margin-left: 25%; margin-top: 3%; width: 15%; height: 10%; font-size: 17px; font-family: Georgia"> Decade Color Code: </p>-->
+            <div id="decadeLegend" style="height: 10%; margin-left: 20%">
+
             </div>
-            <div class="summary" style="border: thin solid black; border-radius: 5px; background: powderblue; padding: 10px">
-                <h2>Summary of Results</h2>
-                <p style="font-size: 17px">
-                    1960's and 1970's were the most instrumental, lively, and acoustic decades <br>
-                    2000's and 2010's were the most energetic, loud, and speechy decades <br>
-                    These results are the reverse for the "least" categories <br>
-                    Additionally, the 1960's and 1970's are notably the least danceable, and the 2000's and 2010's had
-                    the lowest valence scores.
-                </p>
+
+            <div class="col" id="summarySlide" style="width: 100%; height: 75vh">
+
             </div>
         </div>
     </div>
+<!--        <div class="container">-->
+<!--            <div class="summary" style="border: thin solid black; border-radius: 5px; background: powderblue; padding: 10px">-->
+<!--                <h2>Summary of Results</h2>-->
+<!--                <p style="font-size: 17px">-->
+<!--                    1960's and 1970's were the most instrumental, lively, and acoustic decades <br>-->
+<!--                    2000's and 2010's were the most energetic, loud, and speechy decades <br>-->
+<!--                    These results are the reverse for the "least" categories <br>-->
+<!--                    Additionally, the 1960's and 1970's are notably the least danceable, and the 2000's and 2010's had-->
+<!--                    the lowest valence scores.-->
+<!--                </p>-->
+<!--            </div>-->
+<!--        </div>-->
+
 
     <div class="section" id="outlier-albums">
         <div class="row align-items-center">
