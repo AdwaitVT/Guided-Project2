@@ -77,7 +77,7 @@ class AlbumComparisons{
 
         vis.xSubgroup = d3.scaleBand()
             .domain(['decade', 'album'])
-            .range([0, x.bandwidth()])
+            .range([0, vis.x.bandwidth()])
             .padding([0.05])
 
         vis.svg.append("text")
@@ -118,7 +118,7 @@ class AlbumComparisons{
         vis.displayData = [];
 
 
-        if(outlierAlbumInfo.selectedAlbum == undefined){
+        if(outlierAlbumInfo === undefined){
             vis.selectedAlbum = vis.initialAlbum;
         }
         else{
