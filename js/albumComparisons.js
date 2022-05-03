@@ -118,7 +118,7 @@ class AlbumComparisons{
         vis.displayData = [];
 
 
-        if(outlierAlbumInfo.selectedAlbum == undefined){
+        if(outlierAlbumInfo === undefined){
             vis.selectedAlbum = vis.initialAlbum;
         }
         else{
