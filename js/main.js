@@ -5,7 +5,8 @@ let introLineChart,
     outlierAlbums,
     mainMessage,
     treeMap,
-    histogram;
+    histogram,
+    sliders;
 
 let parseDate = d3.timeParse("%Y");
 let parseNum = d3.format(".4f");
@@ -91,6 +92,7 @@ function loadData() {
 
         yearlyAvgs = csv;
         introLineChart = new LineChart("lineChart", csv);
+        sliders = new Sliders("conclusion", csv);
 
     });
 
@@ -134,6 +136,9 @@ function loadData() {
 
     }
 
+    document.getElementById("slider-range1").onchange = function(){
+        console.log(this.value);
+    }
     document.getElementById("1960").onclick = function () {
         decadeArtistData.wrangleData("1960")
     }

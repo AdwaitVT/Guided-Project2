@@ -1,5 +1,3 @@
-
-
 var random = d3.randomInt(1963, 2019);
 
 var initials = [50, 50, 50, 50];
