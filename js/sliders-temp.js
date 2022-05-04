@@ -34,10 +34,10 @@ class Sliders{
 
         vis.gRange1 = d3.select('#slider-range1')
             .append('svg')
-            .attr('width', 500)
+            .attr('width', 350)
             .attr('height', 100)
             .append('g')
-            .attr('transform', 'translate(30,30)');
+            .attr('transform', 'translate(30,50)');
 
         vis.sliderRange1 = d3.sliderBottom()
             .min(0.0)
@@ -54,10 +54,10 @@ class Sliders{
 
         vis.gRange2 = d3.select('#slider-range2')
             .append('svg')
-            .attr('width', 500)
+            .attr('width', 350)
             .attr('height', 100)
             .append('g')
-            .attr('transform', 'translate(30,30)');
+            .attr('transform', 'translate(30,50)');
 
         vis.sliderRange2 = d3.sliderBottom()
             .min(0.0)
@@ -83,25 +83,21 @@ class Sliders{
 
         vis.gRange3 = d3.select('#slider-range3')
             .append('svg')
-            .attr('width', 500)
+            .attr('width', 350)
             .attr('height', 100)
             .append('g')
-            .attr('transform', 'translate(30,30)');
+            .attr('transform', 'translate(30,50)');
 
         vis.attribute3Values = [0,1];
 
-        vis.columns = ['1960s', '1970s', '1980s', '1990s', '2000s', '2010s']
+        vis.columns=['col1', 'col2', 'col3', 'col4', 'col5', 'col6', 'col7', 'col8', 'col9', 'col10']
         vis.years = [
-            {'1960s': "", '1970s': 1970, '1980s': 1980, '1990s': 1990, '2000s': 2000, '2010s': 2010},
-            {'1960s': "", '1970s': 1971, '1980s': 1981, '1990s': 1991, '2000s': 2001, '2010s': 2011},
-            {'1960s': "", '1970s': 1972, '1980s': 1982, '1990s': 1992, '2000s': 2002, '2010s': 2012},
-            {'1960s': 1963, '1970s': 1973, '1980s': 1983, '1990s': 1993, '2000s': 2003, '2010s': 2013},
-            {'1960s': 1964, '1970s': 1974, '1980s': 1984, '1990s': 1994, '2000s': 2004, '2010s': 2014},
-            {'1960s': 1965, '1970s': 1975, '1980s': 1985, '1990s': 1995, '2000s': 2005, '2010s': 2015},
-            {'1960s': 1966, '1970s': 1976, '1980s': 1986, '1990s': 1996, '2000s': 2006, '2010s': 2016},
-            {'1960s': 1967, '1970s': 1977, '1980s': 1987, '1990s': 1997, '2000s': 2007, '2010s': 2017},
-            {'1960s': 1968, '1970s': 1978, '1980s': 1988, '1990s': 1998, '2000s': 2008, '2010s': 2018},
-            {'1960s': 1969, '1970s': 1979, '1980s': 1989, '1990s': 1999, '2000s': 2009, '2010s': 2019}
+            {'col1': "", 'col2': "", 'col3': "", 'col4': 1963, 'col5': 1964, 'col6': 1965, 'col7': 1966, 'col8': 1967, 'col9': 1968, 'col10': 1969},
+            {'col1': 1970, 'col2': 1971, 'col3': 1972, 'col4': 1973, 'col5': 1974, 'col6': 1975, 'col7': 1976, 'col8': 1977, 'col9': 1978, 'col10': 1979},
+            {'col1': 1980, 'col2': 1981, 'col3': 1982, 'col4': 1983, 'col5': 1984, 'col6': 1985, 'col7': 1986, 'col8': 1987, 'col9': 1988, 'col10': 1989},
+            {'col1': 1990, 'col2': 1991, 'col3': 1992, 'col4': 1993, 'col5': 1994, 'col6': 1995, 'col7': 1996, 'col8': 1997, 'col9': 1998, 'col10': 1999},
+            {'col1': 2000, 'col2': 2001, 'col3': 2002, 'col4': 2003, 'col5': 2004, 'col6': 2005, 'col7': 2006, 'col8': 2007, 'col9': 2008, 'col10': 2009},
+            {'col1': 2010, 'col2': 2010, 'col3': 2012, 'col4': 2013, 'col5': 2014, 'col6': 2015, 'col7': 2016, 'col8': 2017, 'col9': 2018, 'col10': 2019}
 
         ]
 
@@ -214,7 +210,7 @@ class Sliders{
             .text(vis.sliderRange1
                 .value()
                 .map(d3.format('.2'))
-                .join('-')
+                .join(' - ')
             );
 
 
@@ -222,7 +218,7 @@ class Sliders{
             .text(vis.sliderRange2
                 .value()
                 .map(d3.format('.2'))
-                .join('-')
+                .join(' - ')
             );
 
 
@@ -230,16 +226,8 @@ class Sliders{
             .text(vis.sliderRange3
                 .value()
                 .map(d3.format('.2'))
-                .join('-')
+                .join(' - ')
             );
-
-
-        vis.svg.append("text")
-            .attr("class", "year")
-            .attr("x", vis.width/2)
-            .attr("y", vis.height/2)
-            .attr("font-size", "14px")
-            .text(`The year that matches the given values is: ${vis.displayData[0]}`);
 
         d3.selectAll("td").each(function() {
             vis.displayData.forEach(y => {
