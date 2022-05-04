@@ -247,7 +247,6 @@ class Sliders{
                     //console.log(this.text());
                     d3.select(this).style("color", "black");
                 }
-                //console.log(d3.select(this).text());
             })
         })
 
