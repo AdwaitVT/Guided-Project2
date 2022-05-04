@@ -227,3 +227,7 @@ form label {
     cursor: pointer;
 }
 
+td, th {
+    padding: 1px 10px;
+}
+
