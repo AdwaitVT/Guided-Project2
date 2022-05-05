@@ -160,10 +160,11 @@
     <div class="section" id="artist-to-album-text">
         <div class="container">
             <div class="row justify-content-center">
-                <p>
-                    The top albums of a decade can also show the trends of the time.
-                </p>
-                <div class="col-5" style="text-align:center">
+
+                <div class="col-8" style="text-align:center">
+                    <p>
+                        The top albums of a decade can also show the trends of the time.
+                    </p>
                     <p>
                         After exploring the top albums of each decade, we can see that the <b>60's</b> were dominated by <b>jazz</b> ,
                         the <b>70's & 80's</b>  by <b>pop & rock</b> , the <b>90's country</b> , and the <b>2000's & 2010's</b>  by <b> rock</b> .
@@ -180,7 +181,6 @@
 
     <div class="section" id="top-albums">
         <div class="container">
-
                 <h1 style="margin-top: 2%">Top Albums of the Decades</h1>
             <div class="container">
 
@@ -198,7 +198,6 @@
                 </div>
                 <br>
                 <div>
-
                     <div class="1960 GFG">
                         <h4 align="center">Top Albums of 1960s</h4>
                         <div id="topAlbums" class="carousel slide" data-interval="false">
@@ -319,8 +318,6 @@
                         </div>
                     </div>
 
-
-
                     <div class="1970 GFG">
                         <h4 align="center">Top Albums of 1970s</h4>
                         <div id="topAlbums1" class="carousel slide" data-interval="false">
@@ -440,7 +437,6 @@
 
                         </div>
                     </div>
-
 
                     <div class="1980 GFG">
                         <h4 align="center">Top Albums of 1980s</h4>
@@ -564,9 +560,6 @@
                         </div>
                     </div>
 
-
-
-
                     <div class="1990 GFG">
                         <h4 align="center">Top Albums of 1990s</h4>
                         <div id="topAlbums3" class="carousel slide" data-interval="false">
@@ -688,8 +681,6 @@
                         </div>
                     </div>
 
-
-
                     <div class="2000 GFG">
                         <h4 align="center">Top Albums of 2000s</h4>
                         <div id="topAlbums4" class="carousel slide" data-interval="false">
@@ -809,8 +800,6 @@
 
                         </div>
                     </div>
-
-
 
                     <div class="2010 GFG">
                         <h4 align="center">Top Albums of 2010s</h4>
@@ -933,26 +922,15 @@
                         </div>
                     </div>
 
-
-
                 </div>
             </div>
-<!--                <div class="container justify-content-center">-->
-<!--                    <p>The above tree map shows the top five ranked albums in each decade, based on the number of weeks-->
-<!--                        it charted in that decade. <br>-->
-<!--                        The popularity of music has changed over the years, first the albums were popular based on the-->
-<!--                        music and the albums sold. But now-->
-<!--                        popularity is based on the streams an album gets.-->
-<!--                    </p>-->
-<!--                </div>-->
-
 
         </div>
+
     </div>
 
     <div class="section" id="main-message-text">
-        <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" style="height:100vh;">
                 <div class="text" style="width:50%;">
                     <p>
                         Aside from the 60s (Herb Alpert) and 70s (Led Zepplin and John Denver), there isn't a lot of overlap between the top artists and albums.
@@ -964,16 +942,16 @@
                     </p>
                 </div>
             </div>
-        </div>
     </div>
 
 
     <div class="section" id="decade-features">
+        <div class="container" style="width:100%">
         <div class="row">
             <h1>
                 Features of Each Decade
             </h1>
-            <div class="col-3" id="decade-feature-text">
+            <div class="col-4" id="decade-feature-text">
                 <p>
                     <span style="color: #C29BA3; font-weight: bold; font-size: 18px">1960's</span> and  <span style="color: #E3BFB7; font-weight: bold; font-size: 18px">1970's</span>
                     were the most <b>instrumental</b>, <b>lively</b>, and <b>acoustic</b> decades
@@ -988,14 +966,14 @@
                     had the lowest <b>valence</b>  scores.
                 </p>
             </div>
-            <div class="col-9">
+            <div class="col-8">
 
 
                 <form style="width: 15%; float: left; font-family: Georgia">
-                    <label for="sort-by">Display: </label>
+                    <label for="sort-by">Sort By: </label>
                     <select class="form-select form-select-smid" id="sort-by">
-                        <option value="most">High-Low</option>
-                        <option value="least">Low-High</option>
+                        <option value="most">Descending</option>
+                        <option value="least">Ascending</option>
                     </select>
                 </form>
     <!--            <p style="margin-left: 25%; margin-top: 3%; width: 15%; height: 10%; font-size: 17px; font-family: Georgia"> Decade Color Code: </p>-->
@@ -1007,42 +985,45 @@
             </div>
 
         </div>
+        </div>
     </div>
 
 
 
     <div class="section" id="outlier-albums">
-        <div class="row align-items-center">
-            <div class="col-7" style="float:right">
-                <div id="selectButtons" style="font-size:16px">
-                    <select id="selectSortButton">
-                        <option value="release_date">Released in:</option>
-                        <option value="chart_date">Charted in:</option>
-                    </select>
-                    <select id="selectDecadeButton">
-                        <option value="1960">1960s</option>
-                        <option value="1970">1970s</option>
-                        <option value="1980">1980s</option>
-                        <option value="1990">1990s</option>
-                        <option value="2000">2000s</option>
-                        <option value="2010">2010s</option>
-                    </select>
-                    <select id="selectAlbumButton" style="width:90%"></select>
-                </div>
-                <div id="albumInfo" style="height:10vh; border: black"></div>
-                <div id="yearComparisons" style="height: 70vh;"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-7" style="float:right">
+                    <div id="selectButtons" style="font-size:16px">
+                        <select id="selectSortButton">
+                            <option value="release_date">Released in:</option>
+                            <option value="chart_date">Charted in:</option>
+                        </select>
+                        <select id="selectDecadeButton">
+                            <option value="1960">1960s</option>
+                            <option value="1970">1970s</option>
+                            <option value="1980">1980s</option>
+                            <option value="1990">1990s</option>
+                            <option value="2000">2000s</option>
+                            <option value="2010">2010s</option>
+                        </select>
+                        <select id="selectAlbumButton" style="width:90%"></select>
+                    </div>
+                    <div id="albumInfo" style="height:10vh; border: black"></div>
+                    <div id="yearComparisons" style="height: 70vh;"></div>
 
-            </div>
-            <div class="col-4">
-                <p style="font-size:16px;">
-                    While each decade has a distinctly unique style of music, like many other aspects of pop culture, musical trends
-                    can be cyclical. Albums sometimes see a resurgence in popularity a decade or more after its release, due to nostalgia or
-                    recurring trends.
-                </p>
-                <p style="font-size:16px;">
-                    Select an album to compare its features to the averages of the decade it released in and the
-                    averages of the decade it charted in.
-                </p>
+                </div>
+                <div class="col-5" style="float:right;">
+                    <p style="font-size:16px;">
+                        While each decade has a distinctly unique style of music, like many other aspects of pop culture, musical trends
+                        can be cyclical. Albums sometimes see a resurgence in popularity a decade or more after its release, due to nostalgia or
+                        recurring trends.
+                    </p>
+                    <p style="font-size:16px;">
+                        Select an album to compare its features to the averages of the decade it released in and the
+                        averages of the decade it charted in.
+                    </p>
+                </div>
             </div>
         </div>
     </div>

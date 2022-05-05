@@ -121,39 +121,40 @@ function loadData() {
 
     });
 
-    document.getElementById("sort-by").onchange = function() {
-
-        mainMessage.wrangleData(this.value)
-
-    }
-    document.getElementById("histogram-decade").onchange = function() {
-        histogram.decade = this.value;
-
-        histogram.wrangleData(histogram.decade)
-
-    }
-
-    document.getElementById("1960").onclick = function () {
-        decadeArtistData.wrangleData("1960")
-    }
-    document.getElementById("1970").onclick = function () {
-        decadeArtistData.wrangleData("1970")
-    }
-    document.getElementById("1980").onclick = function () {
-        decadeArtistData.wrangleData("1980")
-    }
-    document.getElementById("1990").onclick = function () {
-        decadeArtistData.wrangleData("1990")
-    }
-    document.getElementById("2000").onclick = function () {
-        decadeArtistData.wrangleData("2000")
-    }
-    document.getElementById("2010").onclick = function () {
-        decadeArtistData.wrangleData("2010")
-    }
 
 
 
+}
+
+document.getElementById("sort-by").onchange = function() {
+
+    mainMessage.wrangleData(this.value)
+
+}
+document.getElementById("histogram-decade").onchange = function() {
+    histogram.decade = this.value;
+
+    histogram.wrangleData(histogram.decade)
+
+}
+
+document.getElementById("1960").onclick = function () {
+    decadeArtistData.wrangleData("1960")
+}
+document.getElementById("1970").onclick = function () {
+    decadeArtistData.wrangleData("1970")
+}
+document.getElementById("1980").onclick = function () {
+    decadeArtistData.wrangleData("1980")
+}
+document.getElementById("1990").onclick = function () {
+    decadeArtistData.wrangleData("1990")
+}
+document.getElementById("2000").onclick = function () {
+    decadeArtistData.wrangleData("2000")
+}
+document.getElementById("2010").onclick = function () {
+    decadeArtistData.wrangleData("2010")
 }
 
 $(document).ready(function () {
