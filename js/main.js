@@ -91,7 +91,7 @@ function loadData() {
 
         yearlyAvgs = csv;
         introLineChart = new LineChart("lineChart", csv);
-        sliders = new Sliders("conclusion", csv);
+        sliders = new Sliders("sliders", csv);
 
     });
 
