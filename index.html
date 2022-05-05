@@ -1028,25 +1028,93 @@
         </div>
     </div>
 
-    <div class="section" id="sliders">
-        <div class="row vis"
-             style="height: 75vh; width: 100%; margin: 10px; padding-top: 1vh; padding-left: 1vh; padding-right: 1vh; padding-bottom: 1vh">
-            <h4 style="text-align:center">Use the slider to input values for Acousticness, Danceability,
-                Speechiness, Valence</h4>
-            <p style="text-align:center">The year with the lowest MAE among the features is given as output.</p>
+    <div  id="sliders">
+        <h4 style="text-align:center">Use the slider to input values for different features for music</h4>
+        <p style="text-align:center">The year with the lowest RMSE among the features is given as output.</p>
 
-            <div class="container">
+        <div class="container-slide" style="background-image: url('/img/bgmusic.jpg'); width: 110%">
 
-                <div class="row align-items-center">
-                    <div class="col-sm-2"><p id="value-final"></p></div>
-                    <div class="col-sm-2"><p id="value-color-picker"></p></div>
+            <div class="row align-items-center">
 
-                    <div class="col-sm">
-                        <div id="slider-color-picker"></div>
+                <div class="col-sm" id = "color-picker" align="right" ><p id="value-color-picker"></p>
+                    <div class="row align-items-center">
+
+                        <div class="col-sm" id = "color-picker0" align="right" style="left:35px; top:-87px;"><p id="value-color-picker0">Acousticness</p></div>
+
                     </div>
+
+                    <div class="row align-items-center">
+
+                        <div class="col-sm" id = "color-picker1" align="right" style="left:35px; top:-65px;"><p id="value-color-picker1">Danceability</p></div>
+
+                    </div>
+                    <div class="row align-items-center">
+
+                        <div class="col-sm" id = "color-picker2" align="right" style="left:35px; top:-43px;"><p id="value-color-picker2">Energy</p></div>
+
+                    </div>
+                    <div class="row align-items-center">
+
+                        <div class="col-sm" id = "color-picker3" align="right" style="left:35px; top:-25px;"><p id="value-color-picker3">Instrumentalness</p></div>
+
+                    </div>
+                    <div class="row align-items-center">
+
+                        <div class="col-sm" id = "color-picker4" align="right" style="left:35px; top:-6px;"><p id="value-color-picker4">Liveness</p></div>
+
+                    </div>
+
+                    <div class="row align-items-center">
+
+                        <div class="col-sm" id = "color-picker5" align="right" style="left:35px; top:15px;"><p id="value-color-picker5">Loudness</p></div>
+
+                    </div>
+
+                    <div class="row align-items-center">
+
+                        <div class="col-sm" id = "color-picker6" align="right" style="left:35px; top:32px;"><p id="value-color-picker6">Speechiness</p></div>
+
+                    </div>
+
+                    <div class="row align-items-center">
+
+                        <div class="col-sm" id = "color-picker7" align="right" style="left:35px; top:55px;"><p id="value-color-picker7">Tempo</p></div>
+
+                    </div>
+
+                    <div class="row align-items-center">
+
+                        <div class="col-sm" id = "color-picker8" align="right" style="left:35px; top:74px;"><p id="value-color-picker8">Valence</p></div>
+
+                    </div>
+
                 </div>
+
+
+                <div class="col-sm" id = "slider-div"><div id="slider-color-picker"></div>
+
+
+<!--                    <div class="row align-items-center">-->
+
+
+<!--                        <div class="col-sm" align="right" style="left:500px; top:-800px; font-size:18px;"><p id="value-final0">The year that closely matches with your preference is</p></div>-->
+
+<!--                        &lt;!&ndash;            <div class = "col-sm" style="top:-500px; background-image: url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v485-nunoon-08-musicnotesbackgroundicon_1.jpg?auto=format&bg=transparent&con=3&cs=srgb&dpr=1&fm=jpg&ixlib=php-3.1.0&mark=rawpixel-watermark.png&markalpha=90&markpad=13&markscale=10&markx=25&q=75&usm=15&vib=3&w=1400&s=4dd2e563763d7878c95810c079b50fd3);"></div>&ndash;&gt;-->
+
+<!--                    </div>-->
+
+                </div>
+<!--                <div class="col-sm" align="right" style="left:500px; top:-800px; font-size:18px;"></div>-->
+
+
+                <div class="col-sm" id ="year-pred" align = "center" style="left:400px; top:25px;"><p id="value-final0" style=" font-size:20px;">The year that closely matches with<br> your preference is</p><p id="value-final" style=" font-size:40px;"></p>
+
+                </div>
+
             </div>
+
         </div>
+
     </div>
 
     <div class="section" id="conclusion">
