@@ -13,7 +13,6 @@ let parseNum = d3.format(".4f");
 
 let yearlyAvgs;
 
-treeMap = new TreeMap("treemap");
 
 // load data using promises
 loadData();
@@ -45,7 +44,7 @@ function loadData() {
     }).then(data => {
 
         let decades = ['1960s', '1970s', '1980s', '1990s', '2000s', '2010s'];
-        decadeArtistData = new ArtistData("top-artists", decades, data)
+        decadeArtistData = new ArtistData("artist-images", decades, data)
 
     });
 
@@ -120,25 +119,30 @@ function loadData() {
         let elements = ['Acousticness', 'Danceability', 'Duration (ms)', 'Energy', 'Instrumentalness','Liveness',
             'Loudness', 'Speechiness', 'Tempo', 'Valence']
 
-        mainMessage = new elementData("mainMessage", elements, data)
+        mainMessage = new elementData("summarySlide", "decadeLegend", elements, data)
 
     });
 
+
+
+
+}
+
     document.getElementById("sort-by").onchange = function() {
-
         mainMessage.wrangleData(this.value)
-
-    }
-    document.getElementById("histogram-decade").onchange = function() {
-        histogram.decade = this.value;
-
-        histogram.wrangleData(histogram.decade)
-
     }
 
     document.getElementById("slider-range1").onchange = function(){
         console.log(this.value);
     }
+
+
+    document.getElementById("histogram-decade").onchange = function() {
+        histogram.decade = this.value;
+        histogram.wrangleData(histogram.decade)
+
+    }
+
     document.getElementById("1960").onclick = function () {
         decadeArtistData.wrangleData("1960")
     }
@@ -157,10 +161,6 @@ function loadData() {
     document.getElementById("2010").onclick = function () {
         decadeArtistData.wrangleData("2010")
     }
-
-
-
-}
 
 $(document).ready(function () {
     var fv = $("#fullview").fullView({
@@ -186,6 +186,23 @@ $(document).ready(function () {
 
     });
 });
+
+$(document).ready(function() {
+    $("select").on('change', function() {
+        $(this).find("option:selected").each(function() {
+            var display = $(this).attr("value");
+            console.log(display);
+            if (display) {
+                $(".GFG").not("." + display).hide();
+                $("." + display).show();
+            } else {
+                $(".GFG").hide();
+            }
+
+        });
+    }).change();
+});
+
 
 
 

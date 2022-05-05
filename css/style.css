@@ -1,13 +1,13 @@
 #title-text{
     font-size: 50px;
     text-align: center;
-    padding: 25vh 0 50px 0;
 }
 
 
 #subtitle{
     font-size: 16px;
     text-align: center;
+    padding: 10px;
 }
 
 .text{
@@ -26,39 +26,11 @@ Title
  */
 h1 {
     font-family: "Niagara Engraved";
-    font-size: 100px;
-    position: relative;
+    font-size: 50px;
     text-align: center;
-    padding-bottom: 10px;
-    padding-top:  10px;
+    padding-bottom:5px;
+    padding-top: 5px;
     background: powderblue 100% 100%;
-}
-.decadeButtons {
-    position: relative;
-    top: 25px;
-    background-color: powderblue;
-    border: 2px black;
-    color: black;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    border-radius: 50%;
-}
-
-.buttons{
-    font-family: Forte;
-}
-
-.textDisp{
-    font-family: Georgia;
-}
-
-.dispArtist{
-    position: absolute;
-    text-align: center;
-    justify-content: center;
 }
 
 /*
@@ -67,16 +39,18 @@ Title
 
 .decadeButtons {
     position: relative;
-    top: 25px;
+    top: 10px;
     background-color: powderblue;
-    border: 2px black;
     color: black;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin-bottom: 30px;
     border-radius: 50%;
+    font-family: Georgia;
+    border-color: black;
+    border-width: 2px;
 }
 
 
@@ -84,27 +58,43 @@ Title
     font-family: Georgia;
 }
 
+.textDecade{
+    font-size: 10px;
+    font-family: Georgia;
+}
+
+.artistInfo{
+    font-size: 10px;
+    font-family: Georgia;
+}
+
+.legend{
+    font-family: Georgia;
+    font-size: 15px;
+}
+
 
 .artist-row{
     position: relative;
+    top: 5px;
     display: inline-block;
     font-family: Georgia;
     margin-left: 10%;
 }
+
 
 #img1{
     position: relative;
     align-content: center;
     height: 12%;
     width: 12%;
-    margin-top: 2%;
 }
 #img2{
     position: relative;
     align-content: center;
     height: 15%;
     width: 15%;
-    margin-top: 2%;
+
 }
 #img3{
     position: relative;
@@ -112,6 +102,8 @@ Title
     height: 20%;
     width: 20%;
     margin-top: 2%;
+
+
 }
 #img4{
     position: relative;
@@ -119,6 +111,7 @@ Title
     height: 15%;
     width: 15%;
     margin-top: 2%;
+
 }
 #img5{
     position: relative;
@@ -126,10 +119,22 @@ Title
     height: 12%;
     width: 12%;
     margin-top: 2%;
+
 }
 
 .decadeButtons:focus{
     background-color: indianred;
+}
+
+#artist-to-album-text{
+    font-family: Georgia;
+}
+
+#decade-feature-text{
+    font-family: Georgia;
+    text-align: center;
+    margin-top: 10%;
+    font-size: 15px;
 }
 
 #chartdiv {
@@ -231,3 +236,32 @@ td, th {
     padding: 1px 10px;
 }
 
+.cimage{
+    transition: transform .5s;
+    height: 200px;
+    overflow: hidden;
+}
+.cimage:hover {
+    transform: scale(1.1);
+}
+.slider{
+    padding:10px 145px;
+}
+.card-text{
+    font-size: small;
+}
+
+h6{
+    font-weight: bold;
+    font-family: "Niagara Engraved";
+}
+
+#top-artists-text{
+    font-family: Georgia;
+    font-size: 15px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: .5%;
+    margin-bottom: .5%;
+    text-align: center;
+}

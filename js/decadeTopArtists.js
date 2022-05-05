@@ -34,20 +34,20 @@ class ArtistData {
             .append("g")
             .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
-        // vis.dispDecade = vis.svg.append("text")
-        //     .attr("class", "textDisp")
-        //     .text("Top 3 artists of ")
-        //     .attr("x", 0)
-        //     .attr("y", 0);
-
-        // (Filter, aggregate, modify data)
-
-        // add tool-tip
-        vis.toolTip = d3.select("body").append("div")
-            .attr("class", "tooltip")
-            .attr("id", "artistTooltip")
-
         vis.imageArea = d3.select("#images")
+
+        vis.x = d3.scaleBand()
+            .range([0, (vis.width - vis.margin.right - vis.margin.left)]);
+
+        vis.xAxis = d3.axisBottom()
+            .scale(vis.x)
+            .tickSizeOuter(0)
+            .tickSizeInner(0)
+
+        vis.svg.append("g")
+            .attr("class", "x-axis axis")
+            .attr("id", "area-axis")
+            .attr("y", -10);
 
         this.wrangleData();
     }
@@ -103,8 +103,6 @@ class ArtistData {
 
 
         //console.log(selectedButton)
-        // append text to dispDecade
-        //vis.dispDecade.text("Top 3 artists of " + selectedButton)
 
         // create group elements for each of the 5 artists
         vis.dataRow = vis.svg.selectAll(".artist-row")
@@ -114,166 +112,169 @@ class ArtistData {
             .append("g")
             .attr("class", "artist-row")
 
-
-        vis.artistName = vis.artist.append("text")
-            .attr("class", "artistName")
-            .merge(vis.dataRow.select(".artistName"))
-            .text(function(d){
-                //console.log("here", d)
-                return d.Artists
-            })
-            .attr("x", function(d, index){return ((vis.width - vis.margin.left - vis.margin.right)*index/4.55)}) //vis.margin.left*index*6
-            .attr("y", function(d, index){
-                if (index===1 || index === 3){
-                    return -190
-                }
-                if(index === 2){
-                    return -170
-                }
-                if(index === 4 || index === 0){
-                    return -210
+        vis.countInfo = vis.artist.append("text")
+            .attr("class", "countInfo")
+            .merge(vis.dataRow.select(".countInfo"))
+            .transition()
+            .duration(1000)
+            .text(function(d, index) {return "Count: " + d.Count})
+            .attr("text-anchor", "start")
+            .attr("y", vis.margin.top/2)
+            .attr("x", function(d, index){
+                if (index === 0){return '1%'
+                }else if (index === 1){return '19%'
+                }else if (index === 2){return '38%'
+                }else if (index === 3){return '56%'
+                }else{return '74%'
                 }
             })
-            .attr("text-anchor", "middle")
+            .attr("font-family", "Georgia")
+            .attr("font-size", '12px')
             .attr("font-weight", "bold")
-            .attr("font-size", '16px')
-            .attr("transform", "translate(" + vis.margin.left*1.8 + "," + vis.margin.top*3.5 + ")")
 
-        vis.artist.on('mouseover', function(event, d){
-            vis.toolTip
-                .style("opacity", 1)
-                .style("left",  70 + "%")
-                .style("top", 20 + "%")
-                .style("width", "15%")
-                .html(`
-                         <div style="border: thin solid black; border-radius: 5px; background: cadetblue; padding: 10px; font-size: 4px">
-                             <h4 style="font-weight: bold; text-align: center">${d.Artists}<h4>
-                             <p style="font-size: 13px"> 
-                             Acousticness:  ${d.acousticness.toFixed(numDec)} <br> 
-                             Danceability:  ${d.danceability.toFixed(numDec)} <br> 
-                             Energy:  ${d.energy.toFixed(numDec)} <br> 
-                             Instrumentalness:  ${d.instrumentalness.toFixed(numDec)} <br> 
-                             Liveness:  ${d.liveness.toFixed(numDec)} <br> 
-                             Loudness:  ${d.loudness.toFixed(numDec)} <br> 
-                             Speechiness:  ${d.speechiness.toFixed(numDec)} <br> 
-                             Tempo:  ${d.tempo.toFixed(numDec)} 
-                             </p>                    
-                         </div>`)
-            d3.select(this).attr("fill", "red")
-        })
+        vis.acousticInfo = vis.artist.append("text")
+            .attr("class", "acousticInfo")
+            .merge(vis.dataRow.select(".acousticInfo"))
+            .transition()
+            .duration(1000)
+            .text(function(d, index) {return "Acousticness: " + d.acousticness.toFixed(3)})
+            .attr("text-anchor", "start")
+            .attr("y", vis.margin.top/2 + 15)
+            .attr("x", function(d, index){
+                if (index === 0){return '1%'
+                }else if (index === 1){return '19%'
+                }else if (index === 2){return '38%'
+                }else if (index === 3){return '56%'
+                }else{return '74%'
+                }
+            })
+            .attr("font-family", "Georgia")
+            .attr("font-size", '10px')
 
-        vis.artist.on('mouseout', function(event, d){
-            d3.select(this).attr("fill", "black")
-        })
+        vis.danceInfo = vis.artist.append("text")
+            .attr("class", "danceInfo")
+            .merge(vis.dataRow.select(".danceInfo"))
+            .transition()
+            .duration(1000)
+            .text(function(d, index) {return "Danceability: " + d.danceability.toFixed(3)})
+            .attr("text-anchor", "start")
+            .attr("y", vis.margin.top/2 + 30)
+            .attr("x", function(d, index){
+                if (index === 0){return '1%'
+                }else if (index === 1){return '19%'
+                }else if (index === 2){return '38%'
+                }else if (index === 3){return '56%'
+                }else{return '74%'
+                }
+            })
+            .attr("font-family", "Georgia")
+            .attr("font-size", '10px')
+
+        vis.energyInfo = vis.artist.append("text")
+            .attr("class", "energyInfo")
+            .merge(vis.dataRow.select(".energyInfo"))
+            .transition()
+            .duration(1000)
+            .text(function(d, index) {return "Energy: " + d.energy.toFixed(3)})
+            .attr("text-anchor", "start")
+            .attr("y", vis.margin.top/2 + 45)
+            .attr("x", function(d, index){
+                if (index === 0){return '1%'
+                }else if (index === 1){return '19%'
+                }else if (index === 2){return '38%'
+                }else if (index === 3){return '56%'
+                }else{return '74%'
+                }
+            })
+            .attr("font-family", "Georgia")
+            .attr("font-size", '10px')
+
+        vis.instrumentInfo = vis.artist.append("text")
+            .attr("class", "instrumentInfo")
+            .merge(vis.dataRow.select(".instrumentInfo"))
+            .transition()
+            .duration(1000)
+            .text(function(d, index) {return "Instrumentalness: " + d.instrumentalness.toFixed(3)})
+            .attr("text-anchor", "start")
+            .attr("y", vis.margin.top/2 + 60)
+            .attr("x", function(d, index){
+                if (index === 0){return '1%'
+                }else if (index === 1){return '19%'
+                }else if (index === 2){return '38%'
+                }else if (index === 3){return '56%'
+                }else{return '74%'
+                }
+            })
+            .attr("font-family", "Georgia")
+            .attr("font-size", '10px')
+
+        vis.liveInfo = vis.artist.append("text")
+            .attr("class", "liveInfo")
+            .merge(vis.dataRow.select(".liveInfo"))
+            .transition()
+            .duration(1000)
+            .text(function(d, index) {return "Liveness: " + d.liveness.toFixed(3)})
+            .attr("text-anchor", "start")
+            .attr("y", vis.margin.top/2 + 75)
+            .attr("x", function(d, index){
+                if (index === 0){return '1%'
+                }else if (index === 1){return '19%'
+                }else if (index === 2){return '38%'
+                }else if (index === 3){return '56%'
+                }else{return '74%'
+                }
+            })
+            .attr("font-family", "Georgia")
+            .attr("font-size", '10px')
+
+        vis.speechInfo = vis.artist.append("text")
+            .attr("class", "speechInfo")
+            .merge(vis.dataRow.select(".speechInfo"))
+            .transition()
+            .duration(1000)
+            .text(function(d, index) {return "Speechiness: " + d.speechiness.toFixed(3)})
+            .attr("text-anchor", "start")
+            .attr("y", vis.margin.top/2 + 90)
+            .attr("x", function(d, index){
+                if (index === 0){return '1%'
+                }else if (index === 1){return '19%'
+                }else if (index === 2){return '38%'
+                }else if (index === 3){return '56%'
+                }else{return '74%'
+                }
+            })
+            .attr("font-family", "Georgia")
+            .attr("font-size", '10px')
+
+        vis.valenceInfo = vis.artist.append("text")
+            .attr("class", "valenceInfo")
+            .merge(vis.dataRow.select(".valenceInfo"))
+            .transition()
+            .duration(1000)
+            .text(function(d, index) {return "Valence: " + d.valence.toFixed(3)})
+            .attr("text-anchor", "start")
+            .attr("y", vis.margin.top/2 + 105)
+            .attr("x", function(d, index){
+                if (index === 0){return '1%'
+                }else if (index === 1){return '19%'
+                }else if (index === 2){return '38%'
+                }else if (index === 3){return '56%'
+                }else{return '74%'
+                }
+            })
+            .attr("font-family", "Georgia")
+            .attr("font-size", '10px')
 
 
 
+        vis.x.domain(vis.displayData.map(d => d.Artists))
 
-        // // Acousticness score
-        // vis.acoustic = vis.artist.append("text")
-        //     .attr("class", "acousticScore")
-        //     .merge(vis.dataRow.select(".acousticScore"))
-        //     .text(function(d, index){
-        //         console.log("here", d)
-        //         return "Acousticness: " + d.acousticness.toFixed(numDec)
-        //     })
-        //     .attr("x", function(d, index){return ((vis.width - vis.margin.left - vis.margin.right)*index/4.55)})
-        //     .attr("y", -130)
-        //     .attr("text-anchor", "start")
-        //     .attr("transform", "translate(" + 0 + "," + vis.margin.top*3.25 + ")")
-        //
-        // // Danceability score
-        // vis.artist.append("text")
-        //     .attr("class", "danceScore")
-        //     .merge(vis.dataRow.select(".danceScore"))
-        //     .text(function(d, index){
-        //         console.log("here", d)
-        //         return "Danceability: " + d.danceability.toFixed(numDec)
-        //     })
-        //     .attr("x", function(d, index){return ((vis.width - vis.margin.left - vis.margin.right)*index/4.55)})
-        //     .attr("y", -110)
-        //     .attr("text-anchor", "start")
-        //     .attr("transform", "translate(" + 0 + "," + vis.margin.top*3.25 + ")")
-        //
-        // // Energy score
-        // vis.artist.append("text")
-        //     .attr("class", "energyScore")
-        //     .merge(vis.dataRow.select(".energyScore"))
-        //     .text(function(d, index){
-        //         console.log("here", d)
-        //         return "Energy: " + d.energy.toFixed(numDec)
-        //     })
-        //     .attr("x", function(d, index){return ((vis.width - vis.margin.left - vis.margin.right)*index/4.55)})
-        //     .attr("y", -90)
-        //     .attr("text-anchor", "start")
-        //     .attr("transform", "translate(" + 0 + "," + vis.margin.top*3.25 + ")")
-        //
-        // // Instrumentalness score
-        // vis.artist.append("text")
-        //     .attr("class", "instrumentScore")
-        //     .merge(vis.dataRow.select(".instrumentScore"))
-        //     .text(function(d, index){
-        //         console.log("here", d)
-        //         return "Instrumentalness: " + d.instrumentalness.toFixed(numDec)
-        //     })
-        //     .attr("x", function(d, index){return ((vis.width - vis.margin.left - vis.margin.right)*index/4.55)})
-        //     .attr("y", -70)
-        //     .attr("text-anchor", "start")
-        //     .attr("transform", "translate(" + 0 + "," + vis.margin.top*3.25 + ")")
-        //
-        // // Liveness score
-        // vis.artist.append("text")
-        //     .attr("class", "liveScore")
-        //     .merge(vis.dataRow.select(".liveScore"))
-        //     .text(function(d, index){
-        //         console.log("here", d)
-        //         return "Liveness: " + d.liveness.toFixed(numDec)
-        //     })
-        //     .attr("x", function(d, index){return ((vis.width - vis.margin.left - vis.margin.right)*index/4.55)})
-        //     .attr("y", -50)
-        //     .attr("text-anchor", "start")
-        //     .attr("transform", "translate(" + 0 + "," + vis.margin.top*3.25 + ")")
-        //
-        // // Loudness score
-        // vis.artist.append("text")
-        //     .attr("class", "loudScore")
-        //     .merge(vis.dataRow.select(".loudScore"))
-        //     .text(function(d, index){
-        //         console.log("here", d)
-        //         return "Loudness: " + d.loudness.toFixed(numDec)
-        //     })
-        //     .attr("x", function(d, index){return ((vis.width - vis.margin.left - vis.margin.right)*index/4.55)})
-        //     .attr("y", -30)
-        //     .attr("text-anchor", "start")
-        //     .attr("transform", "translate(" + 0 + "," + vis.margin.top*3.25 + ")")
-        //
-        // // Speechiness score
-        // vis.artist.append("text")
-        //     .attr("class", "speechScore")
-        //     .merge(vis.dataRow.select(".speechScore"))
-        //     .text(function(d, index){
-        //         console.log("here", d)
-        //         return "Speechiness: " + d.speechiness.toFixed(numDec)
-        //     })
-        //     .attr("x", function(d, index){return ((vis.width - vis.margin.left - vis.margin.right)*index/4.55)})
-        //     .attr("y", -10)
-        //     .attr("text-anchor", "start")
-        //     .attr("transform", "translate(" + 0 + "," + vis.margin.top*3.25 + ")")
-        //
-        // // Tempo score
-        // vis.artist.append("text")
-        //     .attr("class", "tempoScore")
-        //     .merge(vis.dataRow.select(".tempoScore"))
-        //     .text(function(d, index){
-        //         console.log("here", d)
-        //         return "Tempo: " + d.tempo.toFixed(numDec)
-        //     })
-        //     .attr("x", function(d, index){return ((vis.width - vis.margin.left - vis.margin.right)*index/4.55)})
-        //     .attr("y", 10)
-        //     .attr("text-anchor", "start")
-        //     .attr("transform", "translate(" + 0 + "," + vis.margin.top*3.25+ ")")
+        vis.svg.select(".x-axis")
+            .call(vis.xAxis)
+            .attr("font-family", "Georgia")
+            .attr("font-size", '11px')
+            .attr("font-weight", "bold")
 
-        //console.log(vis.displayData)
 
         // insert images
         if (selectedButton === 1960){
@@ -315,6 +316,11 @@ class ArtistData {
         }else{
             //console.log("no decade selected")
         }
+
+        vis.svg.selectAll(".x-axis").call(vis.xAxis)
+            .selectAll("text")
+            .attr("text-anchor", "middle")
+            .attr("y", -20);
 
 
     }
