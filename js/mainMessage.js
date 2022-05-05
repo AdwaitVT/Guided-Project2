@@ -26,6 +26,7 @@ class elementData {
 
     initVis() {
         let vis = this;
+        let addSpace = 5;
 
         vis.margin = {top: 10, right: 10, bottom: 20, left: 40};
 
@@ -61,7 +62,6 @@ class elementData {
 
         vis.x.domain(vis.elementUpdate)
 
-
         vis.xAxis = d3.axisTop()
             .scale(vis.x)
             .tickSizeOuter(0)
@@ -70,15 +70,66 @@ class elementData {
 
         vis.svg.append("g")
             .attr("class", "x-axis axis")
-            .attr("transform", "translate(" + vis.margin.left + "," + (vis.margin.top) + ")");
+            .attr("transform", "translate(" + 0 + "," + (vis.margin.top) + ")");
 
         vis.svg.select(".x-axis").call(vis.xAxis)
             .attr("font-family", "Georgia")
 
-        // add tool-tip
-        // vis.toolTip = d3.select("body").append("div")
-        //     .attr("class", "tooltip")
-        //     .attr("id", "artistTooltip")
+        // ------------------------------------------------------------------------------
+        //                              vertical axes
+        // ------------------------------------------------------------------------------
+        vis.y1 = d3.scaleBand()
+            .rangeRound([0, vis.height-vis.margin.top-vis.margin.bottom - 20])
+        vis.y1.domain([' '])
+
+        vis.y1Axis = d3.axisLeft()
+            .scale(vis.y1)
+            .tickSizeOuter(0)
+            .tickSizeInner(0)
+
+        vis.svg.append("g")
+            .attr("class", "y1-axis axis")
+            .attr("transform", "translate(" + 0 + "," + (vis.margin.top) + ")");
+        vis.svg.select(".y1-axis").call(vis.y1Axis)
+            .attr("font-family", "Georgia")
+
+        //                              y2 Scales and axes
+        vis.svg.append("g")
+            .attr("class", "y2-axis axis")
+            .attr("transform", "translate(" + (vis.x("Danceable") + addSpace) + "," + (vis.margin.top) + ")");
+        vis.svg.select(".y2-axis").call(vis.y1Axis)
+            .attr("font-family", "Georgia")
+        //                              y3 Scales and axes
+        vis.svg.append("g")
+            .attr("class", "y3-axis axis")
+            .attr("transform", "translate(" + (vis.x("Energy") + addSpace) + "," + (vis.margin.top) + ")");
+        vis.svg.select(".y3-axis").call(vis.y1Axis)
+            .attr("font-family", "Georgia")
+        //                              y4 Scales and axes
+        vis.svg.append("g")
+            .attr("class", "y4-axis axis")
+            .attr("transform", "translate(" + (vis.x("Instrumental") + addSpace + (vis.width + vis.margin.left + vis.margin.right)/40 + "," + (vis.margin.top) + ")"));
+        vis.svg.select(".y4-axis").call(vis.y1Axis)
+            .attr("font-family", "Georgia")
+        //                              y5 Scales and axes
+        vis.svg.append("g")
+            .attr("class", "y5-axis axis")
+            .attr("transform", "translate(" + (vis.x("Lively") + addSpace + (vis.width + vis.margin.left + vis.margin.right)/35 + "," + (vis.margin.top) + ")"));
+        vis.svg.select(".y5-axis").call(vis.y1Axis)
+            .attr("font-family", "Georgia")
+        //                              y6 Scales and axes
+        vis.svg.append("g")
+            .attr("class", "y6-axis axis")
+            .attr("transform", "translate(" + (vis.x("Speechy") + addSpace + (vis.width + vis.margin.left + vis.margin.right)/35 + "," + (vis.margin.top) + ")"));
+        vis.svg.select(".y6-axis").call(vis.y1Axis)
+            .attr("font-family", "Georgia")
+        //                              y7 Scales and axes
+        vis.svg.append("g")
+            .attr("class", "y7-axis axis")
+            .attr("transform", "translate(" + (vis.x("Valence") + addSpace) + "," + (vis.margin.top) + ")");
+        vis.svg.select(".y7-axis").call(vis.y1Axis)
+            .attr("font-family", "Georgia")
+
 
         // ------------------------------------------------------------------------------
         //                                  Add a legend
@@ -96,13 +147,13 @@ class elementData {
         vis.legend = vis.svgLegend.append("g")
             .attr('class', 'legend')
             .attr("y", "4%")
-            .attr('transform', `translate(${vis.widthLegend/1.4}, ${10})`)
+            .attr('transform', `translate(${vis.widthLegend/2}, ${4})`)
             .call(vis.legendAxis)
 
         vis.svgLegend.append("text")
             .text("Decade Color Code: ")
-            .attr("x", '55%')
-            .attr("y", '35%')
+            .attr("x", '30%')
+            .attr("y", '45%')
             .attr("font-family", "Georgia")
             .attr("font-size", '15px')
             .attr("font-style", 'italic')
@@ -114,7 +165,7 @@ class elementData {
             .attr("x", (d,i)=> i*42.5)
             .attr('y', 0)
             .attr("width", 210/5)
-            .attr('height', 10)
+            .attr('height', 15)
             .attr("fill", d => d.color)
 
 
@@ -322,6 +373,7 @@ class elementData {
         let rectWidth =  45;
         let xPos = 6.5;
         let addSpacing = 7.5;
+        let barHeight = 150;
 
         // -------------------------------------------------------------------------------------------------------------
         //                                          ACOUSTICNESS
@@ -340,9 +392,9 @@ class elementData {
             .transition()
             .duration(1000)
             .attr("fill", function(d, index){return  vis.acousticness.color[index]})
-            .attr("width", function(d){return d*200})
+            .attr("width", function(d){return d*barHeight})
             .attr("height", rectWidth)
-            .attr("x", function(d){return vis.x("Acoustic") + vis.margin.left})
+            .attr("x", function(d){return vis.x("Acoustic")})
             .attr("y", function(d, index){return vis.margin.top + index*vis.height/xPos})
 
         // add decade to the text
@@ -351,14 +403,14 @@ class elementData {
             .merge(vis.acousticRow.select(".textDecade"))
             .transition()
             .duration(1000)
-            .text(function(d, index) {return d.toFixed(3)})
+            .text(function(d, index) {return vis.acousticness.decade[index]})
             // .attr("fill", function(d, index){
             //     if (vis.acousticness.decade[index]===1960){
             //         return "darkgrey"
             //     }
             // })
             // .attr("text-anchor", "middle")
-            .attr("x", function(d){return vis.x("Acoustic") + vis.margin.left + d*200})
+            .attr("x", function(d){return vis.x("Acoustic") + d*barHeight})
             .attr("y", function(d, index){return vis.margin.top + index*vis.height/xPos + rectWidth/2})
 
         // -------------------------------------------------------------------------------------------------------------
@@ -378,9 +430,9 @@ class elementData {
             .transition()
             .duration(1000)
             .attr("fill", function(d, index){return  vis.danceability.color[index]})
-            .attr("width", function(d){return d*200})
+            .attr("width", function(d){return d*barHeight})
             .attr("height", rectWidth)
-            .attr("x", function(d){return vis.x("Danceable") + vis.margin.left + addSpacing})
+            .attr("x", function(d){return vis.x("Danceable") + addSpacing})
             .attr("y", function(d, index){return vis.margin.top + index*vis.height/xPos})
 
         // add decade to the text
@@ -389,14 +441,14 @@ class elementData {
             .merge(vis.danceRow.select(".textDecade"))
             .transition()
             .duration(1000)
-            .text(function(d, index) {return d.toFixed(3)})
+            .text(function(d, index) {return vis.danceability.decade[index]})
             // .attr("fill", function(d, index){
             //     if (vis.danceability.decade[index]===1960){
             //         return 'darkgrey'
             //     }
             // })
             // .attr("text-anchor", "middle")
-            .attr("x", function(d){return vis.x("Danceable") + vis.margin.left + d*200 + addSpacing})
+            .attr("x", function(d){return vis.x("Danceable") + d*barHeight + addSpacing})
             .attr("y", function(d, index){return vis.margin.top + index*vis.height/xPos + rectWidth/2})
 
         // -------------------------------------------------------------------------------------------------------------
@@ -416,9 +468,9 @@ class elementData {
             .transition()
             .duration(1000)
             .attr("fill", function(d, index){return  vis.energy.color[index]})
-            .attr("width", function(d){return d*200})
+            .attr("width", function(d){return d*barHeight})
             .attr("height", rectWidth)
-            .attr("x", function(d){return vis.x("Energy") + vis.margin.left + addSpacing})
+            .attr("x", function(d){return vis.x("Energy") + addSpacing})
             .attr("y", function(d, index){return vis.margin.top + index*vis.height/xPos})
 
         // add decade to the text
@@ -427,14 +479,14 @@ class elementData {
             .merge(vis.energyRow.select(".textDecade"))
             .transition()
             .duration(1000)
-            .text(function(d, index) {return d.toFixed(3)})
+            .text(function(d, index) {return vis.energy.decade[index]})
             // .attr("fill", function(d, index){
             //     if (vis.energy.decade[index]===1960){
             //         return 'darkgrey'
             //     }
             // })
             // .attr("text-anchor", "middle")
-            .attr("x", function(d){return vis.x("Energy") + vis.margin.left + d*200 + addSpacing})
+            .attr("x", function(d){return vis.x("Energy") + d*barHeight + addSpacing})
             .attr("y", function(d, index){return vis.margin.top + index*vis.height/xPos + rectWidth/2})
         // -------------------------------------------------------------------------------------------------------------
         //                                          INSTRUMENTALNESS
@@ -453,9 +505,9 @@ class elementData {
             .transition()
             .duration(1000)
             .attr("fill", function(d, index){return  vis.instrument.color[index]})
-            .attr("width", function(d){return d*200})
+            .attr("width", function(d){return d*barHeight})
             .attr("height", rectWidth)
-            .attr("x", function(d){return vis.x("Instrumental") + vis.margin.left + addSpacing + (vis.width + vis.margin.left + vis.margin.right)/20})
+            .attr("x", function(d){return vis.x("Instrumental") + addSpacing + (vis.width + vis.margin.left + vis.margin.right)/40})
             .attr("y", function(d, index){return vis.margin.top + index*vis.height/xPos})
 
         // add decade to the text
@@ -464,14 +516,14 @@ class elementData {
             .merge(vis.instrumentRow.select(".textDecade"))
             .transition()
             .duration(1000)
-            .text(function(d, index) {return d.toFixed(3)})
+            .text(function(d, index) {return vis.instrument.decade[index]})
             // .attr("fill", function(d, index){
             //     if (vis.instrument.decade[index]===1960){
             //         return "darkgrey"
             //     }
             // })
             // .attr("text-anchor", "middle")
-            .attr("x", function(d){return vis.x("Instrumental") + vis.margin.left + d*200 + addSpacing + (vis.width + vis.margin.left + vis.margin.right)/20})
+            .attr("x", function(d){return vis.x("Instrumental") + d*barHeight + addSpacing + (vis.width + vis.margin.left + vis.margin.right)/40})
             .attr("y", function(d, index){return vis.margin.top + index*vis.height/xPos + rectWidth/2})
         // -------------------------------------------------------------------------------------------------------------
         //                                          LIVENESS
@@ -490,9 +542,9 @@ class elementData {
             .transition()
             .duration(1000)
             .attr("fill", function(d, index){return  vis.liveness.color[index]})
-            .attr("width", function(d){return d*200})
+            .attr("width", function(d){return d*barHeight})
             .attr("height", rectWidth)
-            .attr("x", function(d){return vis.x("Lively") + vis.margin.left + addSpacing + (vis.width + vis.margin.left + vis.margin.right)/25})
+            .attr("x", function(d){return vis.x("Lively") + addSpacing + (vis.width + vis.margin.left + vis.margin.right)/35})
             .attr("y", function(d, index){return vis.margin.top + index*vis.height/xPos})
 
         // add decade to the texts
@@ -501,14 +553,14 @@ class elementData {
             .merge(vis.liveRow.select(".textDecade"))
             .transition()
             .duration(1000)
-            .text(function(d) {return d.toFixed(3)})
+            .text(function(d, index) {return vis.liveness.decade[index]})
             // .attr("fill", function(d, index){
             //     if (vis.liveness.decade[index]===1960){
             //         return "darkgrey"
             //     }
             // })
             // .attr("text-anchor", "middle")
-            .attr("x", function(d){return vis.x("Lively") + vis.margin.left + d*200 + addSpacing + (vis.width + vis.margin.left + vis.margin.right)/25})
+            .attr("x", function(d){return vis.x("Lively") + d*barHeight + addSpacing + (vis.width + vis.margin.left + vis.margin.right)/35})
             .attr("y", function(d, index){return vis.margin.top + index*vis.height/xPos + rectWidth/2})
 
         // -------------------------------------------------------------------------------------------------------------
@@ -528,9 +580,9 @@ class elementData {
             .transition()
             .duration(1000)
             .attr("fill", function(d, index){return  vis.speech.color[index]})
-            .attr("width", function(d){return d*200})
+            .attr("width", function(d){return d*barHeight})
             .attr("height", rectWidth)
-            .attr("x", function(d){return vis.x("Speechy") + vis.margin.left + addSpacing + (vis.width + vis.margin.left + vis.margin.right)/20})
+            .attr("x", function(d){return vis.x("Speechy") + addSpacing + (vis.width + vis.margin.left + vis.margin.right)/35})
             .attr("y", function(d, index){return vis.margin.top + index*vis.height/xPos})
 
         // add decade to the text
@@ -539,14 +591,14 @@ class elementData {
             .merge(vis.speechRow.select(".textDecade"))
             .transition()
             .duration(1000)
-            .text(function(d, index) {return d.toFixed(3)})
+            .text(function(d, index) {return vis.speech.decade[index]})
             // .attr("fill", function(d, index){
             //     if (vis.speech.decade[index]===1960){
             //         return "darkgrey"
             //     }
             // })
             // .attr("text-anchor", "middle")
-            .attr("x", function(d){return vis.x("Speechy") + vis.margin.left + d*200 + addSpacing + (vis.width + vis.margin.left + vis.margin.right)/20})
+            .attr("x", function(d){return vis.x("Speechy") + d*barHeight + addSpacing + (vis.width + vis.margin.left + vis.margin.right)/35})
             .attr("y", function(d, index){return vis.margin.top + index*vis.height/xPos + rectWidth/2})
 
         // -------------------------------------------------------------------------------------------------------------
@@ -566,9 +618,9 @@ class elementData {
             .transition()
             .duration(1000)
             .attr("fill", function(d, index){return  vis.valence.color[index]})
-            .attr("width", function(d){return d*200})
+            .attr("width", function(d){return d*barHeight})
             .attr("height", rectWidth)
-            .attr("x", function(d){return vis.x("Valence") + vis.margin.left + addSpacing})
+            .attr("x", function(d){return vis.x("Valence") + addSpacing})
             .attr("y", function(d, index){return vis.margin.top + index*vis.height/xPos})
 
         // add decade to the text
@@ -577,64 +629,18 @@ class elementData {
             .merge(vis.valenceRow.select(".textDecade"))
             .transition()
             .duration(1000)
-            .text(function(d) {return d.toFixed(3)})
+            .text(function(d, index) {return vis.valence.decade[index]})
             // .attr("fill", function(d, index){
             //     if (vis.valence.decade[index]===1960){
             //         return "darkgrey"
             //     }
             // })
             //.attr("text-anchor", "end")
-            .attr("x", function(d){return vis.x("Valence") + vis.margin.left + d*200 + addSpacing})
+            .attr("x", function(d){return vis.x("Valence") + d*barHeight + addSpacing})
             .attr("y", function(d, index){return vis.margin.top + index*vis.height/xPos + rectWidth/2})
 
-
-
         // -------------------------------------------------------------------------------------------------------------
-        // update the x-axis
-        let numDec = 3
 
-        // vis.axislabels = vis.svg.select(".x-axis").call(vis.xAxis)
-        //     .selectAll("text")
-        //     .text(function(d, index){
-        //         return vis.elementUpdate[index];
-        //     })
-        //     .style("text-anchor", "start")
-        //     .attr("dx", "2.5%")
-        //     .attr("dy", "-2%")
-        //     .attr("transform", function (d) {
-        //         return "rotate(-10)"
-        //     });
-
-        // vis.axislabels.on('mouseover', function(event, d, index){
-        //     vis.toolTip
-        //         .style("opacity", 1)
-        //         .style("left", event.pageX + 20 + "px")
-        //         .style("top", event.pageY + "px")
-        //         .html(`
-        //                  <div class="char-defs" style="border: thin solid black; border-radius: 5px; background: lightgrey; padding: 10px; margin-left: 10px">
-        //                     <p style="font-size: 15px">
-        //                         <b>Acoustic</b>: confidence the track is acoustic <br>
-        //                         <b>Danceable</b>: how suitable a track is for dancing <br>
-        //                         <b>Energy</b>: measure of intensity & activity (i.e. feels fast, loud, and noisy) <br>
-        //                         <b>Instrumental</b>: track contains vocals versus no vocals <br>
-        //                         <b>Lively</b>: presence of an audience in the recording <br>
-        //                         <b>Loud</b>: volume in decibels  <br>
-        //                         <b>Speechy</b>: presence of spoken words <br>
-        //                         <b>Tempo</b>: estimated speed in beats per minute  <br>
-        //                         <b>Valence</b>: measure of musical positiveness (i.e. happy / cheerful vs. sad / depressed)
-        //                     </p>
-        //                 </div>`)
-        //     d3.select(this).attr("fill", "red")
-        // })
-        //
-        // vis.axislabels.on('mouseout', function(event, d){
-        //     vis.toolTip
-        //         .style("opacity", 0)
-        //         .style("left", 0)
-        //         .style("top", 0)
-        //         .html(``);
-        //     d3.select(this).attr("fill", "black")
-        // })
 
 
 
