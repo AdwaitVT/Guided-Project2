@@ -5,7 +5,8 @@ let introLineChart,
     outlierAlbums,
     mainMessage,
     treeMap,
-    histogram;
+    histogram,
+    sliders;
 
 let parseDate = d3.timeParse("%Y");
 let parseNum = d3.format(".4f");
@@ -90,6 +91,7 @@ function loadData() {
 
         yearlyAvgs = csv;
         introLineChart = new LineChart("lineChart", csv);
+        sliders = new Sliders("sliders", csv);
 
     });
 
@@ -126,36 +128,39 @@ function loadData() {
 
 }
 
-document.getElementById("sort-by").onchange = function() {
+    document.getElementById("sort-by").onchange = function() {
+        mainMessage.wrangleData(this.value)
+    }
 
-    mainMessage.wrangleData(this.value)
+    document.getElementById("slider-range1").onchange = function(){
+        console.log(this.value);
+    }
 
-}
-document.getElementById("histogram-decade").onchange = function() {
-    histogram.decade = this.value;
 
-    histogram.wrangleData(histogram.decade)
+    document.getElementById("histogram-decade").onchange = function() {
+        histogram.decade = this.value;
+        histogram.wrangleData(histogram.decade)
 
-}
+    }
 
-document.getElementById("1960").onclick = function () {
-    decadeArtistData.wrangleData("1960")
-}
-document.getElementById("1970").onclick = function () {
-    decadeArtistData.wrangleData("1970")
-}
-document.getElementById("1980").onclick = function () {
-    decadeArtistData.wrangleData("1980")
-}
-document.getElementById("1990").onclick = function () {
-    decadeArtistData.wrangleData("1990")
-}
-document.getElementById("2000").onclick = function () {
-    decadeArtistData.wrangleData("2000")
-}
-document.getElementById("2010").onclick = function () {
-    decadeArtistData.wrangleData("2010")
-}
+    document.getElementById("1960").onclick = function () {
+        decadeArtistData.wrangleData("1960")
+    }
+    document.getElementById("1970").onclick = function () {
+        decadeArtistData.wrangleData("1970")
+    }
+    document.getElementById("1980").onclick = function () {
+        decadeArtistData.wrangleData("1980")
+    }
+    document.getElementById("1990").onclick = function () {
+        decadeArtistData.wrangleData("1990")
+    }
+    document.getElementById("2000").onclick = function () {
+        decadeArtistData.wrangleData("2000")
+    }
+    document.getElementById("2010").onclick = function () {
+        decadeArtistData.wrangleData("2010")
+    }
 
 $(document).ready(function () {
     var fv = $("#fullview").fullView({

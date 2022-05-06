@@ -232,6 +232,10 @@ form label {
     cursor: pointer;
 }
 
+td, th {
+    padding: 1px 10px;
+}
+
 .cimage{
     transition: transform .5s;
     height: 200px;
@@ -260,18 +264,4 @@ h6{
     margin-top: .5%;
     margin-bottom: .5%;
     text-align: center;
-}
-
-#year-pred{
-    margin-right: 22.0%;
-    text-align: center;
-}
-
-#slider-div{
-    margin-left: 2%;
-}
-
-#color-picker{
-    margin-left: 22%;
-    font-size: 20px;
 }
