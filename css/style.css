@@ -1,13 +1,14 @@
 #title-text{
-    font-size: 50px;
+    font-size: 125px;
     text-align: center;
 }
 
 
 #subtitle{
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
-    padding: 10px;
+    font-family: Ebrima;
+    padding: 20px;
 }
 
 .text{
@@ -22,8 +23,15 @@
 }
 
 /*
-Title
+all titles
  */
+
+h1 {
+    font-family: "Niagara Engraved";
+    font-size: 50px;
+    text-align: center;
+}
+/*
 h1 {
     font-family: "Niagara Engraved";
     font-size: 50px;
@@ -33,6 +41,7 @@ h1 {
     background: powderblue 100% 100%;
 }
 
+ */
 /*
 Title
  */
