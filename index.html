@@ -1031,22 +1031,22 @@
 
 
     <div class="section" id="sliders">
-        <div class="row">
-            <div class="container" style="width:60%">
+        <div class="row" style="margin-bottom:10vh;">
+            <div class="container" style="align-content:center; width:75%; font-size:16px;">
                 <p>
                     Over the last 60 years, we've seen all different genres and styles of music reach the charts. With decades of music at our fingertips thanks to streaming
-                    services, it's easier than ever to find music that you enjoy, even if you don't like what's popular now.
+                    services like Spotify, it's easier than ever to find music that you enjoy, even if you don't like what's popular now.
                 </p>
                 <p>
                     Select three features to filter on and use the sliders to find which years match your favorite styles of music.
                 </p>
             </div>
         </div>
-        <div class="row" style="margin:auto; width:85%">
+        <div class="row justify-content-between" style="margin:auto;">
                 <div class="col-5">
                         <div class="row align-items-center" id="slider1" >
-                            <div class="col-3" >
-                                <select id="selectSlider1" style="font-size:16px">
+                            <div class="col-4">
+                                <select id="selectSlider1" style="font-size:15px">
                                     <option value="acousticness">Acousticness</option>
                                     <option value="danceability">Danceability</option>
                                     <option value="energy">Energy</option>
@@ -1056,17 +1056,18 @@
                                     <option value="valence">Valence</option>
                                 </select>
                             </div>
-                            <div class="col-2" style="margin:auto;">
-                                <p id="value-range1" style="font-size:16px"></p>
-                            </div>
-                            <div class="col">
+                            <div class="col-4">
                                 <div id="slider-range1"></div>
                             </div>
+<!--                            <div class="w-100"></div>-->
+<!--                            <div class="col-3">-->
+<!--                                <p id="value-range1" style="font-size:13px"></p>-->
+<!--                            </div>-->
                         </div>
 
                         <div class="row align-items-center" id="slider2">
-                                <div class="col-3">
-                                    <select id="selectSlider2"style="font-size:16px">
+                                <div class="col-4">
+                                    <select id="selectSlider2"style="font-size:15px">
                                         <option value="acousticness">Acousticness</option>
                                         <option value="danceability">Danceability</option>
                                         <option value="energy">Energy</option>
@@ -1076,17 +1077,17 @@
                                         <option value="valence">Valence</option>
                                     </select>
                                 </div>
-                                <div class="col-2">
-                                    <p id="value-range2" style="font-size:16px"></p>
-                                </div>
-                                <div class="col">
+                                <div class="col-6">
                                     <div id="slider-range2"></div>
                                 </div>
+<!--                                <div class="w-100"></div>-->
+<!--                                <div class="col-2">-->
+<!--                                    <p id="value-range2" style="font-size:15px"></p>-->
+<!--                                </div>-->
                         </div>
-
                          <div class="row align-items-center" id="slider3">
-                             <div class="col-3">
-                                <select id="selectSlider3" style="font-size:16px">
+                             <div class="col-4">
+                                <select id="selectSlider3" style="font-size:15px">
                                     <option value="acousticness">Acousticness</option>
                                     <option value="danceability">Danceability</option>
                                     <option value="energy">Energy</option>
@@ -1096,23 +1097,22 @@
                                     <option value="valence">Valence</option>
                                 </select>
                              </div>
-                            <div class="col-2">
-                                <p id="value-range3" style="font-size:16px"></p>
-                            </div>
-                            <div class="col">
+<!--                             <div class="col-2" style="align-content: center;">-->
+<!--                                 <p id="value-range3" style="font-size:15px"></p>-->
+<!--                             </div>-->
+                            <div class="col-6">
                                 <div id="slider-range3"></div>
                             </div>
+<!--                             <div class="w-100"></div>-->
                         </div>
                 </div>
-                <div class="col-7">
-                    <div>
-                        <p>
-                            You might enjoy music from these years:
-                        </p>
-                    </div>
-                    <div id="year-table" style="font-size:20px">
-
-                    </div>
+                <div class="col-5" style="margin:auto;">
+                        <div>
+                            <p style="font-size:17px;">
+                                You might enjoy music from these years:
+                            </p>
+                        </div>
+                        <div id="year-table" style="font-size:15px"></div>
                 </div>
         </div>
     </div>
