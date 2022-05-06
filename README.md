@@ -24,7 +24,7 @@ https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-
 
 
 Top 5 Artist Slide Image References:
-Herb Alpert: https://www.amazon.com/Herb-Alpert-Tijuana-Brass-Greatest/dp/B000002GCH
+Herb Alpert: https://www.amazon.com/Herb-Alpert-Tijuana-Brass-Greatest/dp/B000002GCH \\
 Bill cosby: https://en.wikipedia.org/wiki/At_Last_Bill_Cosby_Really_Sings
 Andy Williams: https://www.jazzmessengers.com/en/88649/andy-williams/andy-s-best-180-gram 
 Barbra Streisand: https://www.jazzmessengers.com/en/88649/andy-williams/andy-s-best-180-gram
