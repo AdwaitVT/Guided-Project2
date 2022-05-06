@@ -20,7 +20,7 @@ class LineChart{
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-            .attr('transform', `translate (${vis.margin.left}, ${vis.margin.top})`);
+            .attr('transform', `translate (${vis.margin.left}, 0)`);
 
         vis.x = d3.scaleTime()
             .domain(d3.extent(vis.data, function(d) { return d.chart_date; }))

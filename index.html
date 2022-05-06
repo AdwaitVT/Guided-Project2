@@ -22,7 +22,7 @@
 <div id="fullview">
     <div class="section" id="titlepage">
         <div style="width:100%; margin-right:15%; margin-top:10%;float:right;">
-            <h1 id="title-text">Music Through the Decades</h1>
+            <h1 id="title-text" >Music Through the Decades</h1>
             <h2 id="subtitle" style="float:right;">
                 Elizabeth Christman, Rebecca DeSipio, <br> Adwait Pradhan, Surendrabikram Thapa
             </h2>
@@ -32,7 +32,7 @@
     <div class="section" id="intro-text">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-5" style="font-family:Ebrima; text-align:center">
+                <div class="col-5" style="font-family:Ebrima; font-size: 18px; text-align:center">
                     <p>
                         Music is a reflection of the times we live in. As our culture and society changes, so do the trends in music. In this data story,
                         you will explore how music has changed over time, and what defined different eras of music.
@@ -45,14 +45,14 @@
     <div class="section" id="feature-explanation">
         <div class="container" style="padding:3%; background-color:#d4d6d5">
             <div class="">
-                <div class="align-self-center" style="text-align:center; font-family:Ebrima; font-size:24px;">
+                <div class="align-self-center" style="text-align:center; font-family:Ebrima; font-size:18px;">
                     <p>
                         Throughout this data story, we will look at music as defined by the features assigned by
                         <a href="https://en.wikipedia.org/wiki/The_Echo_Nest">Spotify's EchoNest.</a>
                     </p>
                 </div>
                 <br>
-                <div class="" style="font-family: Ebrima; font-size:18px;">
+                <div class="" style="font-family: Ebrima; font-size:14px;">
                     <p>
                         <b>Acousticness</b>: A confidence measure from 0.0 to 1.0 of <span class="highlight">whether the track is acoustic</span>.
                         1.0 represents high confidence the track is acoustic.
@@ -83,7 +83,7 @@
     </div>
 
     <div class="section" id="intro-vis" style="background-color: lightblue">
-        <div class="container" style="border-radius:5px; background-color: #f2f2f2; padding:2%" >
+        <div class="container" style="border-radius:5px; background-color: #f2f2f2; padding:1%" >
                 <div style="width: 50%; font-size: 14px; font-family: Ebrima; float:left;">
                     <h3>How has music changed over time?</h3>
                     <p>
@@ -92,7 +92,7 @@
                         <span class="highlight">Click any of the lines below</span> to see the respective histogram.
                     </p>
                 </div>
-                <form style="width:10%; float:right">
+                <form style="width:10%; float:right; margin-right:15%; margin-top:5%">
                     <label for="histogram-decade" style="font-family: Ebrima;">Choose a decade:</label>
                     <select class="form-select form-select-smid" id="histogram-decade">
                         <option value="1960">1960s</option>
@@ -104,8 +104,8 @@
                     </select>
                 </form>
         </div>
-        <div class="container" style="border-radius:5px; background-color: #f2f2f2; padding:2%">
-            <div id="lineChart" style="height: 60vh; width: 50%; margin-top: 30px; float:left;">
+        <div class="container" style="border-radius:5px; background-color: #f2f2f2; padding:1%">
+            <div id="lineChart" style="height: 60vh; width: 50%; margin-top: 25px; float:left;">
             </div>
 
             <div class="row vis" id="histogram" style="height: 60vh; width: 50%;">
@@ -113,23 +113,19 @@
         </div>
     </div>
 
-    <div class="section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-5" style="text-align:center">
-                    <p>
-                        Some of the attributes featured above, such as acousticness and energy, had distinct changes over time. <br>
-                    </p>
-                    <p>
-                        We'll next look at the top five artists and albums per each decade.
-                        Do you find the attribute trends of these artists matched the overall trends of the decade?
-                    </p>
-                </div>
-            </div>
+    <div class="section" id="transition-to-topartists">
+        <div class="col-6" style="margin-top:-10%; font-size: 18px; font-family: Ebrima;">
+            <p>
+                Some of the attributes featured above, such as acousticness and energy, had distinct changes over time. <br>
+            </p>
+            <p>
+                We'll next look at the top five artists and albums per each decade.
+                Do you find the attribute trends of these artists matched the overall trends of the decade?
+            </p>
         </div>
     </div>
 
-    <div class="section" id="top-artists-sec">
+    <div class="section" id="top-artists-sec" style="background-color: lightblue">
         <div class="row justify-content-center" id="top-artists-transition">
             <div class="col-8" style="text-align:center">
                 <p>
@@ -139,7 +135,7 @@
             </div>
         </div>
 
-        <div class="container" id="top-artists-vis" style="height:100vh; width: 100%">
+        <div class="container" id="top-artists-vis" style="border-radius: 5px; height:100vh; width: 100%; background-color: #f2f2f2">
             <h1>Top 5 Artists of the Decade</h1>
             <div class="col" style="width: 10%; float: left; height: 60vh">
                 <button class="btn decadeButtons" id="1960" style="margin-left: 50px">
@@ -173,21 +169,21 @@
                      style="margin-right: 3%">
                 <img alt="no artist yet" class="images" id="img5" src="artist_imgs/blank.png">
             </div>
-            <div class="artists" id="top-artists" style="height: 10%; margin-left: 10%"></div>
+            <div class="artists" id="top-artists" style="height: 10%; margin-top:-5%; margin-left: 10%"></div>
+            <div class="row" id="top-artists-text">
+                <p style="font-size: 12px"><em>Note: The top 5 artists were selected based on "count" which represents the total number of times an artist's album charted per decade. </em></p>
+            </div>
         </div>
-        <div class="row" id="top-artists-text">
-            <p style="font-size: 12px"><em>Note: The top 5 artists were selected based on "count" which represents the total number of times an artist's album charted per decade. </em></p>
-        </div>
+
     </div>
 
     <div class="section" id="artist-to-album-text">
         <div class="container">
-            <div class="row justify-content-center">
-
-                <div class="col-8" style="text-align:center">
+            <div class="row">
+                <div class="col-5" style="text-align:start; margin-top:5%; font-size:18px; font-family: Ebrima">
                     <p>
-                        After exploring the top albums, we can see that the <b>60's</b> were dominated by <b>jazz</b> ,
-                        the <b>70's & 80's</b>  by <b>pop & rock</b> , the <b>90's country</b> , and the <b>2000's & 2010's</b>  by <b> rock</b> .
+                        After exploring the top albums, we can see that the <b>60's</b> were dominated by <b>jazz</b>,
+                        the <b>70's & 80's</b>  by <b>pop & rock</b>, the <b>90's country</b>, and the <b>2000's & 2010's</b>  by <b> rock</b> .
                     </p>
 
                     <p>
@@ -199,14 +195,14 @@
     </div>
 
 
-    <div class="section" id="top-albums">
+    <div class="section" id="top-albums" style="">
         <div class="container">
                 <h1 style="margin-top: 2%">Top Albums of the Decades</h1>
-            <div class="container">
+            <div class="container" style="">
 
                 <div align="center">
-                    <label for="select-box1">Select the Decade to show the Album :</label>
-                    <select class="form-control" id="select-box1">
+                    <label for="select-box1" style="font-family: Ebrima; font-size:18px;">Select a decade:</label>
+                    <select class="form-select form-select-smid" id="select-box1" style="width:10%">
                         <!--    <option>Select The Decade </option>-->
                         <option value="1960">1960s</option>
                         <option value="1970">1970s</option>
@@ -219,7 +215,6 @@
                 <br>
                 <div>
                     <div class="1960 GFG">
-                        <h4 align="center">Top Albums of 1960s</h4>
                         <div id="topAlbums" class="carousel slide" data-interval="false">
                             <div class="carousel-inner slider">
                                 <div class="carousel-item active">
@@ -231,14 +226,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : My Fair Lady</h6>
                                                     <h6> Artists :	Frederick Loewe</h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.52<br>
-                                                        acousticness : 0.58<br>
-                                                        instrumentalness : 0.12<br>
-                                                        danceability : 0.37<br>
-                                                        liveness : 0.35<br>
-                                                        speechiness : 0.07<br>
-                                                        valence : 0.42<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.58<br>
+                                                        Danceability : 0.37<br>
+                                                        Energy : 0.52<br>
+                                                        Instrumentalness : 0.12<br>
+                                                        Liveness : 0.35<br>
+                                                        Speechiness : 0.07<br>
+                                                        Valence : 0.42<br>
                                                 </div>
 
                                             </div>
@@ -249,14 +244,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : West Side Story</h6>
                                                     <h6> Artists : Leonard Bernstein</h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.51<br>
-                                                        acousticness : 0.57<br>
-                                                        instrumentalness : 0.11<br>
-                                                        danceability : 0.37<br>
-                                                        liveness : 0.21<br>
-                                                        speechiness : 0.03<br>
-                                                        valence : 0.76<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.57<br>
+                                                        Danceability : 0.37<br>
+                                                        Energy : 0.51<br>
+                                                        Instrumentalness : 0.11<br>
+                                                        Liveness : 0.21<br>
+                                                        Speechiness : 0.03<br>
+                                                        Valence : 0.76<br>
                                                 </div>
 
                                             </div>
@@ -267,14 +262,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : The Shadow Of Your Smile</h6>
                                                     <h6> Artists : Andy Williams </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.53<br>
-                                                        acousticness : 0.56<br>
-                                                        instrumentalness : 0.10<br>
-                                                        danceability : 0.37<br>
-                                                        liveness : 0.16<br>
-                                                        speechiness : 0.04<br>
-                                                        valence : 0.32<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.56<br>
+                                                        Danceability : 0.37<br>
+                                                        Energy : 0.53<br>
+                                                        Instrumentalness : 0.10<br>
+                                                        Liveness : 0.16<br>
+                                                        Speechiness : 0.04<br>
+                                                        Valence : 0.32<br>
                                                 </div>
 
                                             </div>
@@ -289,14 +284,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Gentle On My Mind</h6>
                                                     <h6> Artists : Glen Campbell </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.49<br>
-                                                        acousticness : 0.55<br>
-                                                        instrumentalness : 0.09<br>
-                                                        danceability : 0.55<br>
-                                                        liveness : 0.29<br>
-                                                        speechiness : 0.04<br>
-                                                        valence : 0.66<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.55<br>
+                                                        Danceability : 0.55<br>
+                                                        Energy : 0.49<br>
+                                                        Instrumentalness : 0.09<br>
+                                                        Liveness : 0.29<br>
+                                                        Speechiness : 0.04<br>
+                                                        Valence : 0.66<br>
                                                 </div>
 
                                             </div>
@@ -308,14 +303,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : For Once In My Life</h6>
                                                     <h6> Artists : Stevie Wonder </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.52<br>
-                                                        acousticness : 0.58<br>
-                                                        instrumentalness : 0.08<br>
-                                                        danceability : 0.64<br>
-                                                        liveness : 0.18<br>
-                                                        speechiness : 0.04<br>
-                                                        valence : 0.75<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.58<br>
+                                                        Danceability : 0.64<br>
+                                                        Energy : 0.52<br>
+                                                        Instrumentalness : 0.08<br>
+                                                        Liveness : 0.18<br>
+                                                        Speechiness : 0.04<br>
+                                                        Valence : 0.75<br>
                                                 </div>
                                             </div>
                                         </div>
@@ -339,7 +334,6 @@
                     </div>
 
                     <div class="1970 GFG">
-                        <h4 align="center">Top Albums of 1970s</h4>
                         <div id="topAlbums1" class="carousel slide" data-interval="false">
                             <div class="carousel-inner slider">
                                 <div class="carousel-item active">
@@ -351,14 +345,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Tapestry</h6>
                                                     <h6> Artists : Carole King </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.61<br>
-                                                        acousticness : 0.35<br>
-                                                        instrumentalness : 0.12<br>
-                                                        danceability : 0.41<br>
-                                                        liveness : 0.18<br>
-                                                        speechiness : 0.04<br>
-                                                        valence : 0.58<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.35<br>
+                                                        Danceability : 0.41<br>
+                                                        Energy : 0.61<br>
+                                                        Instrumentalness : 0.12<br>
+                                                        Liveness : 0.18<br>
+                                                        Speechiness : 0.04<br>
+                                                        Valence : 0.58<br>
                                                 </div>
                                             </div>
                                         </div>
@@ -368,14 +362,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : The Dark Side Of The Moon</h6>
                                                     <h6> Artists : Pink Floyd </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.60<br>
-                                                        acousticness : 0.34<br>
-                                                        instrumentalness : 0.09<br>
-                                                        danceability : 0.51<br>
-                                                        liveness : 0.20<br>
-                                                        speechiness : 0.03<br>
-                                                        valence : 0.44<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.34<br>
+                                                        Danceability : 0.51<br>
+                                                        Energy : 0.60<br>
+                                                        Instrumentalness : 0.09<br>
+                                                        Liveness : 0.20<br>
+                                                        Speechiness : 0.03<br>
+                                                        Valence : 0.44<br>
                                                 </div>
 
                                             </div>
@@ -386,14 +380,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Led Zeppelin IV</h6>
                                                     <h6> Artists : Led Zeppelin </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.61<br>
-                                                        acousticness : 0.35<br>
-                                                        instrumentalness : 0.12<br>
-                                                        danceability : 0.41<br>
-                                                        liveness : 0.18<br>
-                                                        speechiness : 0.04<br>
-                                                        valence : 0.58<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.35<br>
+                                                        Danceability : 0.41<br>
+                                                        Energy : 0.61<br>
+                                                        Instrumentalness : 0.12<br>
+                                                        Liveness : 0.18<br>
+                                                        Speechiness : 0.04<br>
+                                                        Valence : 0.58<br>
                                                 </div>
 
                                             </div>
@@ -408,14 +402,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Close To You</h6>
                                                     <h6> Artists : Carpenters </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.42<br>
-                                                        acousticness : 0.59<br>
-                                                        instrumentalness : 0.06<br>
-                                                        danceability : 0.42<br>
-                                                        liveness : 0.17<br>
-                                                        speechiness : 0.03<br>
-                                                        valence : 0.43<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.59<br>
+                                                        Danceability : 0.42<br>
+                                                        Energy : 0.42<br>
+                                                        Instrumentalness : 0.06<br>
+                                                        Liveness : 0.17<br>
+                                                        Speechiness : 0.03<br>
+                                                        Valence : 0.43<br>
                                                 </div>
 
                                             </div>
@@ -427,14 +421,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Naturally</h6>
                                                     <h6> Artists : J. J. Cale </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.48<br>
-                                                        acousticness : 0.45<br>
-                                                        instrumentalness : 0.11<br>
-                                                        danceability : 0.38<br>
-                                                        liveness : 0.14<br>
-                                                        speechiness : 0.03<br>
-                                                        valence : 0.48<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.45<br>
+                                                        Danceability : 0.38<br>
+                                                        Energy : 0.48<br>
+                                                        Instrumentalness : 0.11<br>
+                                                        Liveness : 0.14<br>
+                                                        Speechiness : 0.03<br>
+                                                        Valence : 0.48<br>
                                                 </div>
 
                                             </div>
@@ -459,7 +453,6 @@
                     </div>
 
                     <div class="1980 GFG">
-                        <h4 align="center">Top Albums of 1980s</h4>
                         <div id="topAlbums2" class="carousel slide" data-interval="false">
                             <div class="carousel-inner slider">
                                 <div class="carousel-item active">
@@ -471,14 +464,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : The Dark Side Of The Moon</h6>
                                                     <h6> Artists : Pink Floyd </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.74<br>
-                                                        acousticness : 0.28<br>
-                                                        instrumentalness : 0.029<br>
-                                                        danceability : 0.74<br>
-                                                        liveness : 0.11<br>
-                                                        speechiness : 0.05<br>
-                                                        valence : 0.78<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.28<br>
+                                                        Danceability : 0.74<br>
+                                                        Energy : 0.74<br>
+                                                        Instrumentalness : 0.029<br>
+                                                        Liveness : 0.11<br>
+                                                        Speechiness : 0.05<br>
+                                                        Valence : 0.78<br>
                                                 </div>
 
 
@@ -490,14 +483,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Memories</h6>
                                                     <h6> Artists : Barbra Streisand </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.34<br>
-                                                        acousticness : 0.28<br>
-                                                        instrumentalness : 0.039<br>
-                                                        danceability : 0.41<br>
-                                                        liveness : 0.31<br>
-                                                        speechiness : 0.03<br>
-                                                        valence : 0.35<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.28<br>
+                                                        Danceability : 0.41<br>
+                                                        Energy : 0.34<br>
+                                                        Instrumentalness : 0.039<br>
+                                                        Liveness : 0.31<br>
+                                                        Speechiness : 0.03<br>
+                                                        Valence : 0.35<br>
                                                 </div>
 
                                             </div>
@@ -508,14 +501,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Escape</h6>
                                                     <h6> Artists : Journey </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.47<br>
-                                                        acousticness : 0.33<br>
-                                                        instrumentalness : 0.035<br>
-                                                        danceability : 0.64<br>
-                                                        liveness : 0.14<br>
-                                                        speechiness : 0.03<br>
-                                                        valence : 0.69<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.33<br>
+                                                        Danceability : 0.64<br>
+                                                        Energy : 0.47<br>
+                                                        Instrumentalness : 0.035<br>
+                                                        Liveness : 0.14<br>
+                                                        Speechiness : 0.03<br>
+                                                        Valence : 0.69<br>
                                                 </div>
 
                                             </div>
@@ -530,14 +523,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Pride</h6>
                                                     <h6> Artists : White Lion </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.57<br>
-                                                        acousticness : 0.15<br>
-                                                        instrumentalness : 0.028<br>
-                                                        danceability : 0.65<br>
-                                                        liveness : 0.16<br>
-                                                        speechiness : 0.04<br>
-                                                        valence : 0.59<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.15<br>
+                                                        Danceability : 0.65<br>
+                                                        Energy : 0.57<br>
+                                                        Instrumentalness : 0.028<br>
+                                                        Liveness : 0.16<br>
+                                                        Speechiness : 0.04<br>
+                                                        Valence : 0.59<br>
                                                 </div>
 
                                             </div>
@@ -549,14 +542,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Don't Stop </h6>
                                                     <h6> Artists : Fleetwood Mac </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.90<br>
-                                                        acousticness : 0.10<br>
-                                                        instrumentalness : 0.001<br>
-                                                        danceability : 0.42<br>
-                                                        liveness : 0.25<br>
-                                                        speechiness : 0.04<br>
-                                                        valence : 0.52<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.10<br>
+                                                        Danceability : 0.42<br>
+                                                        Energy : 0.90<br>
+                                                        Instrumentalness : 0.001<br>
+                                                        Liveness : 0.25<br>
+                                                        Speechiness : 0.04<br>
+                                                        Valence : 0.52<br>
                                                 </div>
 
                                             </div>
@@ -581,7 +574,6 @@
                     </div>
 
                     <div class="1990 GFG">
-                        <h4 align="center">Top Albums of 1990s</h4>
                         <div id="topAlbums3" class="carousel slide" data-interval="false">
                             <div class="carousel-inner slider">
                                 <div class="carousel-item active">
@@ -593,14 +585,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Secrets</h6>
                                                     <h6> Artists : Toni Braxton </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.68<br>
-                                                        acousticness : 0.11<br>
-                                                        instrumentalness : 0.045<br>
-                                                        danceability : 0.72<br>
-                                                        liveness : 0.13<br>
-                                                        speechiness : 0.04<br>
-                                                        valence : 0.66<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.11<br>
+                                                        Danceability : 0.72<br>
+                                                        Energy : 0.68<br>
+                                                        Instrumentalness : 0.045<br>
+                                                        Liveness : 0.13<br>
+                                                        Speechiness : 0.04<br>
+                                                        Valence : 0.66<br>
                                                 </div>
 
                                             </div>
@@ -611,14 +603,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : MCMXC A.D.</h6>
                                                     <h6> Artists : Enigma </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.75<br>
-                                                        acousticness : 0.013<br>
-                                                        instrumentalness : 0.10<br>
-                                                        danceability : 0.57<br>
-                                                        liveness : 0.17<br>
-                                                        speechiness : 0.06<br>
-                                                        valence : 0.62<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.013<br>
+                                                        Danceability : 0.57<br>
+                                                        Energy : 0.75<br>
+                                                        Instrumentalness : 0.10<br>
+                                                        Liveness : 0.17<br>
+                                                        Speechiness : 0.06<br>
+                                                        Valence : 0.62<br>
                                                 </div>
 
                                             </div>
@@ -629,14 +621,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Metallica</h6>
                                                     <h6> Artists : Metallica </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.56<br>
-                                                        acousticness : 0.373<br>
-                                                        instrumentalness : 0.03<br>
-                                                        danceability : 0.66<br>
-                                                        liveness : 0.08<br>
-                                                        speechiness : 0.03<br>
-                                                        valence : 0.54<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.373<br>
+                                                        Danceability : 0.66<br>
+                                                        Energy : 0.56<br>
+                                                        Instrumentalness : 0.03<br>
+                                                        Liveness : 0.08<br>
+                                                        Speechiness : 0.03<br>
+                                                        Valence : 0.54<br>
                                                 </div>
 
                                             </div>
@@ -651,14 +643,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Nevermind</h6>
                                                     <h6> Artists : Nirvana </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.55<br>
-                                                        acousticness : 0.44<br>
-                                                        instrumentalness : 0.12<br>
-                                                        danceability : 0.54<br>
-                                                        liveness : 0.18<br>
-                                                        speechiness : 0.04<br>
-                                                        valence : 0.59<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.44<br>
+                                                        Danceability : 0.54<br>
+                                                        Energy : 0.55<br>
+                                                        Instrumentalness : 0.12<br>
+                                                        Liveness : 0.18<br>
+                                                        Speechiness : 0.04<br>
+                                                        Valence : 0.59<br>
                                                 </div>
 
                                             </div>
@@ -670,14 +662,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Ten</h6>
                                                     <h6> Artists : Pearl Jam </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.60<br>
-                                                        acousticness : 0.51<br>
-                                                        instrumentalness : 0.040<br>
-                                                        danceability : 0.55<br>
-                                                        liveness : 0.25<br>
-                                                        speechiness : 0.07<br>
-                                                        valence : 0.62<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.51<br>
+                                                        Danceability : 0.55<br>
+                                                        Energy : 0.60<br>
+                                                        Instrumentalness : 0.040<br>
+                                                        Liveness : 0.25<br>
+                                                        Speechiness : 0.07<br>
+                                                        Valence : 0.62<br>
                                                 </div>
 
                                             </div>
@@ -702,7 +694,6 @@
                     </div>
 
                     <div class="2000 GFG">
-                        <h4 align="center">Top Albums of 2000s</h4>
                         <div id="topAlbums4" class="carousel slide" data-interval="false">
                             <div class="carousel-inner slider">
                                 <div class="carousel-item active">
@@ -714,14 +705,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : A Place In The Sun</h6>
                                                     <h6> Artists : Lit </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.69<br>
-                                                        acousticness : 0.15<br>
-                                                        instrumentalness : 0.019<br>
-                                                        danceability : 0.69<br>
-                                                        liveness : 0.43<br>
-                                                        speechiness : 0.39<br>
-                                                        valence : 0.60<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.15<br>
+                                                        Danceability : 0.69<br>
+                                                        Energy : 0.69<br>
+                                                        Instrumentalness : 0.019<br>
+                                                        Liveness : 0.43<br>
+                                                        Speechiness : 0.39<br>
+                                                        Valence : 0.60<br>
                                                 </div>
 
                                             </div>
@@ -732,14 +723,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Fly</h6>
                                                     <h6> Artists : The Chicks </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.17<br>
-                                                        acousticness : 0.88<br>
-                                                        instrumentalness : 0.001<br>
-                                                        danceability : 0.58<br>
-                                                        liveness : 0.12<br>
-                                                        speechiness : 0.03<br>
-                                                        valence : 0.35<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.88<br>
+                                                        Danceability : 0.58<br>
+                                                        Energy : 0.17<br>
+                                                        Instrumentalness : 0.001<br>
+                                                        Liveness : 0.12<br>
+                                                        Speechiness : 0.03<br>
+                                                        Valence : 0.35<br>
                                                 </div>
 
 
@@ -751,14 +742,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Shine</h6>
                                                     <h6> Artists : Joni Mitchell </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.73<br>
-                                                        acousticness : 0.618<br>
-                                                        instrumentalness : 0.035<br>
-                                                        danceability : 0.61<br>
-                                                        liveness : 0.19<br>
-                                                        speechiness : 0.10<br>
-                                                        valence : 0.60<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.618<br>
+                                                        Danceability : 0.61<br>
+                                                        Energy : 0.73<br>
+                                                        Instrumentalness : 0.035<br>
+                                                        Liveness : 0.19<br>
+                                                        Speechiness : 0.10<br>
+                                                        Valence : 0.60<br>
                                                 </div>
                                             </div>
                                         </div>
@@ -772,14 +763,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : The Look Of Love </h6>
                                                     <h6> Artists : Diana Krall </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.90<br>
-                                                        acousticness : 0.017<br>
-                                                        instrumentalness : 0.004<br>
-                                                        danceability : 0.43<br>
-                                                        liveness : 0.16<br>
-                                                        speechiness : 0.05<br>
-                                                        valence : 0.43<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.017<br>
+                                                        Danceability : 0.43<br>
+                                                        Energy : 0.90<br>
+                                                        Instrumentalness : 0.004<br>
+                                                        Liveness : 0.16<br>
+                                                        Speechiness : 0.05<br>
+                                                        Valence : 0.43<br>
                                                 </div>
 
                                             </div>
@@ -791,14 +782,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Breathe</h6>
                                                     <h6> Artists : Faith Hill </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.61<br>
-                                                        acousticness : 0.66<br>
-                                                        instrumentalness : 0.002<br>
-                                                        danceability : 0.66<br>
-                                                        liveness : 0.14<br>
-                                                        speechiness : 0.10<br>
-                                                        valence : 0.65<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.66<br>
+                                                        Danceability : 0.66<br>
+                                                        Energy : 0.61<br>
+                                                        Instrumentalness : 0.002<br>
+                                                        Liveness : 0.14<br>
+                                                        Speechiness : 0.10<br>
+                                                        Valence : 0.65<br>
                                                 </div>
                                             </div>
                                         </div>
@@ -822,7 +813,6 @@
                     </div>
 
                     <div class="2010 GFG">
-                        <h4 align="center">Top Albums of 2010s</h4>
                         <div id="topAlbums5" class="carousel slide" data-interval="false">
                             <div class="carousel-inner slider">
                                 <div class="carousel-item active">
@@ -834,14 +824,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Journey's Greatest Hits</h6>
                                                     <h6> Artists : Journey </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.72<br>
-                                                        acousticness : 0.02<br>
-                                                        instrumentalness : 0.07<br>
-                                                        danceability : 0.53<br>
-                                                        liveness : 0.22<br>
-                                                        speechiness : 0.04<br>
-                                                        valence : 0.55<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.02<br>
+                                                        Danceability : 0.53<br>
+                                                        Energy : 0.72<br>
+                                                        Instrumentalness : 0.07<br>
+                                                        Liveness : 0.22<br>
+                                                        Speechiness : 0.04<br>
+                                                        Valence : 0.55<br>
                                                 </div>
 
                                             </div>
@@ -852,14 +842,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Legend: The Best Of Bob Marley</h6>
                                                     <h6> Artists : Bob Marley </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.57<br>
-                                                        acousticness : 0.36<br>
-                                                        instrumentalness : 0.0048<br>
-                                                        danceability : 0.46<br>
-                                                        liveness : 0.14<br>
-                                                        speechiness : 0.04<br>
-                                                        valence : 0.42<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.36<br>
+                                                        Danceability : 0.46<br>
+                                                        Energy : 0.57<br>
+                                                        Instrumentalness : 0.0048<br>
+                                                        Liveness : 0.14<br>
+                                                        Speechiness : 0.04<br>
+                                                        Valence : 0.42<br>
                                                 </div>
 
                                             </div>
@@ -870,14 +860,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Doo-Wops & Hooligans</h6>
                                                     <h6> Artists : Bruno Mars </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.382<br>
-                                                        acousticness : 0.391<br>
-                                                        instrumentalness : 0<br>
-                                                        danceability : 0.66<br>
-                                                        liveness : 0.09<br>
-                                                        speechiness : 0.03<br>
-                                                        valence : 0.43<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.391<br>
+                                                        Danceability : 0.66<br>
+                                                        Energy : 0.382<br>
+                                                        Instrumentalness : 0<br>
+                                                        Liveness : 0.09<br>
+                                                        Speechiness : 0.03<br>
+                                                        Valence : 0.43<br>
                                                 </div>
 
                                             </div>
@@ -892,14 +882,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : 21</h6>
                                                     <h6> Artists : Adele </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.55<br>
-                                                        acousticness : 0.33<br>
-                                                        instrumentalness : 0.005<br>
-                                                        danceability : 0.57<br>
-                                                        liveness : 0.17<br>
-                                                        speechiness : 0.12<br>
-                                                        valence : 0.46<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.33<br>
+                                                        Danceability : 0.57<br>
+                                                        Energy : 0.55<br>
+                                                        Instrumentalness : 0.005<br>
+                                                        Liveness : 0.17<br>
+                                                        Speechiness : 0.12<br>
+                                                        Valence : 0.46<br>
                                                 </div>
 
                                             </div>
@@ -911,14 +901,14 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Album Name : Curtain Call: The Hits</h6>
                                                     <h6> Artists : Eminem </h6>
-                                                    <p class="card-text">Top Features:<br>
-                                                        energy : 0.59<br>
-                                                        acousticness : 0.10<br>
-                                                        instrumentalness : 0.002<br>
-                                                        danceability : 0.64<br>
-                                                        liveness : 0.12<br>
-                                                        speechiness : 0.12<br>
-                                                        valence : 0.44<br>
+                                                    <p class="card-text">
+                                                        Acousticness : 0.10<br>
+                                                        Danceability : 0.64<br>
+                                                        Energy : 0.59<br>
+                                                        Instrumentalness : 0.002<br>
+                                                        Liveness : 0.12<br>
+                                                        Speechiness : 0.12<br>
+                                                        Valence : 0.44<br>
                                                 </div>
 
                                             </div>

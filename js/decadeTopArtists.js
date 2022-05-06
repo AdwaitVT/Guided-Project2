@@ -128,7 +128,7 @@ class ArtistData {
                 }else{return '74%'
                 }
             })
-            .attr("font-family", "Georgia")
+            .attr("font-family", "Ebrima")
             .attr("font-size", '12px')
             .attr("font-weight", "bold")
 
@@ -148,8 +148,8 @@ class ArtistData {
                 }else{return '74%'
                 }
             })
-            .attr("font-family", "Georgia")
-            .attr("font-size", '10px')
+            .attr("font-family", "Ebrima")
+            .attr("font-size", '12px')
 
         vis.danceInfo = vis.artist.append("text")
             .attr("class", "danceInfo")
@@ -167,8 +167,8 @@ class ArtistData {
                 }else{return '74%'
                 }
             })
-            .attr("font-family", "Georgia")
-            .attr("font-size", '10px')
+            .attr("font-family", "Ebrima")
+            .attr("font-size", '12px')
 
         vis.energyInfo = vis.artist.append("text")
             .attr("class", "energyInfo")
@@ -186,8 +186,8 @@ class ArtistData {
                 }else{return '74%'
                 }
             })
-            .attr("font-family", "Georgia")
-            .attr("font-size", '10px')
+            .attr("font-family", "Ebrima")
+            .attr("font-size", '12px')
 
         vis.instrumentInfo = vis.artist.append("text")
             .attr("class", "instrumentInfo")
@@ -205,8 +205,8 @@ class ArtistData {
                 }else{return '74%'
                 }
             })
-            .attr("font-family", "Georgia")
-            .attr("font-size", '10px')
+            .attr("font-family", "Ebrima")
+            .attr("font-size", '12px')
 
         vis.liveInfo = vis.artist.append("text")
             .attr("class", "liveInfo")
@@ -224,8 +224,8 @@ class ArtistData {
                 }else{return '74%'
                 }
             })
-            .attr("font-family", "Georgia")
-            .attr("font-size", '10px')
+            .attr("font-family", "Ebrima")
+            .attr("font-size", '12px')
 
         vis.speechInfo = vis.artist.append("text")
             .attr("class", "speechInfo")
@@ -243,8 +243,8 @@ class ArtistData {
                 }else{return '74%'
                 }
             })
-            .attr("font-family", "Georgia")
-            .attr("font-size", '10px')
+            .attr("font-family", "Ebrima")
+            .attr("font-size", '12px')
 
         vis.valenceInfo = vis.artist.append("text")
             .attr("class", "valenceInfo")
@@ -262,8 +262,8 @@ class ArtistData {
                 }else{return '74%'
                 }
             })
-            .attr("font-family", "Georgia")
-            .attr("font-size", '10px')
+            .attr("font-family", "Ebrima")
+            .attr("font-size", '12px')
 
 
 
@@ -271,8 +271,8 @@ class ArtistData {
 
         vis.svg.select(".x-axis")
             .call(vis.xAxis)
-            .attr("font-family", "Georgia")
-            .attr("font-size", '11px')
+            .attr("font-family", "Ebrima")
+            .attr("font-size", '12px')
             .attr("font-weight", "bold")
 
 

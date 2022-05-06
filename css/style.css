@@ -1,5 +1,5 @@
 #title-text{
-    font-size: 125px;
+    font-size: 100px;
     text-align: end;
 }
 
@@ -56,28 +56,28 @@ Title
     font-size: 16px;
     margin-bottom: 30px;
     border-radius: 50%;
-    font-family: Georgia;
+    font-family: Ebrima;
     border-color: black;
     border-width: 2px;
 }
 
 
 .textDisp{
-    font-family: Georgia;
+    font-family: Ebrima;
 }
 
 .textDecade{
     font-size: 10px;
-    font-family: Georgia;
+    font-family: Ebrima;
 }
 
 .artistInfo{
     font-size: 10px;
-    font-family: Georgia;
+    font-family: Ebrima;
 }
 
 .legend{
-    font-family: Georgia;
+    font-family: Ebrima;
     font-size: 15px;
 }
 
@@ -86,7 +86,7 @@ Title
     position: relative;
     top: 5px;
     display: inline-block;
-    font-family: Georgia;
+    font-family: Ebrima;
     margin-left: 10%;
 }
 
@@ -135,11 +135,11 @@ Title
 }
 
 #artist-to-album-text{
-    font-family: Georgia;
+    font-family: Ebrima;
 }
 
 #decade-feature-text{
-    font-family: Georgia;
+    font-family: Ebrima;
     text-align: center;
     margin-top: 10%;
     font-size: 15px;
@@ -175,7 +175,19 @@ body {
     background-repeat: no-repeat;
 }
 
+#transition-to-topartists{
+    background-image: url("../background_imgs/instruments2.webp");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 
+}
+
+#artist-to-album-text{
+    background-image: url("../background_imgs/instruments3.webp");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
 
 #fullview > div {
     background-color: #eee;
@@ -282,7 +294,7 @@ h6{
 }
 
 #top-artists-text{
-    font-family: Georgia;
+    font-family: Ebrima;
     font-size: 15px;
     margin-right: 10%;
     margin-bottom: .5%;
@@ -290,10 +302,14 @@ h6{
 }
 
 #top-artists-transition{
-    font-family: Georgia;
+    font-family: Ebrima;
     font-size: 15px;
     margin-right: 10%;
     margin-left: 10%;
     margin-bottom: .5%;
     text-align: center;
+}
+
+h6{
+    font-family: Ebrima;
 }
