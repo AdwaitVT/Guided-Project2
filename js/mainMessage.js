@@ -152,7 +152,7 @@ class elementData {
 
         vis.svgLegend.append("text")
             .text("Decade Color Code: ")
-            .attr("x", '30%')
+            .attr("x", '25%')
             .attr("y", '45%')
             .attr("font-family", "Georgia")
             .attr("font-size", '15px')
@@ -373,7 +373,7 @@ class elementData {
         let rectWidth =  45;
         let xPos = 6.5;
         let addSpacing = 7.5;
-        let barHeight = 150;
+        let barHeight = 100;
 
         // -------------------------------------------------------------------------------------------------------------
         //                                          ACOUSTICNESS
