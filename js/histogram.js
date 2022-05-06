@@ -98,10 +98,10 @@ class Histogram{
             .data(vis.bins)
             .enter()
             .append("rect")
-            .attr("x", 1)
-            .attr("transform", function(d) { return "translate(" + vis.x(d.x0) + "," + vis.y(d.length) + ")"; })
             .attr("width", function(d) { return vis.x(d.x1) - vis.x(d.x0) - 1 ; })
             .attr("height", function(d) { return vis.height - vis.y(d.length); })
+            .attr("y", function(d) {return vis.y(d.length)})
+            .attr("x", function(d){return vis.x(d.x0)})
             .style("fill", introLineChart.attributeColor);
 
 

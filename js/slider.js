@@ -17,7 +17,7 @@ class Sliders{
     initVis(){
         let vis = this;
 
-        vis.margin = {top: 20, right: 50, bottom: 20, left: 50};
+        vis.margin = {top: 20, right: 50, bottom: 20, left: 0};
         vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
         vis.height = document.getElementById(vis.parentElement).getBoundingClientRect().height - vis.margin.top - vis.margin.bottom;
 
@@ -35,9 +35,9 @@ class Sliders{
         vis.gRange1 = d3.select('#slider-range1')
             .append('svg')
             .attr('width', 350)
-            .attr('height', 100)
+            .attr('height', 75)
             .append('g')
-            .attr('transform', 'translate(30,50)');
+            .attr('transform', 'translate(30,40)');
 
         vis.sliderRange1 = d3.sliderBottom()
             .min(0.0)
@@ -55,9 +55,9 @@ class Sliders{
         vis.gRange2 = d3.select('#slider-range2')
             .append('svg')
             .attr('width', 350)
-            .attr('height', 100)
+            .attr('height', 75)
             .append('g')
-            .attr('transform', 'translate(30,50)');
+            .attr('transform', 'translate(30,40)');
 
         vis.sliderRange2 = d3.sliderBottom()
             .min(0.0)
@@ -84,9 +84,9 @@ class Sliders{
         vis.gRange3 = d3.select('#slider-range3')
             .append('svg')
             .attr('width', 350)
-            .attr('height', 100)
+            .attr('height', 75)
             .append('g')
-            .attr('transform', 'translate(30,50)');
+            .attr('transform', 'translate(30,40)');
 
         vis.attribute3Values = [0,1];
 
