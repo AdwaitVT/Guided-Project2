@@ -18,7 +18,7 @@ let yearlyAvgs;
 loadData();
 
 function loadData() {
-    d3.json("/data/histogram.json", (data) => {
+    d3.json("data/histogram.json", (data) => {
     }).then(data => {
         histogram = new Histogram("histogram", data);
     });
