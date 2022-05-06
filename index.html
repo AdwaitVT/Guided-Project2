@@ -110,16 +110,33 @@
         </div>
     </div>
 
-    <div class="section" id="top-artists-sec">
-        <div class="row justify-content-center" id="top-artists-text">
-            <p>
-                Some artists personified the trends of their time, with specific genres of music taking over a decade. Explore the decades using the buttons (left) to display the top five
-                artists of the decade.
-            </p> <br>
-            <p style="font-size: 12px"><em> Note: The top 5 artists were selected based on "count" which represents the total number of times an artist's album charted per decade. </em></p>
-
+    <div class="section" id="intro-text">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-5" style="text-align:center">
+                    <p>
+                        Some of the attributes featured above, such as acousticness and energy, had distinct changes over time. <br>
+                    </p>
+                    <p>
+                        We'll next look at the top five artists and albums per each decade.
+                        Do you find the attribute trends of these artists matched the overall trends of the decade?
+                    </p>
+                </div>
+            </div>
         </div>
-        <div class="container" id="top-artists-vis" style="height:75vh; width: 100%">
+    </div>
+
+    <div class="section" id="top-artists-sec">
+        <div class="row justify-content-center" id="top-artists-transition">
+            <div class="col-8" style="text-align:center">
+                <p>
+                    The below artists personified the trends of their time, with specific genres of music taking over a decade. Explore each decade using the buttons (left) to display the top five
+                    artists.
+                </p>
+            </div>
+        </div>
+
+        <div class="container" id="top-artists-vis" style="height:100vh; width: 100%">
             <h1>Top 5 Artists of the Decade</h1>
             <div class="col" style="width: 10%; float: left; height: 60vh">
                 <button class="btn decadeButtons" id="1960" style="margin-left: 50px">
@@ -155,6 +172,9 @@
             </div>
             <div class="artists" id="top-artists" style="height: 10%; margin-left: 10%"></div>
         </div>
+        <div class="row" id="top-artists-text">
+            <p style="font-size: 12px"><em>Note: The top 5 artists were selected based on "count" which represents the total number of times an artist's album charted per decade. </em></p>
+        </div>
     </div>
 
     <div class="section" id="artist-to-album-text">
@@ -163,15 +183,12 @@
 
                 <div class="col-8" style="text-align:center">
                     <p>
-                        The top albums of a decade can also show the trends of the time.
-                    </p>
-                    <p>
-                        After exploring the top albums of each decade, we can see that the <b>60's</b> were dominated by <b>jazz</b> ,
+                        After exploring the top albums, we can see that the <b>60's</b> were dominated by <b>jazz</b> ,
                         the <b>70's & 80's</b>  by <b>pop & rock</b> , the <b>90's country</b> , and the <b>2000's & 2010's</b>  by <b> rock</b> .
                     </p>
 
                     <p>
-                        Next, we'll explore the top albums of a decade. Do the top albums follow the same trends as the top albums?
+                        Will the top albums follow the same trends as the top artists?
                     </p>
                 </div>
             </div>
@@ -930,14 +947,15 @@
     </div>
 
     <div class="section" id="main-message-text">
-            <div class="row justify-content-center" style="height:100vh;">
-                <div class="text" style="width:50%;">
+            <div class="row justify-content-center">
+                <div class="col-5" style="text-align:center">
+<!--                    <p>-->
+<!--                        Aside from the 60s (Andy Williams) and 70s (Led Zepplin and Carole King), there isn't much specific overlap between the top artists and albums.-->
+<!--                    </p>-->
                     <p>
-                        Aside from the 60s (Herb Alpert) and 70s (Led Zepplin and John Denver), there isn't a lot of overlap between the top artists and albums.
-                        In the top albums, we start to see the dominance of some UK rock bands and movie soundtracks such as "Hello Dolly", "Flashdance", and "Fifty Shades of Grey".
+                        Were you able to pick out the trends in associated features (e.g. acousticness, energy, danceability, etc.)? <br>
                     </p>
                     <p>
-                        After exploring the top artists and albums, did you notice any trends in the associated features (e.g. acousticness, energy, danceability, etc.) for each of the decades?
                         Let's take a closer look.
                     </p>
                 </div>
@@ -969,7 +987,7 @@
             <div class="col-8">
 
 
-                <form style="width: 15%; float: left; font-family: Georgia">
+                <form style="width: 20%; float: left; font-family: Georgia">
                     <label for="sort-by">Sort By: </label>
                     <select class="form-select form-select-smid" id="sort-by">
                         <option value="most">Descending</option>
