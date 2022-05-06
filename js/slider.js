@@ -66,7 +66,7 @@ class Sliders{
             .tickFormat(d3.format('.2'))
             .ticks(10)
             .default([0.0, 1.0])
-            .fill('#2196f3')
+            .fill('#2196f3');
 
         vis.attribute2Values = [0,1];
 

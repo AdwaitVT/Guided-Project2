@@ -73,7 +73,7 @@ class elementData {
             .attr("transform", "translate(" + 0 + "," + (vis.margin.top) + ")");
 
         vis.svg.select(".x-axis").call(vis.xAxis)
-            .attr("font-family", "Georgia")
+            .attr("font-family", "Ebrima")
 
         // ------------------------------------------------------------------------------
         //                              vertical axes
@@ -91,44 +91,41 @@ class elementData {
             .attr("class", "y1-axis axis")
             .attr("transform", "translate(" + 0 + "," + (vis.margin.top) + ")");
         vis.svg.select(".y1-axis").call(vis.y1Axis)
-            .attr("font-family", "Georgia")
 
         //                              y2 Scales and axes
         vis.svg.append("g")
             .attr("class", "y2-axis axis")
             .attr("transform", "translate(" + (vis.x("Danceable") + addSpace) + "," + (vis.margin.top) + ")");
         vis.svg.select(".y2-axis").call(vis.y1Axis)
-            .attr("font-family", "Georgia")
         //                              y3 Scales and axes
         vis.svg.append("g")
             .attr("class", "y3-axis axis")
             .attr("transform", "translate(" + (vis.x("Energy") + addSpace) + "," + (vis.margin.top) + ")");
         vis.svg.select(".y3-axis").call(vis.y1Axis)
-            .attr("font-family", "Georgia")
+
         //                              y4 Scales and axes
         vis.svg.append("g")
             .attr("class", "y4-axis axis")
             .attr("transform", "translate(" + (vis.x("Instrumental") + addSpace + (vis.width + vis.margin.left + vis.margin.right)/40 + "," + (vis.margin.top) + ")"));
         vis.svg.select(".y4-axis").call(vis.y1Axis)
-            .attr("font-family", "Georgia")
         //                              y5 Scales and axes
         vis.svg.append("g")
             .attr("class", "y5-axis axis")
             .attr("transform", "translate(" + (vis.x("Lively") + addSpace + (vis.width + vis.margin.left + vis.margin.right)/35 + "," + (vis.margin.top) + ")"));
         vis.svg.select(".y5-axis").call(vis.y1Axis)
-            .attr("font-family", "Georgia")
+
         //                              y6 Scales and axes
         vis.svg.append("g")
             .attr("class", "y6-axis axis")
             .attr("transform", "translate(" + (vis.x("Speechy") + addSpace + (vis.width + vis.margin.left + vis.margin.right)/35 + "," + (vis.margin.top) + ")"));
         vis.svg.select(".y6-axis").call(vis.y1Axis)
-            .attr("font-family", "Georgia")
+
         //                              y7 Scales and axes
         vis.svg.append("g")
             .attr("class", "y7-axis axis")
             .attr("transform", "translate(" + (vis.x("Valence") + addSpace) + "," + (vis.margin.top) + ")");
         vis.svg.select(".y7-axis").call(vis.y1Axis)
-            .attr("font-family", "Georgia")
+
 
 
         // ------------------------------------------------------------------------------
@@ -154,9 +151,9 @@ class elementData {
             .text("Decade Color Code: ")
             .attr("x", '25%')
             .attr("y", '45%')
-            .attr("font-family", "Georgia")
+            .attr("font-family", "Ebrima")
             .attr("font-size", '15px')
-            .attr("font-style", 'italic')
+
 
         vis.legend.selectAll('.bar')
             .data(vis.charData)
@@ -372,8 +369,9 @@ class elementData {
         let vis = this;
         let rectWidth =  45;
         let xPos = 6.5;
-        let addSpacing = 7.5;
+        let addSpacing = 6;
         let barHeight = 100;
+        let spacing = 1;
 
         // -------------------------------------------------------------------------------------------------------------
         //                                          ACOUSTICNESS

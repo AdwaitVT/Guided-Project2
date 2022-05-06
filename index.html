@@ -23,9 +23,9 @@
     <div class="section" id="titlepage">
         <div style="width:100%; margin-right:15%; margin-top:10%;float:right;">
             <h1 id="title-text" >Music Through the Decades</h1>
-            <h2 id="subtitle" style="float:right;">
-                Elizabeth Christman, Rebecca DeSipio, <br> Adwait Pradhan, Surendrabikram Thapa
-            </h2>
+<!--            <h2 id="subtitle" style="float:right;">-->
+<!--                Elizabeth Christman, Rebecca DeSipio, <br> Adwait Pradhan, Surendrabikram Thapa-->
+<!--            </h2>-->
         </div>
     </div>
 
@@ -82,8 +82,8 @@
         </div>
     </div>
 
-    <div class="section" id="intro-vis" style="background-color: lightblue">
-        <div class="container" style="border-radius:5px; background-color: #f2f2f2; padding:1%" >
+    <div class="section" id="intro-vis">
+        <div class="container" style="border-radius:5px;">
                 <div style="width: 50%; font-size: 14px; font-family: Ebrima; float:left;">
                     <h3>How has music changed over time?</h3>
                     <p>
@@ -104,7 +104,7 @@
                     </select>
                 </form>
         </div>
-        <div class="container" style="border-radius:5px; background-color: #f2f2f2; padding:1%">
+        <div class="container">
             <div id="lineChart" style="height: 60vh; width: 50%; margin-top: 25px; float:left;">
             </div>
 
@@ -125,7 +125,7 @@
         </div>
     </div>
 
-    <div class="section" id="top-artists-sec" style="background-color: lightblue">
+    <div class="section" id="top-artists-sec">
         <div class="row justify-content-center" id="top-artists-transition">
             <div class="col-8" style="text-align:center">
                 <p>
@@ -135,7 +135,7 @@
             </div>
         </div>
 
-        <div class="container" id="top-artists-vis" style="border-radius: 5px; height:100vh; width: 100%; background-color: #f2f2f2">
+        <div class="container" id="top-artists-vis" style="border-radius: 5px; height:100vh; width: 100%;">
             <h1>Top 5 Artists of the Decade</h1>
             <div class="col" style="width: 10%; float: left; height: 60vh">
                 <button class="btn decadeButtons" id="1960" style="margin-left: 50px">
@@ -940,11 +940,7 @@
     </div>
 
     <div class="section" id="main-message-text">
-            <div class="row justify-content-center">
-                <div class="col-5" style="text-align:center">
-<!--                    <p>-->
-<!--                        Aside from the 60s (Andy Williams) and 70s (Led Zepplin and Carole King), there isn't much specific overlap between the top artists and albums.-->
-<!--                    </p>-->
+                <div style="font-size:18px; font-family:Ebrima; width:40%; text-align:center; margin-right:-40%">
                     <p>
                         Were you able to pick out the trends in associated features (e.g. acousticness, energy, danceability, etc.)? <br>
                     </p>
@@ -952,7 +948,6 @@
                         Let's take a closer look.
                     </p>
                 </div>
-            </div>
     </div>
 
 
@@ -964,23 +959,23 @@
             </h1>
             <div class="col-4" id="decade-feature-text">
                 <p>
-                    <span style="color: #C29BA3; font-weight: bold; font-size: 18px">1960's</span> and  <span style="color: #E3BFB7; font-weight: bold; font-size: 18px">1970's</span>
+                    <span style="color: #C29BA3; font-weight: bold; font-size: 18px">1960's</span> and <span style="color: #E3BFB7; font-weight: bold; font-size: 18px">1970's</span>
                     were the most <b>instrumental</b>, <b>lively</b>, and <b>acoustic</b> decades
                 </p>
                 <p><span style="color: #8A9BA7; font-weight: bold; font-size: 18px">2000's</span> and <span style="color: #445A67; font-weight: bold; font-size: 18px">2010's</span>
-                    were the most <b>energetic</b> , <b>loud</b> , and <b>speechy</b>  decades</p>
+                    were the most <b>energetic</b>, <b>loud</b>, and <b>speechy</b> decades</p>
                 <p>These results are the reverse for the <em>lowest</em> of these categories </p>
                 <p>
                     Additionally, the <span style="color: #C29BA3; font-weight: bold; font-size: 18px">1960's</span> and <span style="color: #E3BFB7; font-weight: bold; font-size: 18px">1970's</span>
-                    are notably the least <b>danceable</b> ,
+                    are notably the least <b>danceable</b>,
                     and the <span style="color: #8A9BA7; font-weight: bold; font-size: 18px">2000's</span>  and <span style="color: #445A67; font-weight: bold; font-size: 18px">2010's</span>
-                    had the lowest <b>valence</b>  scores.
+                    had the lowest <b>valence</b> scores.
                 </p>
             </div>
             <div class="col-8">
 
 
-                <form style="width: 20%; float: left; font-family: Georgia">
+                <form style="width: 20%; float: left; font-family: Ebrima">
                     <label for="sort-by">Sort By: </label>
                     <select class="form-select form-select-smid" id="sort-by">
                         <option value="most">Descending</option>
@@ -999,13 +994,29 @@
         </div>
     </div>
 
+    <div class="section" id="transition-to-outlierAlbums">
+        <div class="col-5" style="margin-top: 13%; margin-right: 30%; float:right; text-align: center">
+            <p style="font-size:18px; font-family: Ebrima">
+                While each decade has a distinctly unique style of music, like many other aspects of pop culture, musical trends
+                can be cyclical. Albums sometimes see a resurgence in popularity a decade or more after its release, due to nostalgia or
+                recurring trends.
+            </p>
+        </div>
+    </div>
+
 
 
     <div class="section" id="outlier-albums">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-7" style="float:right">
-                    <div id="selectButtons" style="font-size:16px">
+            <div class="" style="margin-top:5%; text-align: center">
+                <p style="font-family: Ebrima; font-size:18px;">
+                    Select an album to compare its features to the averages of the decade it released in and the
+                    averages of the decade it charted in.
+                </p>
+            </div>
+            <div class="" style="margin-top:5%">
+                <div style="margin-left:15%">
+                    <div id="selectButtons" style="font-family: Ebrima; font-size:16px">
                         <select id="selectSortButton">
                             <option value="release_date">Released in:</option>
                             <option value="chart_date">Charted in:</option>
@@ -1018,46 +1029,44 @@
                             <option value="2000">2000s</option>
                             <option value="2010">2010s</option>
                         </select>
-                        <select id="selectAlbumButton" style="width:90%"></select>
+                        <select id="selectAlbumButton" style="width:60%"></select>
                     </div>
                     <div id="albumInfo" style="height:10vh; border: black"></div>
-                    <div id="yearComparisons" style="height: 70vh;"></div>
-
                 </div>
-                <div class="col-5" style="float:right;">
-                    <p style="font-size:16px;">
-                        While each decade has a distinctly unique style of music, like many other aspects of pop culture, musical trends
-                        can be cyclical. Albums sometimes see a resurgence in popularity a decade or more after its release, due to nostalgia or
-                        recurring trends.
-                    </p>
-                    <p style="font-size:16px;">
-                        Select an album to compare its features to the averages of the decade it released in and the
-                        averages of the decade it charted in.
-                    </p>
-                </div>
+                <div id="yearComparisons" style="height: 70vh;"></div>
             </div>
         </div>
+    </div>
+
+    <div class="section" id="transition-to-sliders">
+        <div class="container" style="text-align:center; margin-top:2%; width:50%; font-family: Ebrima; font-size:18px;">
+            <p>
+                Over the last 60 years, we've seen all different genres and styles of music reach the charts. With decades of music at our fingertips thanks to streaming
+                services like Spotify, it's easier than ever to find music that you enjoy, even if you don't like what's popular now.
+            </p>
+            <p>
+                Using what you've learned about music through the decades, in our final visualization you'll be able
+                to try different attribute values to find music that best suits you.
+            </p>
+        </div>
+
     </div>
 
 
 
     <div class="section" id="sliders">
-        <div class="row" style="margin-bottom:10vh;">
-            <div class="container" style="align-content:center; width:75%; font-size:16px;">
-                <p>
-                    Over the last 60 years, we've seen all different genres and styles of music reach the charts. With decades of music at our fingertips thanks to streaming
-                    services like Spotify, it's easier than ever to find music that you enjoy, even if you don't like what's popular now.
-                </p>
-                <p>
+        <div class="row" style="margin-bottom:1%;">
+            <div class="container" style="margin-top:5%; align-content:center; width:100%;">
+                <p style="font-family: Ebrima; font-size:18px;">
                     Select three features to filter on and use the sliders to find which years match your favorite styles of music.
                 </p>
             </div>
         </div>
-        <div class="row justify-content-between" style="margin:auto;">
+        <div class="row justify-content-between" style="margin-bottom: 7%; font-family: Ebrima; font-size: 18px;">
                 <div class="col-5">
                         <div class="row align-items-center" id="slider1" >
                             <div class="col-4">
-                                <select id="selectSlider1" style="font-size:15px">
+                                <select id="selectSlider1" style="font-family:Ebrima; font-size:15px">
                                     <option value="acousticness">Acousticness</option>
                                     <option value="danceability">Danceability</option>
                                     <option value="energy">Energy</option>
@@ -1078,9 +1087,9 @@
 
                         <div class="row align-items-center" id="slider2">
                                 <div class="col-4">
-                                    <select id="selectSlider2"style="font-size:15px">
+                                    <select id="selectSlider2"style="font-family:Ebrima; font-size:15px">
                                         <option value="acousticness">Acousticness</option>
-                                        <option value="danceability">Danceability</option>
+                                        <option value="danceability" selected>Danceability</option>
                                         <option value="energy">Energy</option>
                                         <option value="instrumentalness">Instrumentalness</option>
                                         <option value="liveness">Liveness</option>
@@ -1098,10 +1107,10 @@
                         </div>
                          <div class="row align-items-center" id="slider3">
                              <div class="col-4">
-                                <select id="selectSlider3" style="font-size:15px">
+                                <select id="selectSlider3" style="font-family:Ebrima; font-size:15px">
                                     <option value="acousticness">Acousticness</option>
                                     <option value="danceability">Danceability</option>
-                                    <option value="energy">Energy</option>
+                                    <option value="energy" selected>Energy</option>
                                     <option value="instrumentalness">Instrumentalness</option>
                                     <option value="liveness">Liveness</option>
                                     <option value="speechiness">Speechiness</option>
@@ -1117,24 +1126,56 @@
 <!--                             <div class="w-100"></div>-->
                         </div>
                 </div>
-                <div class="col-5" style="margin:auto;">
-                        <div>
-                            <p style="font-size:17px;">
-                                You might enjoy music from these years:
-                            </p>
-                        </div>
-                        <div id="year-table" style="font-size:15px"></div>
+            <div class="col-6" style="margin-top:30%; padding:1%; border-radius:5px; border: 2px solid #333333; background-color: white">
+                <div style="text-align:center;">
+                    <p style="font-family:Ebrima; font-size:18px;">
+                        You might enjoy music from these years:
+                    </p>
                 </div>
+                <div id="year-table" style="font-family:Ebrima; font-size:13px"></div>
+            </div>
+
         </div>
     </div>
 
     <div class="section" id="sources">
-        <div class="container" style="margin-top: 50px; padding-bottom: 50px;">
-            <h3>Sources</h3>
-            <a href="https://components.one/datasets/billboard-200/">Acoustic and meta features of albums and songs on
-                the Billboard 200</a> <br>
-            <a href="https://developer.spotify.com/documentation/web-api/reference/#/operations/get-audio-features">Spotify
-                API - Get Audio Features</a>
+        <h3 style="font-family: Ebrima">Team EARS</h3>
+        <div class="container" style="margin-top:5%">
+            <div class="row" style="font-family: Ebrima; font-size:14px;">
+                <div class="col justify-content-center">
+                    <div class="col text-center">
+                        <img src="../background_imgs/elizabeth_headshot.jpg" width="200" height="200">
+                    </div>
+                    <br>
+                    <p style="text-align: center">
+                        Elizabeth Christman
+                        <br>
+                        M.S Computer Science
+                    </p>
+                </div>
+                <div class="col">
+                    <div class="col text-center">
+                        <img src="../background_imgs/rebecca_headshot.jpg" width="200" height="200">
+                    </div>
+                    <br>
+                    <p style="text-align: center">
+                        Rebecca DeSipio
+                        <br>
+                        M.S Computer Engineering
+                    </p>
+                </div>
+                <div class="col">
+                    Adwait Pradhan
+                </div>
+                <div class="col">
+                    Surendrabikram Thapa
+                </div>
+            </div>
+        </div>
+        <div style="margin-top:5%"></div>
+            <p style="font-size: 14px; font-family: Ebrima">
+                All data, code, and image citations can be found at our <a href="https://github.com/AdwaitVT/Guided-Project2">GitHub</a>.
+            </p>
         </div>
     </div>
 

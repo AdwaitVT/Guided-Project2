@@ -45,24 +45,14 @@ class AlbumComparisons{
 
 
 
-        vis.legend.append("rect")
-            .attr("x",vis.margin.left + 25)
-            .attr("y",-20)
-            .attr("height", 10)
-            .attr("width", 10)
-            .style("fill", "#377eb8");
+
         vis.legend.append("rect")
             .attr("x", vis.margin.left + 25)
             .attr("y", 0)
             .attr("height", 10)
             .attr("width", 10)
-            .style("fill", "#e41a1c");
-        vis.legend.append("rect")
-            .attr("x",vis.margin.left + 25)
-            .attr("y",20)
-            .attr("height", 10)
-            .attr("width", 10)
-            .style("fill", "green");
+            .style("fill", "#7db954");
+
 
         vis.x = d3.scaleBand()
             .domain(vis.attributes)
@@ -72,7 +62,9 @@ class AlbumComparisons{
         vis.xAxis =  vis.svg.append("g")
             .attr("class", "x-axis axis")
             .attr("transform", `translate(30, ${vis.height} )`)
-            .call(d3.axisBottom(vis.x));
+            .call(d3.axisBottom(vis.x))
+            .attr("font-family", "Ebrima")
+            .attr("font-size", "14px");
 
 
         vis.xSubgroup = d3.scaleBand()
@@ -80,13 +72,14 @@ class AlbumComparisons{
             .range([0, vis.x.bandwidth()])
             .padding([0.05])
 
-        vis.svg.append("text")
-            .attr("class", "x-label")
-            .attr("text-anchor", "end")
-            .attr("font-size", "14px")
-            .attr("x", vis.width/2 + vis.margin.left)
-            .attr("y", vis.height + 35)
-            .text("Attribute");
+        // vis.svg.append("text")
+        //     .attr("class", "x-label")
+        //     .attr("text-anchor", "end")
+        //     .attr("font-size", "14px")
+        //     .attr("x", vis.width/2 + vis.margin.left)
+        //     .attr("y", vis.height + 35)
+        //     .attr("font-family", "Ebrima")
+        //     .text("Attribute");
 
         vis.y = d3.scaleLinear()
             .domain([0,1])
@@ -95,15 +88,18 @@ class AlbumComparisons{
         vis.yAxis = vis.svg.append("g")
             .attr("class", "y-axis axis")
             .attr("transform", "translate(30, 0)")
-            .call(d3.axisLeft(vis.y));
+            .call(d3.axisLeft(vis.y))
+            .attr("font-family", "Ebrima")
+            .attr("font-size", "14px");
 
         vis.svg.append("text")
             .attr("class", "y-label")
             .attr("text-anchor", "end")
             .attr("x", -(75))
             .attr("y", 50)
-            .attr("font-size", "14px")
+            .attr("font-size", "16px")
             .attr("transform", "rotate(-90)")
+            .attr("font-family", "Ebrima")
             .text("Value");
 
 
@@ -152,12 +148,67 @@ class AlbumComparisons{
 
         let vis = this;
 
+
         if(outlierAlbumInfo.displayData.length == 0){
             vis.displayData = [];
             vis.releaseDecade = "";
             vis.chartDecade = "";
             vis.selectedAlbum = "";
         }
+
+        vis.legend.append("rect")
+            .attr("x",vis.margin.left + 25)
+            .attr("y",-20)
+            .attr("height", 10)
+            .attr("width", 10)
+            .attr("fill", function(){
+                if(vis.releaseDecade == 1960){
+                    return "#C29BA3"
+                }
+                if(vis.releaseDecade == 1970){
+                    return "#E3BFB7"
+                }
+                if(vis.releaseDecade == 1980){
+                    return "#FFE4C9"
+                }
+                if(vis.releaseDecade == 1990){
+                    return "#B7EAF7"
+                }
+                if(vis.releaseDecade == 2000){
+                    return "#8A9BA7"
+                }
+                if(vis.releaseDecade == 2010){
+                    return "#445A67"
+                }
+            });
+
+        vis.legend.append("rect")
+            .attr("x",vis.margin.left + 25)
+            .attr("y",20)
+            .attr("height", 10)
+            .attr("width", 10)
+            .attr("fill", function(){
+                if(vis.chartDecade == 1960){
+                    return "#C29BA3"
+                }
+                if(vis.chartDecade == 1970){
+                    return "#E3BFB7"
+                }
+                if(vis.chartDecade == 1980){
+                    return "#FFE4C9"
+                }
+                if(vis.chartDecade == 1990){
+                    return "#B7EAF7"
+                }
+                if(vis.chartDecade == 2000){
+                    return "#8A9BA7"
+                }
+                if(vis.chartDecade == 2010){
+                    return "#445A67"
+                }
+            });
+
+
 
         vis.svg.selectAll(".bars").remove();
         vis.svg.selectAll(".label").remove();
@@ -171,7 +222,26 @@ class AlbumComparisons{
             .append("rect")
             .merge(vis.groups)
             .attr("class", "bars")
-            .attr("fill", "#377eb8")
+            .attr("fill", function(){
+                if(vis.releaseDecade == 1960){
+                    return "#C29BA3"
+                }
+                if(vis.releaseDecade == 1970){
+                    return "#E3BFB7"
+                }
+                if(vis.releaseDecade == 1980){
+                    return "#FFE4C9"
+                }
+                if(vis.releaseDecade == 1990){
+                    return "#B7EAF7"
+                }
+                if(vis.releaseDecade == 2000){
+                    return "#8A9BA7"
+                }
+                if(vis.releaseDecade == 2010){
+                    return "#445A67"
+                }
+            })
             .attr("x", function(d) { return vis.x(d.attribute) + 30; })
             .attr("y", function(d) {
                 return vis.y(d.releaseValue)
@@ -187,7 +257,7 @@ class AlbumComparisons{
             .append("rect")
             .merge(vis.groups)
             .attr("class", "bars")
-            .attr("fill", "#e41a1c")
+            .attr("fill", "#7db954") //64864a
             .attr("x", function(d) { return 30 + vis.x(d.attribute) + vis.x.bandwidth()/3; })
             .attr("y", function(d) { return vis.y(d.albumValue); })
             .attr("width", vis.x.bandwidth()/3)
@@ -198,7 +268,27 @@ class AlbumComparisons{
             .append("rect")
             .merge(vis.groups)
             .attr("class", "bars")
-            .attr("fill", "green")
+            .attr("fill", function(){
+                if(vis.chartDecade == 1960){
+                    return "#C29BA3"
+                }
+                if(vis.chartDecade == 1970){
+                    return "#E3BFB7"
+                }
+                if(vis.chartDecade == 1980){
+                    return "#FFE4C9"
+                }
+                if(vis.chartDecade == 1990){
+                    return "#B7EAF7"
+                }
+                if(vis.chartDecade == 2000){
+                    return "#8A9BA7"
+                }
+                if(vis.chartDecade == 2010){
+                    return "#445A67"
+                }
+            })
+
             .attr("x", function(d) { return vis.x(d.attribute) + 30 + 2* vis.x.bandwidth()/3; })
             .attr("y", function(d) {
                 return vis.y(d.chartValue);
@@ -214,6 +304,7 @@ class AlbumComparisons{
             .attr("class", "label")
             .attr("x", vis.margin.left + 40)
             .attr("y", -15)
+            .attr("font-family", "Ebrima")
             .text(function(){
                 if(vis.releaseDecade != ""){
                     return vis.releaseDecade + "s"
@@ -226,6 +317,7 @@ class AlbumComparisons{
             .attr("class", "label")
             .attr("x",  vis.margin.left + 40)
             .attr("y", 5)
+            .attr("font-family", "Ebrima")
             .text(vis.selectedAlbum.album)
             .style("font-size", "13px")
             .attr("alignment-baseline","middle")
@@ -235,6 +327,7 @@ class AlbumComparisons{
             .attr("class", "label")
             .attr("x", vis.margin.left + 40)
             .attr("y", 25)
+            .attr("font-family", "Ebrima")
             .text(function(){
                 if(vis.chartDecade != ""){
                     return vis.chartDecade + "s"
@@ -242,9 +335,6 @@ class AlbumComparisons{
             })
             .style("font-size", "13px")
             .attr("alignment-baseline","middle")
-
-
-
 
 
 

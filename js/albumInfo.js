@@ -120,6 +120,7 @@ class AlbumInfo{
                 .attr("y", 0)
                 .attr("font-weight", "bold")
                 .attr("font-size", "14px")
+                .attr("font-family", "Ebrima")
                 .attr("alignment-baseline", "middle")
                 .text(`Released in:  ${outlierAlbumInfo.selectedAlbum.release_date}`)
             vis.albumInfo.append("text")
@@ -128,37 +129,44 @@ class AlbumInfo{
                 .attr("y", 15)
                 .attr("font-weight", "bold")
                 .attr("font-size", "14px")
+                .attr("font-family", "Ebrima")
                 .attr("alignment-baseline", "middle")
                 .text(`Charted in:   ${outlierAlbumInfo.selectedAlbum.chart_date}`)
             vis.albumInfo.append("text")
                 .attr("x", vis.width / 4)
                 .attr("y", 0)
                 .attr("font-size", "12px")
+                .attr("font-family", "Ebrima")
                 .text(`Acousticness: ${vis.selectedAlbum.acousticness}`)
             vis.albumInfo.append("text")
                 .attr("x", vis.width / 4)
                 .attr("y", 15)
                 .attr("font-size", "12px")
+                .attr("font-family", "Ebrima")
                 .text(`Danceability: ${vis.selectedAlbum.danceability}`)
             vis.albumInfo.append("text")
                 .attr("x", vis.width / 4)
                 .attr("y", 30)
                 .attr("font-size", "12px")
+                .attr("font-family", "Ebrima")
                 .text(`Instrumentalness: ${vis.selectedAlbum.instrumentalness}`)
             vis.albumInfo.append("text")
                 .attr("x", vis.width / 2 + 10)
                 .attr("y", 0)
                 .attr("font-size", "12px")
+                .attr("font-family", "Ebrima")
                 .text(`Liveness: ${vis.selectedAlbum.liveness}`)
             vis.albumInfo.append("text")
                 .attr("x", vis.width / 2 + 10)
                 .attr("y", 15)
                 .attr("font-size", "12px")
+                .attr("font-family", "Ebrima")
                 .text(` Speechiness: ${vis.selectedAlbum.speechiness}`);
             vis.albumInfo.append("text")
                 .attr("x", vis.width / 2 + 10)
                 .attr("y", 30)
                 .attr("font-size", "12px")
+                .attr("font-family", "Ebrima")
                 .text(`Valence: ${vis.selectedAlbum.valence}`);
 
             outlierAlbums.wrangleData();
@@ -170,6 +178,7 @@ class AlbumInfo{
                 .attr("x", 5)
                 .attr("y", 0)
                 .attr("font-size", "14px")
+                .attr("font-family", "Ebrima")
                 .text("There is no data for that selection. Please make another selection.");
         }
         else{
@@ -179,6 +188,7 @@ class AlbumInfo{
                 .attr("y", 0)
                 .attr("font-weight", "bold")
                 .attr("font-size", "14px")
+                .attr("font-family", "Ebrima")
                 .attr("alignment-baseline", "middle")
                 .text(`Released in:  ${vis.selectedAlbum.release_date}`)
             vis.albumInfo.append("text")
@@ -187,6 +197,7 @@ class AlbumInfo{
                 .attr("y", 15)
                 .attr("font-weight", "bold")
                 .attr("font-size", "14px")
+                .attr("font-family", "Ebrima")
                 .attr("alignment-baseline", "middle")
                 .text(`Charted in:   ${vis.selectedAlbum.chart_date}`)
 
@@ -194,48 +205,39 @@ class AlbumInfo{
                 .attr("x", vis.width / 4)
                 .attr("y", 0)
                 .attr("font-size", "12px")
+                .attr("font-family", "Ebrima")
                 .text(`Acousticness: ${vis.selectedAlbum.acousticness}`)
             vis.albumInfo.append("text")
                 .attr("x", vis.width / 4)
                 .attr("y", 15)
                 .attr("font-size", "12px")
+                .attr("font-family", "Ebrima")
                 .text(`Danceability: ${vis.selectedAlbum.danceability}`)
             vis.albumInfo.append("text")
                 .attr("x", vis.width / 4)
                 .attr("y", 30)
                 .attr("font-size", "12px")
+                .attr("font-family", "Ebrima")
                 .text(`Instrumentalness: ${vis.selectedAlbum.instrumentalness}`)
             vis.albumInfo.append("text")
                 .attr("x", vis.width / 2 + 10)
                 .attr("y", 0)
                 .attr("font-size", "12px")
+                .attr("font-family", "Ebrima")
                 .text(`Liveness: ${vis.selectedAlbum.liveness}`)
             vis.albumInfo.append("text")
                 .attr("x", vis.width / 2 + 10)
                 .attr("y", 15)
                 .attr("font-size", "12px")
+                .attr("font-family", "Ebrima")
                 .text(` Speechiness: ${vis.selectedAlbum.speechiness}`);
             vis.albumInfo.append("text")
                 .attr("x", vis.width / 2 + 10)
                 .attr("y", 30)
                 .attr("font-size", "12px")
+                .attr("font-family", "Ebrima")
                 .text(`Valence: ${vis.selectedAlbum.valence}`);
         }
-
-        //     }
-        // catch{
-        //     if(vis.displayData.length == 0){
-        //         console.log(vis.initialAlbum);
-        //         vis.albumSelect.exit().remove();
-        //         vis.albumInfo.append("text")
-        //             .attr("x", 5)
-        //             .attr("y", 0)
-        //             .attr("font-size", "14px")
-        //             .text("There is no data for that selection. Please make another selection.");
-        //     }
-        //
-        // }
-
 
 
 

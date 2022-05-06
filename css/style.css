@@ -189,6 +189,35 @@ body {
 
 }
 
+#main-message-text{
+    background-image: url("../background_imgs/instruments4.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+#transition-to-outlierAlbums{
+    background-image: url("../background_imgs/instruments5.webp");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+
+#transition-to-sliders{
+    background-image: url("../background_imgs/instruments.webp");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+
+#sliders{
+    background-image: url("../background_imgs/music_notes2.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+
+
+
 #fullview > div {
     background-color: #eee;
     display: flex;
