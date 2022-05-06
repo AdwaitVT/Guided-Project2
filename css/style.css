@@ -1,14 +1,13 @@
 #title-text{
     font-size: 125px;
-    text-align: center;
+    text-align: end;
 }
 
 
 #subtitle{
     font-size: 18px;
-    text-align: center;
+    text-align: end;
     font-family: Ebrima;
-    padding: 20px;
 }
 
 .text{
@@ -182,7 +181,7 @@ body {
 #fullview h2 {
     margin: auto;
     width: 50%;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 button {
