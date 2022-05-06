@@ -163,6 +163,18 @@ body {
     background-repeat: no-repeat;
 }
 
+#intro-text{
+    background-image: url("../background_imgs/instruments.webp");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#feature-explanation{
+    background-image: url("../background_imgs/spotify.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
 #fullview > div {
     background-color: #eee;
     display: flex;
@@ -228,7 +240,7 @@ form label {
 }
 
 .highlight{
-    color:red;
+    color:#0288db;
 }
 
 #overlay {
