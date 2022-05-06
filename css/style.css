@@ -158,6 +158,11 @@ body {
     color: #333;
     background: #ececec;
 }
+#titlepage {
+    background-image: url("../background_imgs/music_notes.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 #fullview > div {
     background-color: #eee;
