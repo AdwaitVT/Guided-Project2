@@ -29,7 +29,8 @@ class Histogram{
         vis.svg.append("g")
             .attr("class", "x-axis")
             .attr("transform", "translate(0," + vis.height + ")")
-            .call(d3.axisBottom(vis.x));
+            .call(d3.axisBottom(vis.x))
+            .attr("font-family", "Ebrima");
 
         vis.svg.append("text")
             .attr("class", "x label")
@@ -37,6 +38,7 @@ class Histogram{
             .attr("font-size", "14px")
             .attr("x", vis.width/2 + vis.margin.left)
             .attr("y", vis.height + 35)
+            .attr("font-family", "Ebrima")
             .text("Value");
 
         vis.svg.append("text")
@@ -46,6 +48,7 @@ class Histogram{
             .attr("y", vis.margin.left - 40)
             .attr("font-size", "14px")
             .attr("transform", "rotate(-90)")
+            .attr("font-family", "Ebrima")
             .text("Count");
 
         vis.decade = 1960;
@@ -80,10 +83,8 @@ class Histogram{
     updateVis(){
         let vis = this;
 
-
-
         vis.svg.selectAll(".y-axis").remove();
-        vis.svg.selectAll("rect").remove();
+        //vis.svg.selectAll("rect").remove();
 
         vis.y = d3.scaleLinear()
             .range([vis.height, vis.margin.top])
@@ -92,12 +93,17 @@ class Histogram{
         vis.svg.append("g")
             .attr("class", "y-axis")
             .attr("transform", `translate(${vis.margin.left},0)`)
-            .call(d3.axisLeft(vis.y));
+            .call(d3.axisLeft(vis.y))
+            .attr("font-family", "Ebrima");
 
-        vis.svg.selectAll("rect")
-            .data(vis.bins)
-            .enter()
+        vis.bars = vis.svg.selectAll("rect")
+            .data(vis.bins);
+
+        vis.bars.enter()
             .append("rect")
+            .merge(vis.bars)
+            .transition()
+            .duration(500)
             .attr("width", function(d) { return vis.x(d.x1) - vis.x(d.x0) - 1 ; })
             .attr("height", function(d) { return vis.height - vis.y(d.length); })
             .attr("y", function(d) {return vis.y(d.length)})

@@ -35,7 +35,8 @@ class LineChart{
         vis.xAxis =  vis.svg.append("g")
             .attr("class", "x-axis axis")
             .attr("transform", "translate(0," + vis.height + ")")
-            .call(d3.axisBottom(vis.x));
+            .call(d3.axisBottom(vis.x))
+            .attr("font-family", "Ebrima");
 
         vis.svg.append("text")
             .attr("class", "x label")
@@ -43,12 +44,14 @@ class LineChart{
             .attr("font-size", "14px")
             .attr("x", vis.width/2)
             .attr("y", vis.height + 35)
+            .attr("font-family", "Ebrima")
             .text("Year");
 
         vis.yAxis = vis.svg.append("g")
             .attr("class", "y-axis axis")
             .attr("transform", "translate(" + vis.margin.left + ", 0)")
-            .call(d3.axisLeft(vis.y));
+            .call(d3.axisLeft(vis.y))
+            .attr("font-family", "Ebrima");
 
         vis.svg.append("text")
             .attr("class", "y label")
@@ -57,6 +60,7 @@ class LineChart{
             .attr("y", 10)
             .attr("font-size", "14px")
             .attr("transform", "rotate(-90)")
+            .attr("font-family", "Ebrima")
             .text("Value");
 
         vis.tooltip = d3.select("body").append('div')
@@ -134,6 +138,7 @@ class LineChart{
             .attr("x", vis.width - 15)
             .attr("y", function(d,i){ return 147 + i*(vis.legendSize+5)})
             .attr("font-size", "12px")
+            .attr("font-family", "Ebrima")
             .text(function(d, i){
                 return vis.attributes[i];
             });
