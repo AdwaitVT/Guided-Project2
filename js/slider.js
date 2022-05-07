@@ -3,6 +3,7 @@ var arr = [];
 var list = [];
 var initials = [0.5, 0.5, 0.50, 0.50, 0.50, 0.50, 0.50];
 var colors = ['#e41a1c','#ff7f00', '#377eb8','#4daf4a','#984ea3', '#030300','#ffd919'];
+var numFormat = d3.format(".2f");
 // var d = new Date();
 // var ms = d.getTime();
 // var res = ms.charAt(ms.length-1);
@@ -135,44 +136,42 @@ initials.forEach((color, i) => {
         .on('onchange', num => {
             initials[i] = num;
             box.attr('fill', `#${initials}`);
-            // console.log("Initials...."+initials[2] + "  List Value" +list[0]);
-            // console.log('Hiiii' + rmse_metric(initials,list));
             d3.select('p#value-color-picker0')
-                .text(`Acousticness: ${Math.floor(initials[0]*100)/100}`)
+                .text(`Acousticness: ${numFormat(Math.floor(initials[0]*100)/100)}`)
             d3.select('p#value-color-picker1')
-                .text(`Danceability: ${Math.floor(initials[1]*100)/100}`)
+                .text(`Danceability: ${numFormat(Math.floor(initials[1]*100)/100)}`)
             d3.select('p#value-color-picker2')
-                .text(`Energy: ${Math.floor(initials[2]*100)/100}`)
+                .text(`Energy: ${numFormat(Math.floor(initials[2]*100)/100)}`)
             d3.select('p#value-color-picker3')
-                .text(`Instrumentalness: ${Math.floor(initials[3]*100)/100}`)
+                .text(`Instrumentalness: ${numFormat(Math.floor(initials[3]*100)/100)}`)
             d3.select('p#value-color-picker4')
-                .text(`Liveness: ${Math.floor(initials[4]*100)/100}`)
+                .text(`Liveness: ${numFormat(Math.floor(initials[4]*100)/100)}`)
             // d3.select('p#value-color-picker5')
             //     .text(`Loudness: ${initials[5]}`)
             d3.select('p#value-color-picker6')
-                .text(`Speechiness: ${Math.floor(initials[5]*100)/100}`)
+                .text(`Speechiness: ${numFormat(Math.floor(initials[5]*100)/100)}`)
             // d3.select('p#value-color-picker7')
             //     .text(`Tempo: ${initials[7]}`)
             d3.select('p#value-color-picker8')
-                .text(`Valence: ${Math.floor(initials[6]*100)/100}`)
+                .text(`Valence: ${numFormat(Math.floor(initials[6]*100)/100)}`)
             d3.select('p#value-final')
                 .text(`${rmse_metric(initials,list)}`)
             value = parseInt(rmse_metric(initials, list)-1963);
             console.log(value);
             d3.select('p#acousticness')
-                .text(`Acousticness: ${Math.floor((list[value][0])*100)/100}`)
+                .text(`Acousticness: ${numFormat(Math.floor((list[value][0])*100)/100)}`)
             d3.select('p#danceability')
-                .text(`Danceability: ${Math.floor((list[value][1])*100)/100}`)
+                .text(`Danceability: ${numFormat(Math.floor((list[value][1])*100)/100)}`)
             d3.select('p#energy')
-                .text(`Energy: ${Math.floor((list[value][2])*100)/100}`)
+                .text(`Energy: ${numFormat(Math.floor((list[value][2])*100)/100)}`)
             d3.select('p#instrumentalness')
-                .text(`Instrumentalness: ${Math.floor((list[value][3])*100)/100}`)
+                .text(`Instrumentalness: ${numFormat(Math.floor((list[value][3])*100)/100)}`)
             d3.select('p#liveness')
-                .text(`Liveness: ${Math.floor((list[value][4])*100)/100}`)
+                .text(`Liveness: ${numFormat(Math.floor((list[value][4])*100)/100)}`)
             d3.select('p#speechiness')
-                .text(`Speechiness: ${Math.floor((list[value][5])*100)/100}`)
+                .text(`Speechiness: ${numFormat(Math.floor((list[value][5])*100)/100)}`)
             d3.select('p#valence')
-                .text(`Valence: ${Math.floor((list[value][6])*100)/100}`)
+                .text(`Valence: ${numFormat(Math.floor((list[value][6])*100)/100)}`)
         });
 
     gRangeSlider
@@ -182,19 +181,19 @@ initials.forEach((color, i) => {
 });
 
 d3.select('p#value-color-picker0')
-    .text(`Acousticness: ${initials[0]}`)
+    .text(`Acousticness: ${numFormat(initials[0])}`)
 d3.select('p#value-color-picker1')
-    .text(`Danceability: ${initials[1]}`)
+    .text(`Danceability: ${numFormat(initials[1])}`)
 d3.select('p#value-color-picker2')
-    .text(`Energy: ${initials[2]}`)
+    .text(`Energy: ${numFormat(initials[2])}`)
 d3.select('p#value-color-picker3')
-    .text(`Instrumentalness: ${initials[3]}`)
+    .text(`Instrumentalness: ${numFormat(initials[3])}`)
 d3.select('p#value-color-picker4')
-    .text(`Liveness: ${initials[4]}`)
+    .text(`Liveness: ${numFormat(initials[4])}`)
 d3.select('p#value-color-picker6')
-    .text(`Speechiness: ${initials[5]}`)
+    .text(`Speechiness: ${numFormat(initials[5])}`)
 d3.select('p#value-color-picker8')
-    .text(`Valence: ${initials[6]}`)
+    .text(`Valence: ${numFormat(initials[6])}`)
 //
 
 d3.select('p#value-final')
