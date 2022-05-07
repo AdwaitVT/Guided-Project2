@@ -91,7 +91,7 @@ function loadData() {
 
         yearlyAvgs = csv;
         introLineChart = new LineChart("lineChart", csv);
-        sliders = new Sliders("sliders", csv);
+        //sliders = new Sliders("sliders", csv);
 
     });
 
@@ -132,9 +132,9 @@ function loadData() {
         mainMessage.wrangleData(this.value)
     }
 
-    document.getElementById("slider-range1").onchange = function(){
-        console.log(this.value);
-    }
+    // document.getElementById("slider-range1").onchange = function(){
+    //     console.log(this.value);
+    // }
 
 
     document.getElementById("histogram-decade").onchange = function() {
