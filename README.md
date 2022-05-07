@@ -5,7 +5,7 @@ Team EARS
 * Adwait Pradhan
 * Surendrabikram Thapa
 
-Link to Github Pages: https://elizabethc99.github.io/
+Link to Github Pages: https://adwaitvt.github.io/Guided-Project2/
 
 Video Link: 
 

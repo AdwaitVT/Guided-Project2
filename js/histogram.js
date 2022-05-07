@@ -62,7 +62,13 @@ class Histogram{
     wrangleData(decade){
         let vis = this;
 
-        vis.attribute = introLineChart.selectedAttribute;
+        if(introLineChart.selectedAttribute != undefined){
+            vis.attribute = introLineChart.selectedAttribute;
+        }
+        else{
+            vis.attribute = "acousticness";
+        }
+
 
         vis.decadeData = vis.data[decade];
 

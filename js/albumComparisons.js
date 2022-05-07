@@ -148,12 +148,13 @@ class AlbumComparisons{
 
         let vis = this;
 
-
-        if(outlierAlbumInfo.displayData.length == 0){
-            vis.displayData = [];
-            vis.releaseDecade = "";
-            vis.chartDecade = "";
-            vis.selectedAlbum = "";
+        if(outlierAlbumInfo != undefined){
+            if(outlierAlbumInfo.displayData.length == 0){
+                vis.displayData = [];
+                vis.releaseDecade = "";
+                vis.chartDecade = "";
+                vis.selectedAlbum = "";
+            }
         }
 
         vis.legend.append("rect")
