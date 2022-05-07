@@ -1,8 +1,8 @@
 
 var arr = [];
 var list = [];
-var initials = [50, 50, 50, 50, 50, 50, 50, 50, 50];
-var colors = ['brown', 'green', 'blue', 'red', 'magenta', 'DarkSlateGray', 'LightSeaGreen', 'Tomato', 'SteelBlue'];
+var initials = [0.5, 0.5, 0.50, 0.50, 0.50, 0.50, 0.50];
+var colors = ['#e41a1c','#ff7f00', '#377eb8','#4daf4a','#984ea3', '#030300','#ffd919'];
 // var d = new Date();
 // var ms = d.getTime();
 // var res = ms.charAt(ms.length-1);
@@ -28,7 +28,7 @@ loadDataSlider();
 
 /*Loading the csv file into the data*/
 function loadDataSlider() {
-    this.d3.csv("/data/yearlynormhundred.csv").then(csv=> {
+    this.d3.csv("/data/yearlynorm.csv").then(csv=> {
 
         csv.forEach(function(d){
             d.year = +d.year;
@@ -36,12 +36,12 @@ function loadDataSlider() {
             d.energy = +d.energy;
             d.instrumentalness = +d.instrumentalness;
             d.liveness = +d.liveness;
-            d.loudness = +d.loudness;
+            // d.loudness = +d.loudness;
             d.speechiness = +d.speechiness;
-            d.tempo = +d.tempo;
+            // d.tempo = +d.tempo;
             d.valence = +d.valence;
             d.danceability = +d.danceability;
-            arr.push(d.acousticness,d.energy,d.instrumentalness,d.liveness,d.loudness,d.speechiness,d.tempo,d.valence,d.danceability);
+            arr.push(d.acousticness,d.energy,d.instrumentalness,d.liveness,d.speechiness,d.valence,d.danceability);
 
             list.push(arr);
             arr = []
@@ -68,7 +68,7 @@ function rmse_metric(inputFeature, actual) {
 
     var smallest = myMin(rmse);
 
-    console.log('smallest ' + smallest);
+    // console.log('smallest ' + smallest);
     return 1963 + smallest;
 }
 // }function mae_metric(actual, userInput) {
@@ -86,7 +86,7 @@ function rmse_metric(inputFeature, actual) {
 
 function myMin(list1) {
     var min = list1[0];
-    console.log(list1);
+    // console.log(list1);
     var index = 0;
 
     for (let i=0; i<57; i++) {
@@ -105,7 +105,7 @@ function myMin(list1) {
 function rmse_calculate(dataOriginal, userInput){
     var sum_error = 0.0;
 
-    for (let i=0; i<9; i++){
+    for (let i=0; i<7; i++){
 
         // square=np.square(diff)
         // MSE=square.mean()
@@ -126,8 +126,8 @@ initials.forEach((color, i) => {
     var slider = d3
         .sliderBottom()
         .min(0)
-        .max(100)
-        .step(1)
+        .max(1)
+        .step(0.01)
         .width(200)
         .default(initials[i])
         .displayValue(false)
@@ -136,27 +136,43 @@ initials.forEach((color, i) => {
             initials[i] = num;
             box.attr('fill', `#${initials}`);
             // console.log("Initials...."+initials[2] + "  List Value" +list[0]);
-            console.log('Hiiii' + rmse_metric(initials,list));
+            // console.log('Hiiii' + rmse_metric(initials,list));
             d3.select('p#value-color-picker0')
-                .text(`Acousticness: ${initials[0]}`)
+                .text(`Acousticness: ${Math.floor(initials[0]*100)/100}`)
             d3.select('p#value-color-picker1')
-                .text(`Danceability: ${initials[1]}`)
+                .text(`Danceability: ${Math.floor(initials[1]*100)/100}`)
             d3.select('p#value-color-picker2')
-                .text(`Energy: ${initials[2]}`)
+                .text(`Energy: ${Math.floor(initials[2]*100)/100}`)
             d3.select('p#value-color-picker3')
-                .text(`Instrumentalness: ${initials[3]}`)
+                .text(`Instrumentalness: ${Math.floor(initials[3]*100)/100}`)
             d3.select('p#value-color-picker4')
-                .text(`Liveness: ${initials[4]}`)
-            d3.select('p#value-color-picker5')
-                .text(`Loudness: ${initials[5]}`)
+                .text(`Liveness: ${Math.floor(initials[4]*100)/100}`)
+            // d3.select('p#value-color-picker5')
+            //     .text(`Loudness: ${initials[5]}`)
             d3.select('p#value-color-picker6')
-                .text(`Speechiness: ${initials[6]}`)
+                .text(`Speechiness: ${Math.floor(initials[5]*100)/100}`)
             // d3.select('p#value-color-picker7')
             //     .text(`Tempo: ${initials[7]}`)
             d3.select('p#value-color-picker8')
-                .text(`Valence: ${initials[8]}`)
+                .text(`Valence: ${Math.floor(initials[6]*100)/100}`)
             d3.select('p#value-final')
                 .text(`${rmse_metric(initials,list)}`)
+            value = parseInt(rmse_metric(initials, list)-1963);
+            console.log(value);
+            d3.select('p#acousticness')
+                .text(`Acousticness: ${Math.floor((list[value][0])*100)/100}`)
+            d3.select('p#danceability')
+                .text(`Danceability: ${Math.floor((list[value][1])*100)/100}`)
+            d3.select('p#energy')
+                .text(`Energy: ${Math.floor((list[value][2])*100)/100}`)
+            d3.select('p#instrumentalness')
+                .text(`Instrumentalness: ${Math.floor((list[value][3])*100)/100}`)
+            d3.select('p#liveness')
+                .text(`Liveness: ${Math.floor((list[value][4])*100)/100}`)
+            d3.select('p#speechiness')
+                .text(`Speechiness: ${Math.floor((list[value][5])*100)/100}`)
+            d3.select('p#valence')
+                .text(`Valence: ${Math.floor((list[value][6])*100)/100}`)
         });
 
     gRangeSlider
@@ -175,16 +191,28 @@ d3.select('p#value-color-picker3')
     .text(`Instrumentalness: ${initials[3]}`)
 d3.select('p#value-color-picker4')
     .text(`Liveness: ${initials[4]}`)
-d3.select('p#value-color-picker5')
-    .text(`Loudness: ${initials[5]}`)
 d3.select('p#value-color-picker6')
-    .text(`Speechiness: ${initials[6]}`)
-// d3.select('p#value-color-picker7')
-//     .text(`Tempo: ${initials[7]}`)
+    .text(`Speechiness: ${initials[5]}`)
 d3.select('p#value-color-picker8')
-    .text(`Valence: ${initials[8]}`)
+    .text(`Valence: ${initials[6]}`)
+//
 
-console.log(initials);
-console.log(list);
 d3.select('p#value-final')
     .text(`1963`);
+d3.select('p#acousticness')
+    .text(`Acousticness: 0.00`)
+d3.select('p#danceability')
+    .text(`Danceability: 0.99`)
+d3.select('p#energy')
+    .text(`Energy: 0.14`)
+d3.select('p#instrumentalness')
+    .text(`Instrumentalness: 0.01`)
+d3.select('p#liveness')
+    .text(`Liveness: 0.41`)
+d3.select('p#speechiness')
+    .text(`Speechiness: 0.00`)
+d3.select('p#valence')
+    .text(`Valence: 0.77`)
+
+// console.log(initials);
+// console.log(list);
