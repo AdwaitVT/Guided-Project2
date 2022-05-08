@@ -29,7 +29,7 @@ loadDataSlider();
 
 /*Loading the csv file into the data*/
 function loadDataSlider() {
-    this.d3.csv("/data/yearlynorm.csv").then(csv=> {
+    this.d3.csv("data/yearlynorm.csv").then(csv=> {
 
         csv.forEach(function(d){
             d.year = +d.year;
