@@ -1,12 +1,14 @@
-Other code snippets:
+**Code snippets**:
 
 
-Images sourced from:
-https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fjazz-background&psig=AOvVaw1lpHpjf3Bw3du3ebRE4Zh_&ust=1651941787569000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCODKx_Koy_cCFQAAAAAdAAAAABAV
+**Images:**
 
+* Title page background: https://cutewallpaper.org/21/music-notes-background-black-and-white/view-page-21.html
+* Spotify background image: https://www.somagnews.com/spotify-announces-new-premium-subscription-system-hifi/
+* Sliders background image: https://cutewallpaper.org/24/music-note-transparent-background/view-page-24.html
+* Musical instrument background images: https://www.freepik.com/free-photos-vectors/jazz-background
 
-
-Top 5 Artist Slide Image References:
+**Top 5 Artist Slide Image References:**
 
 - Herb Alpert: https://www.amazon.com/Herb-Alpert-Tijuana-Brass-Greatest/dp/B000002GCH
 
