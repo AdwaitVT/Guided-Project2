@@ -1,4 +1,5 @@
 **Code snippets**:
+
 * Top albums carousel : https://getbootstrap.com/docs/4.0/components/carousel/
 * Sliders: https://github.com/johnwalley/d3-simple-slider
 
