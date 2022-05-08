@@ -1,6 +1,8 @@
 **Code snippets**:
 
-
+**Carousel:**
+*  https://getbootstrap.com/docs/4.0/components/carousel/
+*  
 **Images:**
 
 * Title page background: https://cutewallpaper.org/21/music-notes-background-black-and-white/view-page-21.html
@@ -58,4 +60,17 @@
 
 - Drooks & Dunn: https://countrymusichalloffame.org/artist/brooks-dunn/ 
 
+
+**Top Albums Slide Image References:**
+ - https://i.scdn.co/image/ab67616d0000b2735cfbb719489b2bd3273adaac 
+ - https://upload.wikimedia.org/wikipedia/en/3/3d/WhiteLionPride.jpg
+ - https://uploadwikimedia.org/wikipedia/en/1/1b/Faith_Breathe.png
+ - https://m.media-amazon.com/images/I/71zKUkrg5wL._SL1200_.jpg
+ - https://upload.wikimedia.org/wikipedia/en/1/14/Toni_Braxton_-_Secrets.png
+ - https://images.squarespace-cdn.com/content/v1/565c1ab5e4b05079e4bfa169/1574667488675-5IWT2PK9KSE1J3YT3FKQ/Carole_King_Tapestry_Vinyl_Cover.jpg
+ - https://m.media-amazon.com/images/I/81C1eJDUERL._SL1500_.jpg
+ - https://m.media-amazon.com/images/I/71Ni-RHs37L._SL1434_.jpg 
+ - https://images-na.ssl-images-amazon.com/images/I/71VwCQYqscL.jpg 
+ - https://upload.wikimedia.org/wikipedia/en/b/b7/NirvanaNevermindalbumcover.jpg 
+ - https://i.scdn.co/image/ab67616d0000b273d400d27cba05bb0545533864 
 
