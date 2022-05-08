@@ -1,5 +1,6 @@
 **Code snippets**:
-
+* Top albums carousel : https://getbootstrap.com/docs/4.0/components/carousel/
+* Sliders: https://github.com/johnwalley/d3-simple-slider
 
 **Images:**
 
@@ -57,5 +58,18 @@
 - Willie Nelson: https://www.pinterest.com/pin/342555115398746995/
 
 - Drooks & Dunn: https://countrymusichalloffame.org/artist/brooks-dunn/ 
+
+**Top Albums Images:**
+* Shadow of Your Smile: https://i.scdn.co/image/ab67616d0000b2735cfbb719489b2bd3273adaac
+* White Lion Pride: https://upload.wikimedia.org/wikipedia/en/3/3d/WhiteLionPride.jpg
+* Breathe: https://uploadwikimedia.org/wikipedia/en/1/1b/Faith_Breathe.png
+* Shine: https://m.media-amazon.com/images/I/71zKUkrg5wL._SL1200_.jpg
+* Secrets: https://upload.wikimedia.org/wikipedia/en/1/14/Toni_Braxton_-_Secrets.png
+* Tapestry: https://images.squarespace-cdn.com/content/v1/565c1ab5e4b05079e4bfa169/1574667488675-5IWT2PK9KSE1J3YT3FKQ/Carole_King_Tapestry_Vinyl_Cover.jpg
+* A Place in The Sun: https://m.media-amazon.com/images/I/81C1eJDUERL._SL1500_.jpg
+* Doo-Wops and Hooligans: https://m.media-amazon.com/images/I/71Ni-RHs37L._SL1434_.jpg
+* Journey Greatest Hits: https://images-na.ssl-images-amazon.com/images/I/71VwCQYqscL.jpg
+* Never Mind: https://upload.wikimedia.org/wikipedia/en/b/b7/NirvanaNevermindalbumcover.jpg
+* Pearl Jam: https://i.scdn.co/image/ab67616d0000b273d400d27cba05bb0545533864
 
 
