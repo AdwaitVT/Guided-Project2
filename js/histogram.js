@@ -109,7 +109,7 @@ class Histogram{
             .append("rect")
             .merge(vis.bars)
             .transition()
-            .duration(500)
+            .duration(700)
             .attr("width", function(d) { return vis.x(d.x1) - vis.x(d.x0) - 1 ; })
             .attr("height", function(d) { return vis.height - vis.y(d.length); })
             .attr("y", function(d) {return vis.y(d.length)})

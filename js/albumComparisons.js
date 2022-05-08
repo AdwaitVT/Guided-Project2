@@ -211,18 +211,20 @@ class AlbumComparisons{
 
 
 
-        vis.svg.selectAll(".bars").remove();
+        //vis.svg.selectAll(".bars").remove();
         vis.svg.selectAll(".label").remove();
 
         console.log(vis.displayData);
 
-        vis.groups = vis.svg.selectAll(".bars")
+        vis.bars1 = vis.svg.selectAll(".bars1")
             .data(vis.displayData);
 
-        vis.groups.enter()
+        vis.bars1.enter()
             .append("rect")
-            .merge(vis.groups)
-            .attr("class", "bars")
+            .merge(vis.bars1)
+            .attr("class", "bars1")
+            .transition()
+            .duration(700)
             .attr("fill", function(){
                 if(vis.releaseDecade == 1960){
                     return "#C29BA3"
@@ -252,23 +254,33 @@ class AlbumComparisons{
                 return vis.height - vis.y(d.releaseValue);
             });
 
+        vis.bars2 = vis.svg.selectAll(".bars2")
+            .data(vis.displayData);
 
-        vis.groups
+
+        vis.bars2
             .enter()
             .append("rect")
-            .merge(vis.groups)
-            .attr("class", "bars")
+            .merge(vis.bars2)
+            .attr("class", "bars2")
+            .transition()
+            .duration(700)
             .attr("fill", "#7db954") //64864a
             .attr("x", function(d) { return 30 + vis.x(d.attribute) + vis.x.bandwidth()/3; })
             .attr("y", function(d) { return vis.y(d.albumValue); })
             .attr("width", vis.x.bandwidth()/3)
             .attr("height", function(d) { return vis.height - vis.y(d.albumValue); })
 
+        vis.bars3 = vis.svg.selectAll(".bars3")
+            .data(vis.displayData);
 
-        vis.groups.enter()
+
+        vis.bars3.enter()
             .append("rect")
-            .merge(vis.groups)
-            .attr("class", "bars")
+            .merge(vis.bars3)
+            .attr("class", "bars3")
+            .transition()
+            .duration(700)
             .attr("fill", function(){
                 if(vis.chartDecade == 1960){
                     return "#C29BA3"
@@ -339,8 +351,10 @@ class AlbumComparisons{
 
 
 
-
-        vis.groups.exit().remove();
+        vis.bars1.exit().remove();
+        vis.bars2.exit().remove();
+        vis.bars3.exit().remove();
+        //vis.groups.exit().remove();
 
 
     }
